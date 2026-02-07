@@ -24,7 +24,7 @@
             --white: #ffffff;
             --transition: all 0.3s ease-in-out;
             --box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-            --header-height: 80px; /* Fixed Header Height */
+            --header-height: 80px; 
         }
 
         /* --- Reset & Base Styles --- */
@@ -45,7 +45,7 @@
         /* Container for uniform width */
         .container {
             width: 90%;
-            max-width: 1200px; /* Standard width */
+            max-width: 1200px; 
             margin: 0 auto;
         }
 
@@ -98,20 +98,19 @@
         .sub-title { color: var(--primary-color); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px; font-size: 0.9rem; }
         .section-title { font-size: 2.5rem; color: var(--text-dark); }
 
-        /* --- REDESIGNED HEADER --- */
+        /* --- HEADER --- */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
             height: var(--header-height);
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px); /* Modern Glass Effect */
+            backdrop-filter: blur(10px); 
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
             z-index: 1000;
             display: flex;
-            align-items: center; /* Vertically center everything */
+            align-items: center; 
         }
         
-        /* Flex container inside header for spacing */
         header .container {
             display: flex;
             justify-content: space-between;
@@ -142,7 +141,6 @@
         }
         .nav-menu li a:hover { color: var(--primary-color); }
         
-        /* Hover Underline Effect */
         .nav-menu li a::after {
             content: '';
             position: absolute;
@@ -162,7 +160,6 @@
             min-height: 100vh; display: flex; align-items: center; padding-top: var(--header-height);
             background: radial-gradient(circle at 10% 20%, rgba(124, 77, 255, 0.05) 0%, transparent 40%);
         }
-        /* Using .container class inside hero for layout */
         .hero .container {
             display: flex;
             align-items: center;
@@ -208,8 +205,19 @@
         /* --- Footer --- */
         footer { background: #05050a; color: var(--white); padding: 4rem 0 2rem; text-align: center; }
         .social-links { display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; }
-        .social-links a { width: 45px; height: 45px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--white); font-size: 1.1rem; transition: 0.3s; text-decoration: none; }
-        .social-links a:hover { background: var(--primary-color); }
+        
+        .social-links a { 
+            width: 45px; height: 45px; 
+            background: rgba(255,255,255,0.1); 
+            display: flex; align-items: center; justify-content: center; 
+            border-radius: 50%; 
+            color: var(--white); 
+            font-size: 1.1rem; 
+            transition: 0.3s; 
+            text-decoration: none; 
+        }
+        .social-links a:hover { background: var(--primary-color); transform: translateY(-3px); }
+        
         .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
 
         /* =========================================
@@ -398,9 +406,13 @@
                 <a href="mailto:contact@kaziemon.com" class="btn">Get In Touch</a>
 
                 <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
             <div class="copyright">
