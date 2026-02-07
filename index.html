@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Kazi Emon - Specialist in Platform Optimization, Digital Marketing, Performance Advertising, and Business Strategy.">
-    <title>Kazi Emon | Digital Growth Strategist</title>
     
+    <title>Kazi Emon | Digital Growth Strategist & SEO Expert</title>
+    <meta name="title" content="Kazi Emon | Digital Growth Strategist & SEO Expert">
+    <meta name="description" content="Official Portfolio of Kazi Emon. Expert in Platform Optimization, Strategic Digital Marketing, Performance Advertising, and Business Strategy planning.">
+    <meta name="keywords" content="Kazi Emon, Md Kazi Abdur Rahim Emon, Digital Marketer Kazi Emon, Platform Optimizer, SEO Specialist Bangladesh, Digital Strategist, Business Planner">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Kazi Emon">
+    <meta name="language" content="English">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-website-url.com/"> <meta property="og:title" content="Kazi Emon | Digital Growth Strategist">
+    <meta property="og:description" content="Connect with Kazi Emon for Platform Optimization, Digital Marketing, and Business Strategy solutions.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1470&auto=format&fit=crop">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-website-url.com/">
+    <meta property="twitter:title" content="Kazi Emon | Digital Growth Strategist">
+    <meta property="twitter:description" content="Portfolio of Kazi Emon - Specialist in Platform Optimization and Digital Growth.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1470&auto=format&fit=crop">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kazi Emon",
+      "alternateName": "Md Kazi Abdur Rahim Emon",
+      "jobTitle": "Digital Growth Strategist",
+      "url": "https://your-website-url.com/",
+      "sameAs": [
+        "https://www.facebook.com/md.kazi.abdur.rahim.emon",
+        "https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/",
+        "https://www.instagram.com/md.kazi.abdur.rahim.emon/"
+      ],
+      "knowsAbout": ["Digital Marketing", "SEO", "Platform Optimization", "Business Strategy"]
+    }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -71,7 +104,7 @@
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
 
-        /* --- Components (Buttons) --- */
+        /* --- NEW ANIMATION: Button Shine Effect --- */
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -83,12 +116,29 @@
             transition: var(--transition);
             box-shadow: 0 8px 15px rgba(124, 77, 255, 0.3);
             position: relative;
-            overflow: hidden;
+            overflow: hidden; /* Important for shine effect */
             z-index: 1;
             border: none;
             cursor: pointer;
             text-decoration: none !important;
         }
+        
+        /* Shine Animation */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+
         .btn:hover { 
             transform: translateY(-3px); 
             box-shadow: 0 12px 20px rgba(124, 77, 255, 0.5); 
@@ -165,8 +215,51 @@
             align-items: center;
         }
         .hero-content { flex: 1; padding-right: 2rem; }
-        .hero-greeting { font-size: 1.2rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.5rem; display: block; }
-        .hero-title { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1rem; background: linear-gradient(to right, var(--text-dark), var(--primary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* NEW ANIMATION: Typing Effect */
+        .typing-wrapper {
+            display: inline-block;
+        }
+        .hero-greeting { 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            color: var(--primary-color); 
+            margin-bottom: 0.5rem; 
+            display: block;
+            border-right: 3px solid var(--primary-color);
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3s steps(30, end) forwards, blink .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color) }
+        }
+
+        /* NEW ANIMATION: Moving Gradient Text */
+        .hero-title { 
+            font-size: 3.5rem; 
+            line-height: 1.2; 
+            margin-bottom: 1rem; 
+            background: linear-gradient(to right, var(--text-dark), var(--primary-color), var(--accent-color), var(--text-dark)); 
+            background-size: 300%;
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            animation: gradientText 5s ease infinite;
+        }
+
+        @keyframes gradientText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .hero-description { margin-bottom: 2rem; font-size: 1.1rem; max-width: 600px; }
         
         .hero-image-container { flex: 1; position: relative; display: flex; justify-content: center; align-items: center; }
@@ -181,10 +274,9 @@
         .about .container { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; }
         .about-img { border-radius: 20px; overflow: hidden; box-shadow: var(--box-shadow); height: 100%; }
         
-        /* --- Services (UPDATED GRID) --- */
+        /* --- Services --- */
         .services-grid { 
             display: grid; 
-            /* FORCE 2 COLUMNS ON DESKTOP (2x2 Layout) */
             grid-template-columns: repeat(2, 1fr); 
             gap: 2.5rem; 
         }
@@ -194,7 +286,25 @@
             display: flex; flex-direction: column;
         }
         .service-card:hover { transform: translateY(-8px); border-bottom: 4px solid var(--primary-color); }
-        .service-icon { width: 60px; height: 60px; background: rgba(124, 77, 255, 0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-bottom: 1.5rem; color: var(--primary-color); font-size: 1.5rem; }
+        
+        /* NEW ANIMATION: Icon Spin on Hover */
+        .service-icon { 
+            width: 60px; height: 60px; 
+            background: rgba(124, 77, 255, 0.1); 
+            display: flex; align-items: center; justify-content: center; 
+            border-radius: 50%; 
+            margin-bottom: 1.5rem; 
+            color: var(--primary-color); 
+            font-size: 1.5rem; 
+            transition: transform 0.6s ease; /* Smooth spin */
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg); /* 3D Spin Effect */
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
         .service-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
         .service-card p { font-size: 0.9rem; color: #555; }
 
@@ -203,7 +313,17 @@
         .process .section-title { color: var(--white); }
         .process-steps { display: flex; justify-content: space-between; margin-top: 4rem; flex-wrap: wrap; gap: 2rem; }
         .step-item { flex: 1; min-width: 200px; padding: 1rem; }
-        .step-icon { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem; }
+        .step-icon { 
+            font-size: 2.5rem; 
+            color: var(--accent-color); 
+            margin-bottom: 1rem; 
+            transition: transform 0.3s ease;
+        }
+        /* Icon Bounce on Hover */
+        .step-item:hover .step-icon {
+            transform: scale(1.2);
+        }
+        
         .step-item h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--white); }
         .step-item p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
 
@@ -221,7 +341,7 @@
             transition: 0.3s; 
             text-decoration: none; 
         }
-        .social-links a:hover { background: var(--primary-color); transform: translateY(-3px); }
+        .social-links a:hover { background: var(--primary-color); transform: translateY(-3px) scale(1.1); }
         
         .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
 
@@ -267,6 +387,9 @@
             .hero-content { padding-right: 0; margin-bottom: 3rem; order: 1; }
             .hero-title { font-size: 2.2rem; }
             
+            /* Fix typing effect width on mobile */
+            .typing-wrapper { width: fit-content; margin: 0 auto; }
+            
             .hero-image-container { width: 100%; order: 2; }
             .hero-img-box { width: 280px; height: 350px; }
             
@@ -276,9 +399,7 @@
             .about-text { order: 1; text-align: center; }
             
             /* Services & Process Mobile Fixes */
-            /* Force 1 Column on Mobile */
             .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            
             .process-steps { flex-direction: column; gap: 3rem; }
         }
     </style>
@@ -309,7 +430,9 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content hidden">
-                <span class="hero-greeting">Hello, I'm Kazi Emon</span>
+                <div class="typing-wrapper">
+                    <span class="hero-greeting">Hello, I'm Kazi Emon</span>
+                </div>
                 <h1 class="hero-title">Driving Growth via Digital Optimization.</h1>
                 <p class="hero-description">I specialize in scaling businesses through precise Platform Optimization, Strategic Marketing, and comprehensive Business Planning.</p>
                 <a href="#services" class="btn">Explore Services</a>
@@ -317,7 +440,7 @@
             <div class="hero-image-container hidden delay-2">
                 <div class="hero-blob"></div>
                 <div class="hero-img-box">
-                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1470&auto=format&fit=crop" alt="Kazi Emon">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1470&auto=format&fit=crop" alt="Kazi Emon - Digital Growth Strategist">
                 </div>
             </div>
         </div>
@@ -326,7 +449,7 @@
     <section class="about" id="about">
         <div class="container">
             <div class="about-img hidden">
-                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Digital Analysis">
+                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Digital Analysis by Kazi Emon">
             </div>
             <div class="about-text hidden delay-1">
                 <span class="sub-title">About Me</span>
@@ -419,7 +542,9 @@
                     <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" aria-label="Facebook">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
-                    <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
                 </div>
             </div>
             <div class="copyright">
