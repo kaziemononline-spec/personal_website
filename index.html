@@ -181,10 +181,15 @@
         .about .container { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; }
         .about-img { border-radius: 20px; overflow: hidden; box-shadow: var(--box-shadow); height: 100%; }
         
-        /* --- Services --- */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        /* --- Services (UPDATED GRID) --- */
+        .services-grid { 
+            display: grid; 
+            /* FORCE 2 COLUMNS ON DESKTOP (2x2 Layout) */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 2.5rem; 
+        }
         .service-card {
-            background: var(--white); padding: 2.5rem 1.5rem; border-radius: 15px; transition: transform 0.3s ease;
+            background: var(--white); padding: 3rem 2rem; border-radius: 15px; transition: transform 0.3s ease;
             border: 1px solid rgba(0,0,0,0.03); box-shadow: var(--box-shadow);
             display: flex; flex-direction: column;
         }
@@ -271,7 +276,9 @@
             .about-text { order: 1; text-align: center; }
             
             /* Services & Process Mobile Fixes */
+            /* Force 1 Column on Mobile */
             .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            
             .process-steps { flex-direction: column; gap: 3rem; }
         }
     </style>
@@ -280,7 +287,7 @@
 
     <header>
         <div class="container">
-            <a href="#" class="logo">
+            <a href="#home" class="logo">
                 <i class="fa-solid fa-chart-simple"></i>
                 Kazi<span>Emon</span>
             </a>
@@ -403,7 +410,7 @@
                 <h2>Ready to Scale Your Business?</h2>
                 <p>Let's optimize your platform and ads for better results.</p>
                 <br>
-                <a href="mailto:contact@kaziemon.com" class="btn">Get In Touch</a>
+                <a href="mailto:kaziaremon@gmail.com" class="btn">Get In Touch</a>
 
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" aria-label="LinkedIn">
