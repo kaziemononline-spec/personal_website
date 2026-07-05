@@ -30,6 +30,7 @@ After every push and before reporting back, I MUST:
    - Give a rating out of 10
    - List what's working and what's not
    - Provide a **KEEP / REVERT / IMPROVE** verdict
+3. Save the tester's full output to `suggestions/most-critical-suggestion_$(date +%Y-%m-%d).txt` so there's a permanent record of each review.
 
 ### 4. Act on the Verdict
 - **KEEP** → Report the tester's rating and positive feedback to me.
