@@ -558,6 +558,17 @@
             color: #ff6666;
         }
 
+        /* ================= HONEYPOT (Bot Trap) ================= */
+        .honeypot {
+            position: absolute;
+            left: -99999px;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            width: 0;
+            pointer-events: none;
+        }
+
         /* ================= FOOTER ================= */
         footer {
             padding: 60px 0 30px;
@@ -965,7 +976,7 @@
                     <p>Let's build a digital ecosystem that drives real revenue. Send me a message and I'll get back to you within 24 hours.</p>
                     <div class="contact-detail">
                         <i class="fa-solid fa-envelope"></i>
-                        <span>kaziaremon@gmail.com</span>
+                        <span id="contactEmail"></span>
                     </div>
                     <div class="contact-detail">
                         <i class="fa-solid fa-location-dot"></i>
@@ -977,6 +988,10 @@
                     </div>
                 </div>
                 <form class="contact-form reveal" id="contactForm">
+                    <div class="honeypot">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -1113,12 +1128,31 @@
         // The Read More buttons in the cards are <a> tags linking directly there.
         // This gives each article its own URL for better SEO and sharing.
 
-        // ================= CONTACT FORM =================
+        // ================= EMAIL OBFUSCATION =================
+        var emailUser = 'kaziaremon';
+        var emailDomain = 'gmail.com';
+        var myEmail = emailUser + '@' + emailDomain;
+
+        document.getElementById('contactEmail').textContent = myEmail;
+
+        // ================= CONTACT FORM (Mailto) =================
         var contactForm = document.getElementById('contactForm');
         var formStatus = document.getElementById('formStatus');
 
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+
+            var honeypot = document.getElementById('website').value.trim();
+            if (honeypot) {
+                formStatus.className = 'form-status success';
+                formStatus.textContent = 'Message sent! I\'ll get back to you within 24 hours.';
+                contactForm.reset();
+                setTimeout(function() {
+                    formStatus.className = 'form-status';
+                    formStatus.textContent = '';
+                }, 5000);
+                return;
+            }
 
             var name = document.getElementById('name').value.trim();
             var email = document.getElementById('email').value.trim();
@@ -1131,38 +1165,25 @@
                 return;
             }
 
-            var submitBtn = contactForm.querySelector('.form-submit');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+            var mailBody = 'Name: ' + name + '%0D%0A';
+            mailBody += 'Email: ' + email + '%0D%0A';
+            mailBody += '%0D%0A';
+            mailBody += message;
 
-            var formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('subject', subject);
-            formData.append('message', message);
+            var mailtoLink = 'mailto:' + myEmail +
+                '?subject=' + encodeURIComponent(subject) +
+                '&body=' + mailBody;
 
-            fetch('https://formsubmit.co/ajax/kaziaremon@gmail.com', {
-                method: 'POST',
-                body: formData
-            })
-            .then(function(response) { return response.json(); })
-            .then(function(data) {
-                formStatus.className = 'form-status success';
-                formStatus.textContent = 'Message sent! I\'ll get back to you within 24 hours.';
+            formStatus.className = 'form-status success';
+            formStatus.textContent = 'Opening your email client...';
+
+            window.location.href = mailtoLink;
+
+            setTimeout(function() {
+                formStatus.className = 'form-status';
+                formStatus.textContent = '';
                 contactForm.reset();
-            })
-            .catch(function() {
-                formStatus.className = 'form-status error';
-                formStatus.textContent = 'Something went wrong. Please email me directly at kaziaremon@gmail.com';
-            })
-            .finally(function() {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
-                setTimeout(function() {
-                    formStatus.className = 'form-status';
-                    formStatus.textContent = '';
-                }, 5000);
-            });
+            }, 10000);
         });
 
         // ================= COUNTER ANIMATION =================
