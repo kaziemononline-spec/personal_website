@@ -75,6 +75,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
+            -webkit-tap-highlight-color: transparent;
         }
 
         ::selection { background: var(--primary); color: #fff; }
@@ -158,7 +159,7 @@
         .nav-menu a.active::after,
         .nav-menu a:hover::after { width: 100%; }
         
-        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); }
+        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); padding: 12px; }
         .skip-link:focus { top: 10px; }
 
         /* ================= HERO SECTION ================= */
@@ -483,7 +484,7 @@
             background: rgba(255,255,255,0.03);
             color: var(--text-main);
             font-family: inherit;
-            font-size: 0.95rem;
+            font-size: 16px;
             transition: border-color 0.3s, box-shadow 0.3s;
             outline: none;
             width: 100%;
@@ -644,7 +645,7 @@
             .nav-menu.active { right: 0; }
             .nav-menu a { font-size: 1.2rem; margin-bottom: 20px; }
 
-            .hero { padding-top: 100px; padding-bottom: 50px; }
+            .hero { padding-top: 100px; padding-bottom: 50px; min-height: auto; }
             .hero-title { font-size: 2.2rem; }
             .hero p { font-size: 1rem; padding: 0 10px; }
             
@@ -662,6 +663,20 @@
             .service-card { padding: 30px; }
 
             .back-to-top { bottom: 15px; right: 15px; width: 44px; height: 44px; font-size: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.8rem; }
+            .hero p { font-size: 0.95rem; }
+            #about { padding: 50px 0; }
+            #services { padding: 50px 0; }
+            #articles { padding: 50px 0; }
+            #testimonials { padding: 50px 0; }
+            #process { padding: 50px 0; }
+            #contact-form-section { padding: 50px 0; }
+            .about-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .process-card { padding: 20px 15px; }
+            .service-card { padding: 25px; }
         }
     </style>
 </head>
@@ -1000,12 +1015,21 @@
         });
 
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.querySelector('i').classList.add('fa-bars');
-                hamburger.querySelector('i').classList.remove('fa-xmark');
-            });
+            link.addEventListener('click', closeNav);
         });
+
+        document.addEventListener('click', function(e) {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                closeNav();
+            }
+        });
+
+        function closeNav() {
+            navMenu.classList.remove('active');
+            hamburger.querySelector('i').classList.add('fa-bars');
+            hamburger.querySelector('i').classList.remove('fa-xmark');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
 
         // ================= SCROLL ANIMATION =================
         window.addEventListener('scroll', reveal);
