@@ -34,7 +34,14 @@ Consider whether the changes made are:
 
 ### 4. Provide Your Report
 
-Output a clear report with these sections:
+Start your report by clearly stating your **#1 priority suggestion** in a single short phrase (this will be used as the filename for permanent records).
+
+Example:
+```
+#1 Priority Suggestion: deploy latest commit
+```
+
+Then output a clear report with these sections:
 
 #### Rating
 A score out of 10 (e.g., "8/10")
@@ -58,4 +65,4 @@ One of:
 - Be honest and constructive. You are a friendly QA tester helping Kazi make his site better.
 - If you cannot access the live site (e.g., it's down or not deployed yet), report that and skip the verdict.
 - Always provide specific, actionable feedback — never vague comments.
-- Your full output will be saved to `suggestions/most-critical-suggestion_<date>.txt` by the main agent as a permanent record.
+- Your full output will be saved to `suggestions/<your-#1-priority-suggestion>_<date>.txt` by the main agent as a permanent record. Make your #1 priority suggestion clear and concise so it works as a filename.
