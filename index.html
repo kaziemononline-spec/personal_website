@@ -558,17 +558,6 @@
             color: #ff6666;
         }
 
-        /* ================= HONEYPOT (Bot Trap) ================= */
-        .honeypot {
-            position: absolute;
-            left: -99999px;
-            opacity: 0;
-            height: 0;
-            overflow: hidden;
-            width: 0;
-            pointer-events: none;
-        }
-
         /* ================= FOOTER ================= */
         footer {
             padding: 60px 0 30px;
@@ -976,7 +965,7 @@
                     <p>Let's build a digital ecosystem that drives real revenue. Send me a message and I'll get back to you within 24 hours.</p>
                     <div class="contact-detail">
                         <i class="fa-solid fa-envelope"></i>
-                        <span id="contactEmail"></span>
+                        <span>kaziaremon@gmail.com</span>
                     </div>
                     <div class="contact-detail">
                         <i class="fa-solid fa-location-dot"></i>
@@ -988,10 +977,6 @@
                     </div>
                 </div>
                 <form class="contact-form reveal" id="contactForm">
-                    <div class="honeypot">
-                        <label for="website">Website</label>
-                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-                    </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -1128,31 +1113,12 @@
         // The Read More buttons in the cards are <a> tags linking directly there.
         // This gives each article its own URL for better SEO and sharing.
 
-        // ================= EMAIL OBFUSCATION =================
-        var emailUser = 'kaziaremon';
-        var emailDomain = 'gmail.com';
-        var myEmail = emailUser + '@' + emailDomain;
-
-        document.getElementById('contactEmail').textContent = myEmail;
-
         // ================= CONTACT FORM (Mailto) =================
         var contactForm = document.getElementById('contactForm');
         var formStatus = document.getElementById('formStatus');
 
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-
-            var honeypot = document.getElementById('website').value.trim();
-            if (honeypot) {
-                formStatus.className = 'form-status success';
-                formStatus.textContent = 'Message sent! I\'ll get back to you within 24 hours.';
-                contactForm.reset();
-                setTimeout(function() {
-                    formStatus.className = 'form-status';
-                    formStatus.textContent = '';
-                }, 5000);
-                return;
-            }
 
             var name = document.getElementById('name').value.trim();
             var email = document.getElementById('email').value.trim();
@@ -1165,12 +1131,11 @@
                 return;
             }
 
-            var mailBody = 'Name: ' + name + '%0D%0A';
-            mailBody += 'Email: ' + email + '%0D%0A';
-            mailBody += '%0D%0A';
-            mailBody += message;
+            var mailBody = 'Name: ' + encodeURIComponent(name) + '%0D%0A';
+            mailBody += 'Email: ' + encodeURIComponent(email) + '%0D%0A%0D%0A';
+            mailBody += encodeURIComponent(message);
 
-            var mailtoLink = 'mailto:' + myEmail +
+            var mailtoLink = 'mailto:kaziaremon@gmail.com' +
                 '?subject=' + encodeURIComponent(subject) +
                 '&body=' + mailBody;
 

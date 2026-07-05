@@ -1,0 +1,30 @@
+## Tester QA Review — kaziemon.online
+
+### Rating: 8.5 / 10
+
+---
+
+### What's Working Well
+
+- All assets load successfully — hero image, profile photo, article images, OG image, favicon.svg, favicon.ico, favicon PNGs, and apple-touch-icon all return 200
+- All three article pages exist with genuine, well-written content
+- Contact form is functional — uses FormSubmit.co to POST submissions
+- Strong SEO foundation — Schema.org Person JSON-LD, OG/Twitter meta tags, sitemap.xml, canonical URL, robots.txt
+- Clean, professional dark theme (#030014 bg) with purple + cyan accents
+- Good accessibility — skip link, semantic HTML5 landmarks, aria-labels, alt text
+- Responsive design with breakpoints at 1200px, 1024px, 768px, 480px
+- Smooth UX touches — scroll animations, sticky nav with scroll spy, counter animation, back-to-top, hamburger menu
+
+### What Could Be Improved
+
+- Hero image has loading="lazy" — should be eager or removed for above-the-fold
+- Stat counters start at "0" briefly before animation fires
+- No explicit width/height on img tags — can cause CLS
+- OG image is nearly square (2100x2160) — 1200x630 preferred
+- Sitemap not referenced in robots.txt
+- No unique meta description on article subpages
+
+### Verdict: KEEP
+
+### #1 Priority Suggestion
+Remove loading="lazy" from the hero section's img tag so the largest above-the-fold asset loads immediately, improving Largest Contentful Paint (LCP).
