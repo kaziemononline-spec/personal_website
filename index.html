@@ -26,7 +26,6 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -881,9 +880,7 @@
                 </div>
 
                 <div class="article-card reveal" data-article="2">
-                    <div class="article-img-placeholder">
-                        <i class="fa-solid fa-magnifying-glass-chart"></i>
-                    </div>
+                    <img src="images/article-platform.jpg" alt="Platform optimization" class="article-img" loading="lazy">
                     <div class="article-body">
                         <span class="article-date">June 15, 2026</span>
                         <h3>Platform Optimization: A Technical Deep Dive</h3>
@@ -893,9 +890,7 @@
                 </div>
 
                 <div class="article-card reveal" data-article="3">
-                    <div class="article-img-placeholder">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
+                    <img src="images/article-scaling.jpg" alt="Business scaling" class="article-img" loading="lazy">
                     <div class="article-body">
                         <span class="article-date">June 2, 2026</span>
                         <h3>Scaling Smart: When & How to Invest in Ads</h3>
@@ -1228,19 +1223,38 @@
                 return;
             }
 
-            var mailtoLink = 'mailto:kaziaremon@gmail.com?subject=' + encodeURIComponent(subject) +
-                '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+            var submitBtn = contactForm.querySelector('.form-submit');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
 
-            formStatus.className = 'form-status success';
-            formStatus.textContent = 'Opening your email client...';
+            var formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('subject', subject);
+            formData.append('message', message);
 
-            window.location.href = mailtoLink;
-
-            setTimeout(function() {
-                formStatus.className = 'form-status';
-                formStatus.textContent = '';
+            fetch('https://formsubmit.co/ajax/kaziaremon@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+                formStatus.className = 'form-status success';
+                formStatus.textContent = 'Message sent! I\'ll get back to you within 24 hours.';
                 contactForm.reset();
-            }, 3000);
+            })
+            .catch(function() {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Something went wrong. Please email me directly at kaziaremon@gmail.com';
+            })
+            .finally(function() {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+                setTimeout(function() {
+                    formStatus.className = 'form-status';
+                    formStatus.textContent = '';
+                }, 5000);
+            });
         });
 
         // ================= COUNTER ANIMATION =================
