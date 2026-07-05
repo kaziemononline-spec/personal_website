@@ -1,0 +1,47 @@
+QA Report — Kazi Emon Personal Website (Laptop View)
+Date: 2026-07-05
+URL: https://www.kaziemon.online/
+Viewport: 1366px (laptop)
+
+Rating: 7.5 / 10
+
+=== What's Working Well ===
+
+- Dark theme is cohesive — #030014 background, #7000FF primary, and #00C2FF secondary create a professional, modern aesthetic. Gradient text on hero and stat numbers is clean.
+- Layout grids hold up at 1366px — Hero (2-col), services (2-col), articles (3-col), and testimonials (3-col) all have adequate spacing. No overflow or broken wrapping visible.
+- Scroll animations (reveal on scroll) fire correctly using getBoundingClientRect with a 150px threshold.
+- Counter animation uses IntersectionObserver — only triggers once and disconnects, good for performance.
+- Nav scroll spy tracks sections correctly with a 120px offset for the fixed header.
+- Back-to-top button appears after 400px scroll and scrolls smoothly.
+- Hamburger menu toggles aria-expanded and swaps icons — good ARIA practice.
+- Contact form has client-side validation, loading state, success/error feedback, and resets after 5s.
+- Semantic HTML — uses header, section, footer, ul, form, proper heading hierarchy.
+- Images have descriptive alt text on hero, about, article, and testimonial avatars.
+- Font Awesome icons are used consistently across sections.
+- OG tags and JSON-LD structured data are well-formed for SEO.
+- Preconnect hints for Google Fonts, gstatic, and cdnjs.
+- 1200px breakpoint correctly reduces hero-title to 3rem, section-title to 2.2rem, and section padding to 60px.
+- Article pages exist at articles/*.html with dedicated content.
+
+=== What's Not Working / Could Be Improved ===
+
+1. Skip link is broken — The inline style="top:-100px" has higher specificity than .skip-link:focus { top: 10px; } in the stylesheet. The skip link will never become visible on focus. Move the off-screen positioning to CSS or add !important.
+2. No <main> landmark — All content should be wrapped in <main> for screen reader navigation.
+3. profile.jpg is 169 KB — Roughly 3x larger than necessary. Compress to ~50-60 KB with modern formats (WebP/AVIF).
+4. og-image.jpg is 529 KB — While only loaded by crawlers, still large. Compress to under 200 KB.
+5. Process cards may feel cramped at 1366px — 4-column grid yields ~270px per card with only 20px horizontal padding. The paragraph text in each card is lengthy and could look dense on narrower laptop screens.
+6. Missing loading="lazy" on about image (profile.jpg). Hero image and article images have it; this one doesn't.
+7. Font Awesome is render-blocking — Loaded via external stylesheet. Consider rel="preload" + async or self-hosting a subset of icons.
+8. No will-change on animated elements — The float animation on .hero-img and the reveal animations could benefit from will-change: transform to promote to GPU layer.
+9. Contrast concern — Purple #7000FF on #030014 background yields ~4.0:1 contrast, which passes AA for large text but fails AA for body-sized text (needs 4.5:1). Consider a slightly lighter purple (e.g. #8B3FFF) for small text elements.
+10. No <article> element for article cards — Using div.article-card instead of article which would be more semantic.
+11. footer id="contact" overlaps with nav link name — The nav has Contact linking to #contact-form-section, but the footer also has id="contact". Scroll spy may highlight wrong nav item when scrolled to footer.
+12. FormSubmit.co CORS may fail intermittently — The fetch to formsubmit.co/ajax/... works but can be unreliable. No fallback if fetch fails other than showing an error message.
+
+=== Verdict ===
+
+IMPROVE
+
+=== #1 Priority Suggestion ===
+
+Fix the skip link accessibility bug — move inline top:-100px style to the CSS so the .skip-link:focus rule actually works. Without this, keyboard users cannot skip navigation.
