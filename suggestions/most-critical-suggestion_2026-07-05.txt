@@ -1,0 +1,125 @@
+# QA Tester Report — Kazi Emon Personal Website
+
+**Date:** July 5, 2026
+**URL Tested:** https://www.kaziemon.online/
+**Version on Live:** Pre-commit state (before local commit 7b62171)
+
+---
+
+## Rating: 7.5 / 10
+
+The live site is solid, professional, and well-crafted. It has a clean dark theme, smooth animations, good content structure, and working interactive features. However, it's running behind the local codebase — several improvements (self-hosted hero image, real article images, favicon, compressed profile photo) exist in the repo but are **not yet deployed**. The live site also has some minor UX and polish issues that keep it from being "great."
+
+---
+
+## What's Working
+
+### Visual Design
+- Dark theme executed beautifully — #030014 background with #7000FF purple and #00C2FF cyan accents is consistent across all sections.
+- Clean modern aesthetic — Glassmorphism header, gradient text on hero, smooth hover transitions on cards.
+- Animations feel premium — The fadeInUp reveal animations, floating hero image, and card hover effects add polish without being distracting.
+- Back-to-top button is well-styled with the gradient and appears/disappears smoothly.
+
+### Content & Messaging
+- Strong value proposition — "Driving Growth via Digital Optimization" is clear and compelling.
+- Copy is professional and specific — Uses concrete terms like "CPA reduction," "ROAS maximization," "conversion funnels" rather than vague marketing speak.
+- Testimonials are well-written — Include specific results (doubled conversion rate, 40% CPA reduction) that build credibility.
+- Good CTAs — "Explore Solutions" and "Contact Me" buttons are well-placed.
+
+### Layout & Structure
+- Clear single-page architecture with logical section flow: Hero > About > Services > Articles > Testimonials > Process > Contact.
+- Navigation is clean with 7 items, scroll spy highlighting, and smooth scrolling.
+- Article modal is a great UX — reading full articles without leaving the page.
+- Grid layouts (services, articles, testimonials, process) are well-proportioned.
+
+### Functionality
+- Scroll spy works correctly — Active nav link updates as user scrolls.
+- Article "Read More" buttons open the modal with full content.
+- Modal is dismissible via close button, overlay click, or Escape key.
+- Mobile hamburger menu toggles correctly and closes on link click.
+- Back-to-top button works smoothly.
+- Counter animation triggers on scroll via IntersectionObserver (fires once, good optimization).
+- Contact form uses FormSubmit.co backend — form submission flow seems wired up correctly.
+- All social links (target="_blank") point to valid profiles.
+
+### Performance
+- Preconnect hints for Google Fonts, Unsplash, and CDNJS.
+- Lazy loading on hero and article images.
+- CSS is all inline in <style> — no render-blocking external CSS files.
+- Font Awesome loaded from CDN with good caching.
+
+### SEO & Metadata
+- JSON-LD structured data (Person schema) present.
+- Open Graph / Twitter Card meta tags for social sharing.
+- Canonical URL set.
+- Meta description and keywords present.
+
+---
+
+## Issues Found
+
+### High Priority
+
+1. Local improvements not deployed — The latest commit (7b62171) with self-hosted hero image, real article images, favicon, compressed profile photo, and FormSubmit backend has not been pushed/deployed. The live site is running older code.
+
+2. No favicon — https://www.kaziemon.online/favicon.ico returns 404. The browser tab shows a blank/folder icon, which looks unprofessional.
+
+3. Social links missing rel="noopener noreferrer" — All three social links use target="_blank" without rel="noopener noreferrer". This is a security vulnerability — the opened page can access the original page's window.opener object (reverse tabnabbing).
+
+### Medium Priority
+
+4. Hero image lacks explicit dimensions — The hero <img> has no width/height attributes. Combined with loading="lazy", this can cause Cumulative Layout Shift (CLS) as the image loads. CSS max-width: 400px helps but isn't sufficient for preventing layout shifts.
+
+5. Article images are placeholder icons (live site) — The deployed version uses <div class="article-img-placeholder"> with Font Awesome icons instead of real article images. Good article images exist in the repo (images/article-*.jpg) but aren't deployed yet.
+
+6. Profile photo may be large — The commit mentions compressing it from 8MB to 173KB, suggesting the live version still serves the large original. This hurts page load performance.
+
+7. "Test Article" visible in production — "Test Article: This is a Test Post" appears on the live site as the first article. This should be hidden or removed in production — it lists Lorem Ipsum placeholder content.
+
+8. Form error handling is generic — If validation fails, it just says "Please fill in all fields." It doesn't highlight which specific field(s) are empty.
+
+### Low Priority / Polish
+
+9. No skip-to-content link — For keyboard and screen reader users, there's no way to skip the navigation.
+
+10. No visible focus styles beyond browser defaults — Keyboard users navigating with Tab won't see distinct focus rings on interactive elements (the default blue outline is used).
+
+11. Modal close button missing aria-label — The close <button> uses an icon but has no aria-label for screen readers.
+
+12. Color contrast concern — Muted text (#94A3B8 on #030014) may not meet WCAG AA contrast ratios for smaller text. This affects readability.
+
+13. Stats counter "0+" appearance — If the stats section is visible on load before the IntersectionObserver triggers, users briefly see "0+" before the counter animates.
+
+14. Testimonial avatars are initials only — Adding real photos or styled illustrations would increase trust and visual appeal.
+
+---
+
+## Suggestions
+
+### Must Do (Before Next Deploy)
+1. Push and deploy the latest commit — This gets you self-hosted hero image, real article images, favicon, compressed profile, and FormSubmit backend in one go.
+2. Add rel="noopener noreferrer" to all three social media links.
+3. Remove or hide the "Test Article" — Add a conditional or simply delete the data from the deployed articleData array.
+4. Add a favicon (already exists in the local commit — just needs deploying).
+
+### Should Do
+5. Add explicit width/height attributes to all images — Prevent CLS. E.g., <img src="..." width="400" height="400" ...>.
+6. Improve form validation UX — Highlight the specific empty field(s) with inline messages instead of a generic "fill all fields" message.
+7. Add a subtle loading skeleton or placeholder for the hero image to reduce perceived blank space while it loads (with loading="lazy").
+
+### Nice to Have
+8. Add aria-label="Close modal" to the modal close button.
+9. Add a skip-to-content link at the very top of the <body> for accessibility.
+10. Style :focus-visible outlines to match the brand (purple glow instead of browser default blue).
+11. Add real headshot photos for testimonials (optional, but increases trust).
+12. Stagger the reveal animations for cards in a grid (services, articles, testimonials) so they animate in sequence rather than all at once, for a more polished feel.
+
+---
+
+## Verdict: IMPROVE
+
+**Explanation:** The live site is in good shape — it's clean, functional, and professional. However, a batch of meaningful improvements (self-hosted hero, real article images, favicon, compressed profile, form backend) already exist in the local repo but haven't been deployed. Once those are pushed, the rating should climb to around 8.5-9/10.
+
+Additionally, a few security (missing rel="noopener") and polish items (remove test article, add image dimensions, improve form validation) should be addressed before calling this final.
+
+**Action recommended:** Push the latest commit (7b62171) to deploy the existing improvements, then address the remaining Medium-priority items in a follow-up commit. Do not revert — the changes in the repo are good improvements, they just need to reach the live site.

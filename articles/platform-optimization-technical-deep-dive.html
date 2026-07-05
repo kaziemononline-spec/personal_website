@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Optimization: A Technical Deep Dive | Kazi Emon</title>
+    <meta name="description" content="How architecture, speed, and UX refinements create measurable business growth. Expert guide to platform optimization from Kazi Emon.">
+    <meta name="keywords" content="platform optimization, technical deep dive, Core Web Vitals, site speed, UX optimization">
+    <meta name="author" content="Kazi Emon">
+    <link rel="canonical" href="https://www.kaziemon.online/articles/platform-optimization-technical-deep-dive.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.kaziemon.online/articles/platform-optimization-technical-deep-dive.html">
+    <meta property="og:title" content="Platform Optimization: A Technical Deep Dive">
+    <meta property="og:description" content="How architecture, speed, and UX refinements create measurable business growth.">
+    <meta property="og:image" content="https://www.kaziemon.online/images/article-platform.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-dark: #030014; --bg-card: rgba(255,255,255,0.03);
+            --primary: #7000FF; --secondary: #00C2FF;
+            --text-main: #FFFFFF; --text-muted: #94A3B8;
+            --border: rgba(255,255,255,0.1);
+            --gradient-primary: linear-gradient(to right, #7000FF, #00C2FF);
+        }
+        body {
+            background: var(--bg-dark); color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        nav {
+            padding: 20px 0; border-bottom: 1px solid var(--border);
+            background: rgba(3,0,20,0.85); backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 100;
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--text-main); }
+        .logo span { color: var(--primary); }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .back-link:hover { color: var(--primary); }
+
+        article { padding: 40px 0 60px; }
+        .article-header { margin-bottom: 30px; }
+        .article-meta {
+            display: flex; gap: 15px; align-items: center; flex-wrap: wrap;
+            font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;
+        }
+        .article-meta .date { color: var(--secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .reading-time {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 4px 10px; border-radius: 20px; font-size: 0.8rem;
+        }
+        .reading-time i { color: var(--primary); font-size: 0.7rem; }
+        h1 {
+            font-family: 'Outfit', sans-serif; font-size: 2.2rem; line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .author-line {
+            display: flex; align-items: center; gap: 10px;
+            padding: 15px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+        .author-avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--gradient-primary); display: flex;
+            align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.9rem; color: #fff;
+        }
+        .author-info .name { font-weight: 600; font-size: 0.9rem; }
+        .author-info .role { font-size: 0.8rem; color: var(--text-muted); }
+
+        .featured-img {
+            width: 100%; border-radius: 16px; margin-bottom: 30px;
+            border: 1px solid var(--border);
+        }
+
+        .article-body p { margin-bottom: 18px; color: var(--text-muted); font-size: 1rem; }
+        .article-body strong { color: var(--text-main); }
+
+        .article-actions {
+            display: flex; gap: 10px; margin: 30px 0; padding: 20px 0;
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .share-btn {
+            padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border);
+            background: var(--bg-card); color: var(--text-muted); cursor: pointer;
+            font-size: 0.85rem; transition: 0.3s; display: inline-flex; align-items: center; gap: 6px;
+        }
+        .share-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+        .related-articles { margin-top: 40px; }
+        .related-articles h2 {
+            font-family: 'Outfit', sans-serif; font-size: 1.4rem; margin-bottom: 20px;
+        }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .related-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; text-decoration: none; transition: 0.3s;
+        }
+        .related-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .related-card .tag { font-size: 0.75rem; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; }
+        .related-card h3 { font-size: 0.95rem; color: var(--text-main); margin-top: 5px; font-family: 'Outfit', sans-serif; }
+
+        footer {
+            text-align: center; padding: 30px 0 20px;
+            border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Kazi<span>Emon</span></a>
+            <a href="../index.html#articles" class="back-link"><i class="fa-solid fa-arrow-left"></i> All Articles</a>
+        </div>
+    </nav>
+
+    <article>
+        <div class="container">
+            <div class="article-header">
+                <div class="article-meta">
+                    <span class="date">June 15, 2026</span>
+                    <span class="reading-time"><i class="fa-solid fa-clock"></i> 5 min read</span>
+                </div>
+                <h1>Platform Optimization: A Technical Deep Dive</h1>
+            </div>
+
+            <div class="author-line">
+                <div class="author-avatar">KE</div>
+                <div class="author-info">
+                    <div class="name">Kazi Emon</div>
+                    <div class="role">Digital Growth Architect</div>
+                </div>
+            </div>
+
+            <img src="../images/article-platform.jpg" alt="Technical architecture diagram and code on screen" class="featured-img" loading="lazy">
+
+            <div class="article-body">
+                <p>Platform optimization goes beyond simple speed improvements. It encompasses the entire technical ecosystem that delivers your digital experience to users.</p>
+
+                <p><strong>Core Web Vitals:</strong> Google's Core Web Vitals — Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS) — are critical ranking factors. Optimizing these metrics improves both SEO and user experience. Aim for LCP under 2.5 seconds, FID under 100ms, and CLS under 0.1.</p>
+
+                <p><strong>Architecture Audit:</strong> Review your tech stack for bottlenecks. Are you using a CDN? Is your database indexed properly? Are API calls optimized? A thorough architecture audit often reveals low-hanging fruit that can yield 30-50% performance improvements with minimal engineering effort.</p>
+
+                <p><strong>Image Optimization:</strong> Images account for over 50% of page weight on most websites. Implement responsive images with srcset, use modern formats like WebP, and compress aggressively. A typical optimization pass reduces image weight by 70-80%.</p>
+
+                <p><strong>JavaScript Efficiency:</strong> Third-party scripts are the number one cause of slow pages. Audit every script on your page. Is it loading asynchronously? Is it render-blocking? Can it be deferred? Removing or deferring non-critical JavaScript can cut load times in half.</p>
+
+                <p><strong>UX Refinements:</strong> Simplify navigation, reduce cognitive load, and ensure your conversion funnel has as few steps as possible. Every click you remove from the funnel increases conversion probability. Implement progressive disclosure — show only what users need at each step.</p>
+
+                <p><strong>Caching Strategy:</strong> Implement a robust caching layer at every level — browser cache, CDN cache, and server-side cache. A well-tuned caching strategy can serve repeat visitors in under 200ms, dramatically improving perceived performance.</p>
+            </div>
+
+            <div class="article-actions">
+                <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href);this.innerHTML='<i class=\'fa-solid fa-check\'></i> Copied';setTimeout(()=>this.innerHTML='<i class=\'fa-solid fa-share-nodes\'></i> Copy Link',2000)">
+                    <i class="fa-solid fa-share-nodes"></i> Copy Link
+                </button>
+            </div>
+
+            <div class="related-articles">
+                <h2>Continue Reading</h2>
+                <div class="related-grid">
+                    <a href="5-proven-strategies-to-boost-conversion-rates.html" class="related-card">
+                        <div class="tag">CRO</div>
+                        <h3>5 Proven Strategies to Boost Conversion Rates</h3>
+                    </a>
+                    <a href="scaling-smart-when-how-to-invest-in-ads.html" class="related-card">
+                        <div class="tag">Strategy</div>
+                        <h3>Scaling Smart: When & How to Invest in Ads</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Kazi Emon. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
