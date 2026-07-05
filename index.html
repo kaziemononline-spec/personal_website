@@ -250,6 +250,80 @@
         .process-icon { font-size: 2rem; color: var(--secondary); margin-bottom: 15px; }
         .process-card h3 { font-size: 1.2rem; }
 
+        /* ================= ARTICLES ================= */
+        #articles { padding: 80px 0; }
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px -10px rgba(112, 0, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .article-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(112,0,255,0.2), rgba(0,194,255,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-body {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-date {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .article-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+        .article-body p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        .article-link {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+        .article-link:hover { gap: 12px; color: var(--secondary); }
+
         /* ================= FOOTER ================= */
         footer {
             padding: 60px 0 30px;
@@ -301,6 +375,7 @@
             .hero-img { max-width: 350px; margin: 0 auto; }
             .btn-group { justify-content: center; }
             .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .articles-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -320,6 +395,7 @@
             
             .services-grid { grid-template-columns: 1fr; } 
             .process-grid { grid-template-columns: 1fr; }
+            .articles-grid { grid-template-columns: 1fr; }
             
             .container { padding: 0 20px; }
             .service-card { padding: 30px; }
@@ -339,6 +415,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#articles">Articles</a></li>
                 <li><a href="#process">Process</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -410,6 +487,53 @@
                     <i class="fa-solid fa-chess-queen service-icon"></i>
                     <h3>Business Intelligence</h3>
                     <p>Identifying market gaps and structuring resilient business models for sustainable scaling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="articles">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Latest Insights</span>
+                <h2 class="section-title">Articles & Guides</h2>
+            </div>
+
+            <div class="articles-grid">
+                <div class="article-card reveal">
+                    <div class="article-img-placeholder">
+                        <i class="fa-solid fa-chart-simple"></i>
+                    </div>
+                    <div class="article-body">
+                        <span class="article-date">June 28, 2026</span>
+                        <h3>5 Proven Strategies to Boost Conversion Rates</h3>
+                        <p>Data-backed techniques to turn more visitors into paying customers without increasing ad spend.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="article-card reveal">
+                    <div class="article-img-placeholder">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <div class="article-body">
+                        <span class="article-date">June 15, 2026</span>
+                        <h3>Platform Optimization: A Technical Deep Dive</h3>
+                        <p>How architecture, speed, and UX refinements create measurable business growth.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="article-card reveal">
+                    <div class="article-img-placeholder">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div class="article-body">
+                        <span class="article-date">June 2, 2026</span>
+                        <h3>Scaling Smart: When & How to Invest in Ads</h3>
+                        <p>Frameworks for knowing exactly when your business is ready to scale ad spend profitably.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
