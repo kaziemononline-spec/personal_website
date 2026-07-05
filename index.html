@@ -478,84 +478,33 @@
         .process-icon { font-size: 2rem; color: var(--secondary); margin-bottom: 15px; }
         .process-card h3 { font-size: 1.2rem; }
 
-        /* ================= CONTACT FORM ================= */
+        /* ================= CONTACT ================= */
         #contact-form-section { padding: 80px 0; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
 
         .contact-info h2 { font-size: 2rem; margin-bottom: 15px; }
         .contact-info p { margin-bottom: 25px; max-width: 400px; }
         .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
         .contact-detail i { color: var(--primary); font-size: 1.2rem; width: 24px; }
 
-        .contact-form { display: flex; flex-direction: column; gap: 20px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-        .form-group { display: flex; flex-direction: column; gap: 6px; }
-        .form-group label { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
-        .form-group input,
-        .form-group textarea {
-            padding: 14px 18px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.03);
-            color: var(--text-main);
-            font-family: inherit;
-            font-size: 16px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-            outline: none;
-            width: 100%;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(112, 0, 255, 0.15);
-        }
-        .form-group input::placeholder,
-        .form-group textarea::placeholder { color: rgba(148, 163, 184, 0.5); }
-        .form-group textarea { min-height: 130px; resize: vertical; }
-
-        .form-submit {
-            padding: 14px 35px;
+        .mailto-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
             border-radius: 50px;
-            border: none;
             background: var(--gradient-primary);
             color: #fff;
             font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: fit-content;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
         }
-        .form-submit:hover {
+        .mailto-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(112, 0, 255, 0.4);
-        }
-        .form-submit:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        .form-status {
-            font-size: 0.9rem;
-            padding: 12px 18px;
-            border-radius: 10px;
-            display: none;
-        }
-        .form-status.success {
-            display: block;
-            background: rgba(0, 194, 255, 0.1);
-            border: 1px solid var(--secondary);
-            color: var(--secondary);
-        }
-        .form-status.error {
-            display: block;
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid #ff3333;
-            color: #ff6666;
         }
 
         /* ================= FOOTER ================= */
@@ -655,7 +604,6 @@
             .about-grid { grid-template-columns: 1fr; text-align: center; }
             .about-stats { justify-items: center; }
             .contact-grid { grid-template-columns: 1fr; }
-            .form-submit { width: 100%; justify-content: center; }
         }
 
         @media (max-width: 768px) {
@@ -681,7 +629,6 @@
             .about-stats .stat-item { padding: 15px; }
             .stat-number { font-size: 1.6rem; }
             
-            .form-row { grid-template-columns: 1fr; }
             
             .container { padding: 0 20px; }
             .service-card { padding: 30px; }
@@ -962,7 +909,7 @@
             <div class="contact-grid">
                 <div class="contact-info reveal">
                     <h2>Ready to Dominate Your Niche?</h2>
-                    <p>Let's build a digital ecosystem that drives real revenue. Send me a message and I'll get back to you within 24 hours.</p>
+                    <p>Let's build a digital ecosystem that drives real revenue. Send me an email and I'll get back to you within 24 hours.</p>
                     <div class="contact-detail">
                         <i class="fa-solid fa-envelope"></i>
                         <span>kaziaremon@gmail.com</span>
@@ -976,30 +923,12 @@
                         <span>Mon-Fri, 9:00 AM - 6:00 PM</span>
                     </div>
                 </div>
-                <form class="contact-form reveal" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" placeholder="john@example.com" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" placeholder="What's this about?" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" placeholder="Tell me about your project..." required></textarea>
-                    </div>
-                    <div class="form-status" id="formStatus"></div>
-                    <button type="submit" class="form-submit">
-                        Send Message <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                </form>
+                <div class="reveal" style="text-align: center;">
+                    <a href="mailto:kaziaremon@gmail.com" class="mailto-btn">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email Me Now
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1112,44 +1041,6 @@
         // Each article now has its own dedicated page at /articles/*.html
         // The Read More buttons in the cards are <a> tags linking directly there.
         // This gives each article its own URL for better SEO and sharing.
-
-        // ================= CONTACT FORM (Mailto) =================
-        var contactForm = document.getElementById('contactForm');
-        var formStatus = document.getElementById('formStatus');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            var name = document.getElementById('name').value.trim();
-            var email = document.getElementById('email').value.trim();
-            var subject = document.getElementById('subject').value.trim();
-            var message = document.getElementById('message').value.trim();
-
-            if (!name || !email || !subject || !message) {
-                formStatus.className = 'form-status error';
-                formStatus.textContent = 'Please fill in all fields.';
-                return;
-            }
-
-            var mailBody = 'Name: ' + encodeURIComponent(name) + '%0D%0A';
-            mailBody += 'Email: ' + encodeURIComponent(email) + '%0D%0A%0D%0A';
-            mailBody += encodeURIComponent(message);
-
-            var mailtoLink = 'mailto:kaziaremon@gmail.com' +
-                '?subject=' + encodeURIComponent(subject) +
-                '&body=' + mailBody;
-
-            formStatus.className = 'form-status success';
-            formStatus.textContent = 'Opening your email client...';
-
-            window.location.href = mailtoLink;
-
-            setTimeout(function() {
-                formStatus.className = 'form-status';
-                formStatus.textContent = '';
-                contactForm.reset();
-            }, 10000);
-        });
 
         // ================= COUNTER ANIMATION =================
         function animateCounters() {
