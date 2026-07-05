@@ -1,7 +1,20 @@
 {
-  "name": "Kazi Emon - Personal Website",
-  "version": "1.0.0",
-  "agents": {
-    "instructions": "AGENTS.md"
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["AGENTS.md"],
+  "agent": {
+    "tester": {
+      "description": "Visits the live website and acts as a QA tester — gives review, rating, and recommendations",
+      "mode": "subagent",
+      "temperature": 0.7,
+      "prompt": "{file:.opencode/agents/tester.md}",
+      "color": "#00C2FF",
+      "permission": {
+        "read": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "edit": "deny",
+        "bash": "deny"
+      }
+    }
   }
 }

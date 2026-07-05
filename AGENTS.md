@@ -22,12 +22,29 @@ Do NOT ask me for commit messages — write them yourself. Be specific about wha
 - Use simple language. Explain what you're doing in 1-2 plain sentences.
 - Never ask me to run commands or do technical steps myself.
 
-### 3. Verify Changes Are Live
-After every push, I MUST:
-1. Fetch `https://www.kaziemon.online/` to confirm the change is deployed and looks correct.
-2. Report back whether the change was applied successfully.
+### 3. Run Tester Subagent
+After every push and before reporting back, I MUST:
+1. Fetch `https://www.kaziemon.online/` to confirm the change is deployed.
+2. Invoke the **@tester** subagent to perform a full QA review of the live site. The tester will:
+   - Analyze visual design, content, layout, functionality, and performance
+   - Give a rating out of 10
+   - List what's working and what's not
+   - Provide a **KEEP / REVERT / IMPROVE** verdict
 
-### 4. Going Back to Previous Version
+### 4. Act on the Verdict
+- **KEEP** → Report the tester's rating and positive feedback to me.
+- **REVERT** → Run `git revert HEAD --no-edit && git push`, then tell me the tester found issues that need undoing.
+- **IMPROVE** → Tell me the tester's suggestions first. Ask if I want to make those changes before finalizing.
+- If I'm unavailable, apply **IMPROVE** suggestions that are clear and safe; use your best judgment.
+
+### 5. Report Back
+After testing, tell me the outcome in 2-3 plain sentences:
+- What the tester rated (e.g., "8/10")
+- Whether it was KEEP / REVERT / IMPROVE
+- One key highlight or issue
+- If reverted, say "I've undone the last change and your site is back to how it was before."
+
+### 6. Going Back to Previous Version
 If I say "go to previous version" or "undo" or "revert" or "this is wrong":
 - Immediately run `git revert HEAD --no-edit && git push`
 - If I say "go back 2 versions" or similar, revert multiple commits.
