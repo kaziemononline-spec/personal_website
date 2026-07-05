@@ -22,11 +22,17 @@ Do NOT ask me for commit messages — write them yourself. Be specific about wha
 - Use simple language. Explain what you're doing in 1-2 plain sentences.
 - Never ask me to run commands or do technical steps myself.
 
-### 3. Going Back to Previous Version
+### 3. Verify Changes Are Live
+After every push, I MUST:
+1. Fetch `https://www.kaziemon.online/` to confirm the change is deployed and looks correct.
+2. Report back whether the change was applied successfully.
+
+### 4. Going Back to Previous Version
 If I say "go to previous version" or "undo" or "revert" or "this is wrong":
 - Immediately run `git revert HEAD --no-edit && git push`
 - If I say "go back 2 versions" or similar, revert multiple commits.
 - Then tell me in plain language: "I've undone the last change and your site is back to how it was before."
+- After reverting, fetch the live site to confirm it's back to the previous state.
 
 ## Design Preferences
 - Dark theme (#030014 background).
