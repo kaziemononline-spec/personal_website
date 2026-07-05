@@ -16,13 +16,15 @@
     <meta property="og:site_name" content="Kazi Emon" />
     <meta property="og:title" content=" Kazi Emon - Digital Growth Architect">
     <meta property="og:description" content="I engineer sustainable business ecosystems through data-driven strategies.">
-    <meta property="og:image" content="https://kommodo.ai/i/MHsnDyPFsO1W6fUXaLPx">
+    <meta property="og:image" content="https://www.kaziemon.online/images/og-image.jpg">
+    <meta property="og:image:width" content="2100">
+    <meta property="og:image:height" content="2160">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.kaziemon.online/">
     <meta property="twitter:title" content="Kazi Emon - Digital Growth Architect">
     <meta property="twitter:description" content="I engineer sustainable business ecosystems through data-driven strategies.">
-    <meta property="twitter:image" content="https://kommodo.ai/i/MHsnDyPFsO1W6fUXaLPx">
+    <meta property="twitter:image" content="https://www.kaziemon.online/images/og-image.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,6 +159,7 @@
         .nav-menu a:hover::after { width: 100%; }
         
         .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); }
+        .skip-link:focus { top: 10px; }
 
         /* ================= HERO SECTION ================= */
         .hero {
@@ -664,6 +667,7 @@
 </head>
 <body>
 
+    <a href="#home" class="skip-link" style="position:absolute;top:-100px;left:0;background:var(--primary);color:#fff;padding:10px 20px;z-index:10000;transition:top 0.3s;">Skip to content</a>
     <header>
         <div class="container">
             <a href="#home" class="logo">
@@ -678,10 +682,10 @@
                 <li><a href="#articles">Articles</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#process">Process</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact-form-section">Contact</a></li>
             </ul>
 
-            <div class="hamburger">
+            <div class="hamburger" role="button" aria-label="Toggle navigation" aria-expanded="false" tabindex="0">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
@@ -696,7 +700,7 @@
                 
                 <div class="btn-group">
                     <a href="#services" class="btn btn-primary">Explore Solutions</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    <a href="#contact-form-section" class="btn btn-outline">Contact Me</a>
                 </div>
             </div>
 
@@ -888,22 +892,22 @@
                 <div class="process-card reveal">
                     <i class="fa-solid fa-magnifying-glass-chart process-icon"></i>
                     <h3>1. Audit</h3>
-                    <p>Deep analysis of metrics.</p>
+                    <p>Comprehensive analysis of your platform metrics, traffic patterns, and conversion funnels to identify gaps and opportunities.</p>
                 </div>
                 <div class="process-card reveal">
                     <i class="fa-solid fa-code-branch process-icon"></i>
                     <h3>2. Strategy</h3>
-                    <p>Architecting the roadmap.</p>
+                    <p>Data-driven roadmap tailored to your business goals, combining platform optimization with targeted marketing campaigns.</p>
                 </div>
                 <div class="process-card reveal">
                     <i class="fa-solid fa-rocket process-icon"></i>
                     <h3>3. Deploy</h3>
-                    <p>Execution of campaigns.</p>
+                    <p>Hands-on execution of technical refinements, ad campaigns, and strategic initiatives with continuous monitoring.</p>
                 </div>
                 <div class="process-card reveal">
                     <i class="fa-solid fa-arrow-trend-up process-icon"></i>
                     <h3>4. Scale</h3>
-                    <p>Optimize and grow.</p>
+                    <p>Iterative optimization based on real-time data, scaling what works and refining what doesn't for sustained growth.</p>
                 </div>
             </div>
         </div>
@@ -991,6 +995,8 @@
             navMenu.classList.toggle('active');
             hamburger.querySelector('i').classList.toggle('fa-bars');
             hamburger.querySelector('i').classList.toggle('fa-xmark');
+            var expanded = hamburger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
+            hamburger.setAttribute('aria-expanded', expanded);
         });
 
         navLinks.forEach(link => {
@@ -1138,7 +1144,7 @@
                     counterObserver.disconnect();
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.2 });
 
         var statsSection = document.querySelector('.about-stats');
         if (statsSection) counterObserver.observe(statsSection);
