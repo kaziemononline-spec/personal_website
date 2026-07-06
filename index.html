@@ -120,15 +120,15 @@
                     </p>
                     <div class="about-stats">
                         <div class="stat-item">
-                            <div class="stat-number" data-target="5">0</div>
+                            <div class="stat-number">5+</div>
                             <div class="stat-label">Years Experience</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-number">50+</div>
                             <div class="stat-label">Projects Done</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" data-target="30">0</div>
+                            <div class="stat-number">30+</div>
                             <div class="stat-label">Happy Clients</div>
                         </div>
                     </div>
@@ -474,38 +474,7 @@
             });
         });
 
-        function animateCounters() {
-            var counters = document.querySelectorAll('.stat-number');
-            counters.forEach(function(counter) {
-                var target = parseInt(counter.getAttribute('data-target'));
-                var current = parseInt(counter.textContent);
-                if (current === 0 && counter.classList.contains('active') === false) {
-                    counter.classList.add('active');
-                    var increment = Math.ceil(target / 40);
-                    var interval = setInterval(function() {
-                        var val = parseInt(counter.textContent) + increment;
-                        if (val >= target) {
-                            counter.textContent = target + '+';
-                            clearInterval(interval);
-                        } else {
-                            counter.textContent = val;
-                        }
-                    }, 40);
-                }
-            });
-        }
 
-        var counterObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    counterObserver.disconnect();
-                }
-            });
-        }, { threshold: 0.2 });
-
-        var statsSection = document.querySelector('.about-stats');
-        if (statsSection) counterObserver.observe(statsSection);
     </script>
 </body>
 </html>
