@@ -152,25 +152,110 @@
                     <i class="fa-brands fa-facebook service-icon"></i>
                     <h3>Meta Ads Expert</h3>
                     <p>Facebook & Instagram ad campaign management, precise audience targeting, and continuous optimization to maximize ROAS and reduce CPA.</p>
-                    <a href="services/meta-ads.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="service-details">
+                        <div class="service-details-inner">
+                            <div class="detail-block">
+                                <h4>What I Do</h4>
+                                <ul class="detail-list">
+                                    <li>Facebook &amp; Instagram ad campaign setup</li>
+                                    <li>Audience research &amp; targeting</li>
+                                    <li>Creative testing (A/B testing ad copy and images)</li>
+                                    <li>Budget optimization</li>
+                                    <li>Performance reporting</li>
+                                </ul>
+                            </div>
+                            <div class="detail-block">
+                                <h4>Who It's For</h4>
+                                <p>Small businesses and brands wanting to lower cost-per-click (CPC) and cost-per-acquisition (CPA) while scaling ad spend profitably.</p>
+                            </div>
+                            <div class="detail-block">
+                                <h4>My Process</h4>
+                                <p>Discovery call &rarr; audience &amp; competitor research &rarr; campaign setup &rarr; daily monitoring &amp; optimization &rarr; weekly performance reports.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="service-link" aria-expanded="false">Learn More <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
                 <div class="service-card reveal">
                     <i class="fa-brands fa-canadian-maple-leaf service-icon"></i>
                     <h3>Canva Expert</h3>
                     <p>Professional social media graphics, brand identity design, and presentation decks — all crafted in Canva to make your brand stand out.</p>
-                    <a href="services/canva.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="service-details">
+                        <div class="service-details-inner">
+                            <div class="detail-block">
+                                <h4>What I Do</h4>
+                                <ul class="detail-list">
+                                    <li>Social media post designs</li>
+                                    <li>Instagram/Facebook carousel graphics</li>
+                                    <li>Brand identity kits (logo, color palette, fonts)</li>
+                                    <li>Presentation decks</li>
+                                    <li>Marketing flyers/posters &mdash; all designed in Canva Pro with custom templates</li>
+                                </ul>
+                            </div>
+                            <div class="detail-block">
+                                <h4>Who It's For</h4>
+                                <p>Businesses and creators who need consistent, professional-looking visuals without hiring a full design agency.</p>
+                            </div>
+                            <div class="detail-block">
+                                <h4>My Process</h4>
+                                <p>Brand brief &rarr; mood board/style selection &rarr; design drafts &rarr; revisions &rarr; final files delivered in print &amp; web-ready formats.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="service-link" aria-expanded="false">Learn More <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
                 <div class="service-card reveal">
                     <i class="fa-solid fa-rocket service-icon"></i>
                     <h3>Digital Business Growth Expert</h3>
                     <p>End-to-end business growth strategy, online presence building, and consultation to take your brand from zero to scalable success.</p>
-                    <a href="services/digital-growth.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="service-details">
+                        <div class="service-details-inner">
+                            <div class="detail-block">
+                                <h4>What I Do</h4>
+                                <ul class="detail-list">
+                                    <li>End-to-end digital strategy &mdash; website/online presence audit</li>
+                                    <li>Social media growth planning</li>
+                                    <li>Ad + content strategy alignment</li>
+                                    <li>Ongoing consultation to scale from zero to a sustainable, profitable brand</li>
+                                </ul>
+                            </div>
+                            <div class="detail-block">
+                                <h4>Who It's For</h4>
+                                <p>New or early-stage businesses that need a clear, structured roadmap rather than scattered marketing efforts.</p>
+                            </div>
+                            <div class="detail-block">
+                                <h4>My Process</h4>
+                                <p>Business audit &rarr; goal setting &rarr; 90-day growth roadmap &rarr; execution support &rarr; monthly strategy review.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="service-link" aria-expanded="false">Learn More <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
                 <div class="service-card reveal">
                     <i class="fa-solid fa-pen-nib service-icon"></i>
                     <h3>Article Writing</h3>
                     <p>SEO-optimized articles, blog content that ranks, and persuasive copywriting that drives traffic, engagement, and conversions.</p>
-                    <a href="services/article-writing.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="service-details">
+                        <div class="service-details-inner">
+                            <div class="detail-block">
+                                <h4>What I Do</h4>
+                                <ul class="detail-list">
+                                    <li>SEO-optimized blog articles</li>
+                                    <li>Keyword-researched content that ranks on Google</li>
+                                    <li>Persuasive copywriting for landing pages/product descriptions that convert readers into customers</li>
+                                </ul>
+                            </div>
+                            <div class="detail-block">
+                                <h4>Who It's For</h4>
+                                <p>Businesses and websites wanting organic traffic growth and content that builds authority in their niche.</p>
+                            </div>
+                            <div class="detail-block">
+                                <h4>My Process</h4>
+                                <p>Topic &amp; keyword research &rarr; outline approval &rarr; draft writing &rarr; SEO optimization (meta tags, headers, internal links) &rarr; final delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="service-link" aria-expanded="false">Learn More <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
         </div>
@@ -479,7 +564,19 @@
             });
         });
 
-
+        // Service accordion
+        document.querySelectorAll('.service-card').forEach(function(card) {
+            var btn = card.querySelector('.service-link');
+            if (!btn) return;
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var isExpanded = card.classList.toggle('expanded');
+                btn.setAttribute('aria-expanded', isExpanded);
+                btn.innerHTML = isExpanded
+                    ? 'Show Less <i class="fa-solid fa-arrow-up"></i>'
+                    : 'Learn More <i class="fa-solid fa-arrow-right"></i>';
+            });
+        });
     </script>
 </body>
 </html>
