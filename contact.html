@@ -20,6 +20,8 @@
     <meta property="og:title" content="Contact Kazi Emon - Digital Growth Architect">
     <meta property="og:description" content="Get in touch with Kazi Emon to grow your business online.">
     <meta property="og:image" content="https://www.kaziemon.online/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.kaziemon.online/contact.html">
@@ -93,7 +95,7 @@
     <header>
         <div class="container">
             <a href="index.html" class="logo">
-                <i class="fa-solid fa-chart-simple"></i>
+                <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
                 Kazi<span>Emon</span>
             </a>
 
@@ -106,7 +108,7 @@
             </ul>
 
             <div class="hamburger" role="button" aria-label="Toggle navigation" aria-expanded="false" tabindex="0">
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </div>
         </div>
     </header>
@@ -127,7 +129,7 @@
 
                     <div class="contact-method">
                         <div class="contact-method-icon">
-                            <i class="fa-solid fa-envelope"></i>
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                         </div>
                         <div>
                             <h4>Email</h4>
@@ -137,7 +139,7 @@
 
                     <div class="contact-method">
                         <div class="contact-method-icon">
-                            <i class="fa-solid fa-location-dot"></i>
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                         </div>
                         <div>
                             <h4>Location</h4>
@@ -147,7 +149,7 @@
 
                     <div class="contact-method">
                         <div class="contact-method-icon">
-                            <i class="fa-solid fa-clock"></i>
+                            <i class="fa-solid fa-clock" aria-hidden="true"></i>
                         </div>
                         <div>
                             <h4>Availability</h4>
@@ -187,7 +189,7 @@
                     </div>
                     <div class="form-status" id="formStatus"></div>
                     <button type="submit" class="form-submit">
-                        Send Message <i class="fa-solid fa-paper-plane"></i>
+                        Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
                     </button>
                 </form>
             </div>
@@ -197,11 +199,10 @@
     <footer>
         <div class="container">
             <div class="footer-content reveal">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kaziaremon@gmail.com" target="_blank" rel="noopener noreferrer" class="btn-gradient" style="margin-bottom:25px;display:inline-flex;align-items:center;gap:10px;">Email Me <i class="fa-solid fa-envelope"></i></a>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             <div class="copyright">
@@ -211,7 +212,7 @@
     </footer>
 
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fa-solid fa-arrow-up"></i>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <script>
@@ -282,7 +283,7 @@
 
             var submitBtn = contactForm.querySelector('.form-submit');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+            submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>';
 
             var formData = new FormData();
             formData.append('name', name);
@@ -306,7 +307,7 @@
             })
             .finally(function() {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+                submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>';
                 setTimeout(function() {
                     formStatus.className = 'form-status';
                     formStatus.textContent = '';
