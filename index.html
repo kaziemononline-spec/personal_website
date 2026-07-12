@@ -229,9 +229,10 @@
                                     <li>Ongoing guidance and consultation</li>
                                 </ul>
                             </div>
+                            <a href="services/digital-marketing-advisory.html" class="service-link-detail">View Full Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <a href="services/digital-marketing-advisory.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <button class="service-link" aria-expanded="false">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></button>
                 </div>
                 <div class="service-card reveal">
                     <i class="fa-brands fa-facebook-f service-icon" aria-hidden="true"></i>
@@ -249,9 +250,10 @@
                                     <li>Performance tracking and reporting</li>
                                 </ul>
                             </div>
+                            <a href="services/facebook-ads.html" class="service-link-detail">View Full Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <a href="services/facebook-ads.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <button class="service-link" aria-expanded="false">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></button>
                 </div>
                 <div class="service-card reveal">
                     <i class="fa-solid fa-palette service-icon" aria-hidden="true"></i>
@@ -269,9 +271,10 @@
                                     <li>Fast turnaround on design requests</li>
                                 </ul>
                             </div>
+                            <a href="services/canva-design.html" class="service-link-detail">View Full Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <a href="services/canva-design.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <button class="service-link" aria-expanded="false">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></button>
                 </div>
                 <div class="service-card reveal">
                     <i class="fa-solid fa-handshake service-icon" aria-hidden="true"></i>
@@ -289,9 +292,10 @@
                                     <li>Custom solutions based on your needs</li>
                                 </ul>
                             </div>
+                            <a href="services/complementary-services.html" class="service-link-detail">View Full Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <a href="services/complementary-services.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <button class="service-link" aria-expanded="false">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>
@@ -483,6 +487,7 @@
                     <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" class="contact-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" class="contact-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" class="contact-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -496,6 +501,7 @@
                     <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
 
@@ -508,10 +514,6 @@
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
-
-    <a href="https://wa.me/8801560066374?text=Hi%20Kazi%2C%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
-        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-    </a>
 
     <script>
         const hamburger = document.querySelector('.hamburger');
@@ -597,11 +599,19 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Service card accordion toggle
-        document.querySelectorAll('.service-card').forEach(function(card) {
-            card.addEventListener('click', function(e) {
-                if (e.target.closest('.service-link')) return;
-                this.classList.toggle('expanded');
+        // Service card accordion toggle (Learn More / Learn Less)
+        document.querySelectorAll('.service-link').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var card = this.closest('.service-card');
+                var isExpanded = card.classList.toggle('expanded');
+                this.setAttribute('aria-expanded', isExpanded);
+                var arrow = this.querySelector('.arrow-icon');
+                if (isExpanded) {
+                    this.innerHTML = 'Learn Less <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>';
+                } else {
+                    this.innerHTML = 'Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>';
+                }
             });
         });
 
