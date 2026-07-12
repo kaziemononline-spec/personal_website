@@ -44,7 +44,7 @@
             <ul class="nav-menu">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../about.html">About</a></li>
-                <li><a href="../index.html#services" class="active">Services</a></li>
+                <li><a href="../index.html#services" class="active" aria-current="page">Services</a></li>
                 <li><a href="../index.html#articles">Articles</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-list-check"></i>What This Service Includes</h2>
+                    <h2><i class="fa-solid fa-list-check" aria-hidden="true"></i>What This Service Includes</h2>
                     <div class="bullet-list">
                         <div class="bullet-item">
                             <i class="fa-solid fa-check-circle"></i>
@@ -127,7 +127,7 @@
                 </div>
 
                 <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-route"></i>My Process for This Service</h2>
+                    <h2><i class="fa-solid fa-route" aria-hidden="true"></i>My Process for This Service</h2>
                     <div class="workflow-steps">
                         <div class="workflow-step">
                             <div class="step-number">1</div>
@@ -161,7 +161,7 @@
                 </div>
 
                 <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-user-check"></i>Ideal For</h2>
+                    <h2><i class="fa-solid fa-user-check" aria-hidden="true"></i>Ideal For</h2>
                     <div class="benefits-grid">
                         <div class="benefit-card">
                             <i class="fa-solid fa-pen-fancy"></i>
@@ -215,6 +215,7 @@
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); } });
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             hamburger.querySelector('i').classList.toggle('fa-bars');

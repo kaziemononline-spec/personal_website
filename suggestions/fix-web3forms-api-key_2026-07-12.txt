@@ -1,0 +1,59 @@
+#1 Priority Suggestion: fix-web3forms-api-key
+
+---
+
+# FULL QA AUDIT — kaziemon.online
+**Date:** July 12, 2026
+**Pages Tested:** 13/13 (all loaded successfully)
+
+---
+
+## Rating: 6.5/10
+
+The site has excellent visual design, strong content quality, and a well-organized structure. However, the contact form is non-functional — it's the primary call-to-action and it's completely broken due to a placeholder API key.
+
+---
+
+## Issues Found
+
+### CRITICAL
+
+| # | Issue | Page | Details |
+|---|-------|------|---------|
+| 1 | **Web3Forms API key is a placeholder** | contact.html | `value="YOUR_WEB3FORMS_ACCESS_KEY"` — The contact form does not work. Any submission gets an error. |
+
+### HIGH
+
+| # | Issue | Page | Details |
+|---|-------|------|---------|
+| 2 | **Hamburger menu not keyboard accessible** | All pages | No keydown/keypress event listener for Enter or Space keys. Keyboard-only users cannot open the mobile menu. |
+| 3 | **Incomplete OG/Twitter tags on articles** | All 3 article pages | Missing: `og:site_name`, `twitter:site`, `twitter:creator`, explicit `twitter:title/description/image`. |
+| 4 | **Missing favicon variants on article pages** | All 3 article pages | Only SVG favicon linked — missing 16x16 PNG, 32x32 PNG, apple-touch-icon, and shortcut icon. |
+| 5 | **CSS is not minified** | All pages | `css/style.css` (~30KB) served with full comments, whitespace. Should be minified for production. |
+
+### MEDIUM
+
+| # | Issue | Page | Details |
+|---|-------|------|---------|
+| 6 | **No `aria-current="page"` on active nav links** | All pages | Screen readers don't know which nav link points to the current page. |
+| 7 | **Testimonials placeholder text** | Homepage | "The first testimonial could be yours..." makes the site feel like "coming soon." |
+| 8 | **Article footers lack social links** | All 3 article pages | No social media links, WhatsApp button, or back-to-top at article page footers. |
+| 9 | **Hero image uses `loading="lazy"`** | Homepage | Above-the-fold hero image should not be lazy-loaded (delays LCP). |
+
+### LOW
+
+| # | Issue | Page | Details |
+|---|-------|------|---------|
+| 10 | **No `hreflang` tags** | All pages | English-only site serving global audience — hreflang helps international SEO. |
+| 11 | **Skip-link `href` inconsistency** | All pages | Homepage uses `#home`, other pages use `#main` — minor but inconsistent. |
+| 12 | **Facebook icon inconsistency** | Homepage | Service card uses `fa-facebook`, contact/footer use `fa-facebook-f`. |
+| 13 | **Icons inside headings lack `aria-hidden`** | Service pages | Decorative icons in `<h2>` tags may be read by screen readers as part of the heading. |
+| 14 | **Contact page has no "Back to Home" button** | contact.html | About page and service pages have it, but contact doesn't. |
+
+---
+
+## Verdict: IMPROVE
+
+**The site cannot be considered production-ready until the contact form API key is fixed.** Without a working contact form, the primary conversion mechanism is broken.
+
+Overall assessment: **6.5/10** — Beautiful design and solid content undermined by a non-functional contact form and several polish issues. Once fixed, would easily be an 8.5-9/10 site.

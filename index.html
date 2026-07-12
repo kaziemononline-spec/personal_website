@@ -123,7 +123,7 @@
 </head>
 <body>
 
-    <a href="#home" class="skip-link">Skip to content</a>
+    <a href="#main" class="skip-link">Skip to content</a>
     <header>
         <div class="container">
             <a href="index.html" class="logo">
@@ -132,7 +132,7 @@
             </a>
 
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html" class="active" aria-current="page">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#articles">Articles</a></li>
@@ -145,7 +145,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main">
     <section class="hero" id="home">
         <div class="container hero-grid">
             <div class="hero-content">
@@ -160,7 +160,7 @@
             </div>
 
             <div class="hero-img-wrapper">
-                <img src="images/hero-bg.jpg" alt="Digital Growth Architecture" class="hero-img" loading="lazy">
+                <img src="images/hero-bg.jpg" alt="Digital Growth Architecture" class="hero-img" fetchpriority="high">
             </div>
         </div>
     </section>
@@ -234,7 +234,7 @@
                     <a href="services/digital-marketing-advisory.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
                 <div class="service-card reveal">
-                    <i class="fa-brands fa-facebook service-icon" aria-hidden="true"></i>
+                    <i class="fa-brands fa-facebook-f service-icon" aria-hidden="true"></i>
                     <h3>Facebook Ads That Convert</h3>
                     <span class="service-tagline">High-performing ad campaigns that deliver real results</span>
                     <p>I plan, create, and run Facebook ad campaigns designed to generate measurable results — more reach, more engagement, and more conversions. From audience targeting to creative strategy and budget optimization, I handle every part of the campaign so you get the best return on your ad spend.</p>
@@ -311,12 +311,12 @@
                     <i class="fa-solid fa-star" aria-hidden="true" style="font-size:2rem;color:#FFD700;margin-bottom:15px;"></i>
                     <i class="fa-solid fa-star" aria-hidden="true" style="font-size:2rem;color:#FFD700;margin-bottom:15px;"></i>
                     <p class="testimonial-text" style="font-size:1.15rem;margin:20px 0;font-style:italic;color:var(--text-muted);">
-                        "The first testimonial could be yours. I'm currently delivering results for amazing clients — their feedback will appear here once their projects are complete."
+                        "I'm currently delivering results for amazing clients — their feedback will be added here once their projects are complete."
                     </p>
                     <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:20px;">
-                        In the meantime, let's start working on your success story.
+                        Ready to become the next success story?
                     </p>
-                    <a href="contact.html" class="btn btn-outline">Be the First to Review</a>
+                    <a href="contact.html" class="btn btn-outline">Start Your Success Story</a>
                 </div>
             </div>
         </div>
@@ -518,6 +518,7 @@
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-menu a');
 
+        hamburger.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); } });
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             hamburger.querySelector('i').classList.toggle('fa-bars');

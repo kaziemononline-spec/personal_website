@@ -10,11 +10,22 @@
     <link rel="canonical" href="https://www.kaziemon.online/articles/platform-optimization-technical-deep-dive.html">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://www.kaziemon.online/articles/platform-optimization-technical-deep-dive.html">
+    <meta property="og:site_name" content="Kazi Emon" />
     <meta property="og:title" content="Platform Optimization: A Technical Deep Dive">
     <meta property="og:description" content="How architecture, speed, and UX refinements create measurable business growth.">
     <meta property="og:image" content="https://www.kaziemon.online/images/article-platform.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.kaziemon.online/articles/platform-optimization-technical-deep-dive.html">
+    <meta name="twitter:title" content="Platform Optimization: A Technical Deep Dive">
+    <meta name="twitter:description" content="How architecture, speed, and UX refinements create measurable business growth.">
+    <meta name="twitter:image" content="https://www.kaziemon.online/images/article-platform.jpg">
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -179,9 +190,21 @@
     </article>
 
     <footer>
-        <div class="container">
+        <div class="container" style="text-align:center;">
+            <div style="display:flex;justify-content:center;gap:14px;margin-bottom:20px;">
+                <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
             <p>&copy; 2026 Kazi Emon. All Rights Reserved.</p>
         </div>
     </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:50px;height:50px;border-radius:50%;background:linear-gradient(to right,#7000FF,#00C2FF);color:#fff;border:none;font-size:1.2rem;cursor:pointer;z-index:999;opacity:0;visibility:hidden;transform:translateY(20px);transition:all 0.3s ease;box-shadow:0 4px 15px rgba(112,0,255,0.3);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 8px 25px rgba(112,0,255,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(112,0,255,0.3)'"><i class="fa-solid fa-arrow-up"></i></button>
+    <a href="https://wa.me/8801560066374?text=Hi%20Kazi%2C%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" style="position:fixed;bottom:90px;right:30px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8rem;z-index:998;box-shadow:0 4px 15px rgba(37,211,102,0.35);transition:all 0.3s ease;" aria-label="Chat on WhatsApp" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 25px rgba(37,211,102,0.5)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 15px rgba(37,211,102,0.35)'"><i class="fa-brands fa-whatsapp"></i></a>
+    <script>
+        var backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() { backToTop.classList.toggle('visible', window.scrollY > 400); });
+        backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
 </body>
 </html>
