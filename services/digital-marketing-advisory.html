@@ -21,243 +21,159 @@
     <meta property="og:image" content="https://www.kaziemon.online/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.kaziemon.online/services/digital-marketing-advisory.html">
-    <meta property="twitter:title" content="Digital Marketing Advisory - Strategy Consulting | Kazi Emon">
-    <meta property="twitter:description" content="Strategic digital marketing guidance. Identify the right channels, tools, and growth strategies for your business.">
-    <meta property="twitter:image" content="https://www.kaziemon.online/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.kaziemon.online/services/digital-marketing-advisory.html">
+    <meta name="twitter:title" content="Digital Marketing Advisory - Strategy Consulting | Kazi Emon">
+    <meta name="twitter:description" content="Strategic digital marketing guidance. Identify the right channels, tools, and growth strategies for your business.">
+    <meta name="twitter:image" content="https://www.kaziemon.online/images/og-image.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            background: var(--bg-dark); color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        nav {
+            padding: 20px 0; border-bottom: 1px solid var(--border);
+            background: rgba(3,0,20,0.85); backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 100;
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
+        .logo span { color: var(--primary); }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .back-link:hover { color: var(--primary); }
+        article { padding: 40px 0 60px; }
+        .article-header { margin-bottom: 30px; text-align: center; }
+        .service-icon-header { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+        h1 {
+            font-family: 'Outfit', sans-serif; font-size: 2.2rem; line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .service-tagline-header {
+            display: block; font-size: 1.05rem; color: var(--secondary);
+            font-weight: 500; margin-bottom: 20px;
+        }
+        .article-body h2 {
+            font-family: 'Outfit', sans-serif; font-size: 1.4rem;
+            margin: 35px 0 15px; color: var(--text-main);
+        }
+        .article-body h2 i { color: var(--primary); margin-right: 10px; }
+        .article-body h3 {
+            font-family: 'Outfit', sans-serif; font-size: 1.1rem;
+            margin: 22px 0 6px; color: var(--text-main);
+        }
+        .article-body p { margin-bottom: 18px; color: var(--text-muted); font-size: 1rem; }
+        .article-body strong { color: var(--text-main); }
+        .article-body ul {
+            list-style: none; padding: 0; margin: 0 0 18px 0;
+        }
+        .article-body ul li {
+            position: relative; padding-left: 20px; margin-bottom: 10px;
+            color: var(--text-muted); font-size: 1rem;
+        }
+        .article-body ul li::before {
+            content: ''; position: absolute; left: 0; top: 10px;
+            width: 6px; height: 6px; border-radius: 50%; background: var(--primary);
+        }
+        .cta-section {
+            text-align: center; padding: 40px 30px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 20px; margin: 40px 0 20px;
+        }
+        .cta-section h2 {
+            font-family: 'Outfit', sans-serif; font-size: 1.5rem;
+            margin-bottom: 12px; color: var(--text-main);
+        }
+        .cta-section p {
+            color: var(--text-muted); margin-bottom: 20px;
+            max-width: 500px; margin-left: auto; margin-right: auto;
+        }
+        .cta-section .btn { margin: 0 5px; }
+        footer {
+            text-align: center; padding: 30px 0 20px;
+            border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .service-icon-header { font-size: 2.2rem; }
+        }
+    </style>
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <header>
+    <nav>
         <div class="container">
-            <a href="../index.html" class="logo">
-                <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
-                Kazi<span>Emon</span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../index.html#services" class="active" aria-current="page">Services</a></li>
-                <li><a href="../index.html#articles">Articles</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger" role="button" aria-label="Toggle navigation" aria-expanded="false" tabindex="0">
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            <a href="../index.html" class="logo">Kazi<span>Emon</span></a>
+            <a href="../index.html#services" class="back-link"><i class="fa-solid fa-arrow-left"></i> All Services</a>
+        </div>
+    </nav>
+
+    <article>
+        <div class="container">
+            <div class="article-header">
+                <div class="service-icon-header"><i class="fa-solid fa-chart-line"></i></div>
+                <h1>Digital Marketing Advisory</h1>
+                <span class="service-tagline-header">Strategic guidance to grow your business online</span>
+            </div>
+
+            <div class="article-body">
+                <h2><i class="fa-solid fa-eye" aria-hidden="true"></i>Overview</h2>
+                <p>Most business owners know they need to be online, but few know exactly where to start, which channels matter most for their specific industry, or how to connect everything into a system that consistently brings in customers. The digital landscape is crowded with options — social media, search engines, email marketing, paid advertising, content creation — and choosing the wrong path wastes time and money.</p>
+                <p>I help you cut through the noise. Through personalized consulting sessions, I evaluate your current position, identify the highest-impact opportunities, and build a clear, actionable digital marketing roadmap tailored to your business goals, budget, and capacity. This service is for business owners who want expert direction without the fluff — a practical strategy that tells you exactly what to do, in what order, and how to measure success.</p>
+                <p>The value I deliver is clarity and confidence. Instead of guessing which platform to invest in or wondering why your current efforts aren't paying off, you get a focused plan built around your unique business realities. Whether you're a startup founder launching your first campaign or an established business owner digitizing your operations, this advisory gives you the strategic foundation to grow sustainably.</p>
+
+                <h2><i class="fa-solid fa-list-check" aria-hidden="true"></i>What's Included</h2>
+                <h3>Digital Presence Audit</h3>
+                <p>I review your current online footprint — website, social media profiles, Google Business listing, reviews, and existing marketing efforts — to identify strengths, gaps, and quick wins. This audit forms the baseline for every recommendation that follows.</p>
+                <h3>Channel Strategy &amp; Platform Selection</h3>
+                <p>Not every platform is right for every business. I help you identify the two or three channels that will give you the best return for your time and budget, whether that's social media, search, email, paid ads, or a combination that fits your specific industry.</p>
+                <h3>Audience Identification &amp; Positioning</h3>
+                <p>I help you define your ideal customer profile, understand their online behavior, and position your brand to attract them with the right message at the right time. Clear positioning makes every marketing dollar work harder.</p>
+                <h3>Actionable Growth Roadmap</h3>
+                <p>You receive a step-by-step plan with prioritized actions, timeline, budget recommendations, and measurable milestones. This isn't generic advice — it's a roadmap built specifically for your business, designed for practical execution from day one.</p>
+                <h3>Tool Stack Recommendations</h3>
+                <p>I recommend the right tools for your needs — CRM, email marketing, scheduling, analytics, design, and ad management — so you don't waste money on software you don't need and can integrate everything into a streamlined workflow.</p>
+                <h3>Ongoing Consultation &amp; Support</h3>
+                <p>As you implement the plan, I'm available for follow-up calls, strategy adjustments, and answering questions. Digital marketing changes fast, and I help you stay on track as your business evolves and new opportunities arise.</p>
+
+                <h2><i class="fa-solid fa-route" aria-hidden="true"></i>My Process</h2>
+                <p>I start every engagement with a thorough <strong>discovery and digital audit</strong>, reviewing your current online presence to identify what's working, what's missing, and where the biggest opportunities lie. From there, I move into <strong>strategy development</strong>, defining the right digital channels, target audience, brand positioning, and high-impact tactics aligned with your specific business goals and budget.</p>
+                <p>Once the strategy is clear, I build an <strong>actionable roadmap</strong> — a step-by-step plan with timelines, milestones, and budget recommendations designed for practical execution. As you begin implementing, I provide <strong>ongoing support and adjustment</strong>, staying available for follow-up calls, strategy refinements, and answering questions as your business evolves. This four-phase approach ensures you never feel lost or overwhelmed; you always know what to do next and why it matters.</p>
+
+                <h2><i class="fa-solid fa-user-check" aria-hidden="true"></i>Ideal For</h2>
+                <p>This service is designed for <strong>startups and early-stage businesses</strong> launching their digital presence and needing a clear strategy to acquire their first customers without wasting resources on the wrong channels. It's equally valuable for <strong>established businesses with offline operations</strong> who want to build or improve their online presence and reach customers where they spend their time.</p>
+                <p><strong>Businesses stuck at a growth plateau</strong> will find this particularly useful — if you've tried a few marketing tactics but aren't seeing consistent results, I help diagnose what's not working and build a strategy that actually moves the needle. And for <strong>busy owners who need direction</strong>, this service gives you a clear plan so you can execute with confidence or hand it off to a team, knowing every action is aligned with your goals.</p>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Build Your Digital Roadmap?</h2>
+                <p>Let's talk about your business and create a digital marketing strategy that brings real, measurable results.</p>
+                <a href="../contact.html" class="btn btn-primary">Book a Consultation</a>
+                <a href="../index.html" class="btn btn-outline">Back to Home</a>
             </div>
         </div>
-    </header>
-    <main id="main">
-        <section class="page-hero">
-            <div class="container">
-                <h1>Digital Marketing Advisory</h1>
-                <span class="service-tagline" style="display:block;text-align:center;font-size:clamp(0.9rem,1.2vw+0.3rem,1.1rem);margin-bottom:10px;">Strategic guidance to grow your business online</span>
-                <p>Strategic guidance to help you navigate the digital landscape and build a growth plan that works for your unique business.</p>
-            </div>
-        </section>
-        <section class="service-detail">
-            <div class="container">
-                <div class="service-detail-grid">
-                    <div class="service-detail-text reveal">
-                        <h2>Clarity Before Growth</h2>
-                        <p>
-                            Most business owners know they need to be online, but few know exactly where to start, which channels matter most for their specific industry, or how to connect everything into a system that consistently brings in customers.
-                        </p>
-                        <p>
-                            I help you cut through the noise. Through personalized consulting sessions, I evaluate your current position, identify the highest-impact opportunities, and build a clear, actionable digital marketing roadmap tailored to your business goals, budget, and capacity.
-                        </p>
-                    </div>
-                    <div class="service-detail-icon reveal">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                </div>
+    </article>
 
-                <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-list-check" aria-hidden="true"></i>What This Service Includes</h2>
-                    <div class="bullet-list">
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Digital Presence Audit</h4>
-                                <p>I review your current online footprint — website, social media profiles, Google Business listing, reviews, and existing marketing efforts — to identify strengths, gaps, and quick wins.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Channel Strategy & Platform Selection</h4>
-                                <p>Not every platform is right for every business. I help you identify the 2-3 channels (social media, search, email, paid ads, etc.) that will give you the best return for your time and budget.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Audience Identification & Positioning</h4>
-                                <p>I help you define your ideal customer profile, understand their online behavior, and position your brand to attract them with the right message at the right time.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Actionable Growth Roadmap</h4>
-                                <p>You receive a step-by-step plan with prioritized actions, timeline, budget recommendations, and measurable milestones — no generic advice, just what's relevant to your business.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Tool Stack Recommendations</h4>
-                                <p>I recommend the right tools for your needs — CRM, email marketing, scheduling, analytics, design, and ad management — so you don't waste money on software you don't need.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Ongoing Consultation & Support</h4>
-                                <p>As you implement the plan, I'm available for follow-up calls, strategy adjustments, and answering questions. Digital marketing changes fast, and I help you stay on track.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-route" aria-hidden="true"></i>My Process for This Service</h2>
-                    <div class="workflow-steps">
-                        <div class="workflow-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Discovery & Digital Audit</h4>
-                                <p>I start by reviewing your current online presence — website, social media, listings, and past marketing efforts — to identify what's working, what's missing, and where the biggest opportunities are.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Strategy Development</h4>
-                                <p>Based on the audit, I define the right digital channels, target audience, brand positioning, and high-impact tactics that align with your specific business goals and budget.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Actionable Roadmap Creation</h4>
-                                <p>You receive a clear, prioritized step-by-step plan with timelines, milestones, and budget recommendations — designed for practical execution, not just theory.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h4>Ongoing Support & Adjustment</h4>
-                                <p>As you implement the roadmap, I stay available for follow-up calls, strategy refinements, and answering questions as your business evolves and new opportunities arise.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-user-check" aria-hidden="true"></i>Ideal For</h2>
-                    <div class="benefits-grid">
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-store"></i>
-                            <h4>Startups & Early-Stage Businesses</h4>
-                            <p>You're launching or recently launched and need a clear digital strategy to acquire your first customers without wasting time and money on the wrong channels.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-arrows-rotate"></i>
-                            <h4>Established Businesses Going Digital</h4>
-                            <p>You have an offline business and want to build or improve your online presence. I help you digitize your operations and reach customers where they spend their time.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-chart-simple"></i>
-                            <h4>Businesses Stuck at a Growth Plateau</h4>
-                            <p>You've tried a few marketing tactics but aren't seeing consistent results. I help diagnose what's not working and build a strategy that moves the needle.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-clock"></i>
-                            <h4>Busy Owners Who Need Direction</h4>
-                            <p>You know you need to market online but don't have the time to figure it out yourself. I give you a clear plan so you can execute with confidence or hand it off to a team.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cta-section reveal">
-                    <h2>Ready to Build Your Digital Roadmap?</h2>
-                    <p>Let's talk about your business and create a digital marketing strategy that brings real, measurable results.</p>
-                    <a href="../contact.html" class="btn btn-primary">Book a Consultation</a>
-                    <a href="../index.html" class="btn btn-outline" style="margin-left:10px;">Back to Home</a>
-                </div>
-            </div>
-        </section>
-    </main>
     <footer>
-        <div class="container">
-            <div class="footer-content reveal">
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+        <div class="container" style="text-align:center;">
+            <div style="display:flex;justify-content:center;gap:14px;margin-bottom:20px;">
+                <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
-            <div class="copyright">
-                <p>&copy; 2026 Kazi Emon. All Rights Reserved.</p>
-            </div>
+            <p>&copy; 2026 Kazi Emon. All Rights Reserved.</p>
         </div>
     </footer>
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    </button>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:50px;height:50px;border-radius:50%;background:linear-gradient(to right,#7000FF,#00C2FF);color:#fff;border:none;font-size:1.2rem;cursor:pointer;z-index:999;opacity:0;visibility:hidden;transform:translateY(20px);transition:all 0.3s ease;box-shadow:0 4px 15px rgba(112,0,255,0.3);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 8px 25px rgba(112,0,255,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(112,0,255,0.3)'"><i class="fa-solid fa-arrow-up"></i></button>
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        hamburger.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); } });
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.querySelector('i').classList.toggle('fa-bars');
-            hamburger.querySelector('i').classList.toggle('fa-xmark');
-            var expanded = hamburger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-            hamburger.setAttribute('aria-expanded', expanded);
-        });
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.querySelector('i').classList.add('fa-bars');
-                hamburger.querySelector('i').classList.remove('fa-xmark');
-                hamburger.setAttribute('aria-expanded', 'false');
-            });
-        });
-        document.addEventListener('click', function(e) {
-            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                navMenu.classList.remove('active');
-                hamburger.querySelector('i').classList.add('fa-bars');
-                hamburger.querySelector('i').classList.remove('fa-xmark');
-                hamburger.setAttribute('aria-expanded', 'false');
-            }
-        });
-        window.addEventListener('scroll', function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var revealTop = reveals[i].getBoundingClientRect().top;
-                if (revealTop < windowHeight - 150) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        });
-        window.dispatchEvent(new Event('scroll'));
         var backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
-            backToTop.classList.toggle('visible', window.scrollY > 400);
-        });
-        backToTop.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        window.addEventListener('scroll', function() { backToTop.classList.toggle('visible', window.scrollY > 400); });
+        backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     </script>
 </body>
 </html>

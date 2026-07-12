@@ -21,243 +21,148 @@
     <meta property="og:image" content="https://www.kaziemon.online/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.kaziemon.online/services/facebook-ads.html">
-    <meta property="twitter:title" content="Facebook Ads That Convert - Ad Campaign Management | Kazi Emon">
-    <meta property="twitter:description" content="High-converting Facebook and Instagram ad campaigns. Audience targeting, creative strategy, budget optimization, and performance tracking.">
-    <meta property="twitter:image" content="https://www.kaziemon.online/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.kaziemon.online/services/facebook-ads.html">
+    <meta name="twitter:title" content="Facebook Ads That Convert - Ad Campaign Management | Kazi Emon">
+    <meta name="twitter:description" content="High-converting Facebook and Instagram ad campaigns. Audience targeting, creative strategy, budget optimization, and performance tracking.">
+    <meta name="twitter:image" content="https://www.kaziemon.online/images/og-image.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            background: var(--bg-dark); color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        nav {
+            padding: 20px 0; border-bottom: 1px solid var(--border);
+            background: rgba(3,0,20,0.85); backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 100;
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
+        .logo span { color: var(--primary); }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .back-link:hover { color: var(--primary); }
+        article { padding: 40px 0 60px; }
+        .article-header { margin-bottom: 30px; text-align: center; }
+        .service-icon-header { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+        h1 {
+            font-family: 'Outfit', sans-serif; font-size: 2.2rem; line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .service-tagline-header {
+            display: block; font-size: 1.05rem; color: var(--secondary);
+            font-weight: 500; margin-bottom: 20px;
+        }
+        .article-body h2 {
+            font-family: 'Outfit', sans-serif; font-size: 1.4rem;
+            margin: 35px 0 15px; color: var(--text-main);
+        }
+        .article-body h2 i { color: var(--primary); margin-right: 10px; }
+        .article-body h3 {
+            font-family: 'Outfit', sans-serif; font-size: 1.1rem;
+            margin: 22px 0 6px; color: var(--text-main);
+        }
+        .article-body p { margin-bottom: 18px; color: var(--text-muted); font-size: 1rem; }
+        .article-body strong { color: var(--text-main); }
+        .cta-section {
+            text-align: center; padding: 40px 30px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 20px; margin: 40px 0 20px;
+        }
+        .cta-section h2 {
+            font-family: 'Outfit', sans-serif; font-size: 1.5rem;
+            margin-bottom: 12px; color: var(--text-main);
+        }
+        .cta-section p {
+            color: var(--text-muted); margin-bottom: 20px;
+            max-width: 500px; margin-left: auto; margin-right: auto;
+        }
+        .cta-section .btn { margin: 0 5px; }
+        footer {
+            text-align: center; padding: 30px 0 20px;
+            border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .service-icon-header { font-size: 2.2rem; }
+        }
+    </style>
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <header>
+    <nav>
         <div class="container">
-            <a href="../index.html" class="logo">
-                <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
-                Kazi<span>Emon</span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../index.html#services" class="active" aria-current="page">Services</a></li>
-                <li><a href="../index.html#articles">Articles</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger" role="button" aria-label="Toggle navigation" aria-expanded="false" tabindex="0">
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            <a href="../index.html" class="logo">Kazi<span>Emon</span></a>
+            <a href="../index.html#services" class="back-link"><i class="fa-solid fa-arrow-left"></i> All Services</a>
+        </div>
+    </nav>
+
+    <article>
+        <div class="container">
+            <div class="article-header">
+                <div class="service-icon-header"><i class="fa-brands fa-facebook-f"></i></div>
+                <h1>Facebook Ads That Convert</h1>
+                <span class="service-tagline-header">High-performing ad campaigns that deliver real results</span>
+            </div>
+
+            <div class="article-body">
+                <h2><i class="fa-solid fa-eye" aria-hidden="true"></i>Overview</h2>
+                <p>Running Facebook ads without a strategy is like throwing money into a fire and hoping it keeps you warm. The reality is that Meta's advertising platform is incredibly powerful when used correctly, but it's also complex — audience targeting, creative formats, bidding strategies, placement optimization, and the ever-changing algorithm all need to work together to deliver results.</p>
+                <p>I design, build, and manage ad campaigns that are structured for one thing: measurable results. From audience research and ad creative to budget management and performance reporting, I handle every part of the campaign lifecycle so you get the best possible return on every dollar spent. This service is for business owners who want predictable, trackable growth from their social media advertising investment.</p>
+                <p>What sets this approach apart is the combination of data-driven strategy and creative execution. I don't just launch ads and hope for the best — I research your audience, test multiple creative angles, optimize based on real performance data, and scale what works. The result is a campaign that improves over time rather than burning out, giving you sustainable customer acquisition at a cost you can count on.</p>
+
+                <h2><i class="fa-solid fa-list-check" aria-hidden="true"></i>What's Included</h2>
+                <h3>Campaign Strategy &amp; Goal Setting</h3>
+                <p>I define clear campaign objectives aligned with your business goals — whether that's lead generation, online sales, website traffic, or brand awareness — and build a strategy designed specifically to achieve those outcomes within your budget.</p>
+                <h3>Audience Research &amp; Targeting</h3>
+                <p>I build precise audience segments using demographics, interests, behaviors, lookalike audiences, and custom audiences from your website visitors and customer lists. The better your targeting, the lower your cost per result.</p>
+                <h3>Ad Creative &amp; Copywriting</h3>
+                <p>I create compelling ad visuals, headlines, and copy tailored to each audience segment and campaign stage — crafted to stop the scroll, communicate your value proposition, and drive action.</p>
+                <h3>Budget Optimization &amp; Bid Management</h3>
+                <p>I manage your daily and lifetime budgets using cost-cap and bid-cap strategies, continuously shifting spend toward the best-performing ad sets to maximize return on ad spend.</p>
+                <h3>A/B Testing &amp; Performance Analysis</h3>
+                <p>I run structured split tests on audiences, creatives, placements, and formats to identify winning combinations, then scale what works and eliminate what doesn't — ensuring your budget is always spent on the highest-performing variations.</p>
+                <h3>Performance Tracking &amp; Reporting</h3>
+                <p>You receive clear, regular reports with key metrics — click-through rate, cost per click, cost per mille, cost per acquisition, and return on ad spend — along with insights and actionable recommendations for continuous improvement.</p>
+
+                <h2><i class="fa-solid fa-route" aria-hidden="true"></i>My Process</h2>
+                <p>Every campaign begins with <strong>audience research</strong>, where I analyze your ideal customer profile, build precise audience segments using demographics, interests, behaviors, and lookalikes, and identify the best targeting approach for your specific campaign goals. Next comes <strong>creative testing</strong> — I design multiple ad variations with different visuals, headlines, and copy variations, then run structured split tests to identify which combinations drive the strongest engagement and conversions.</p>
+                <p>Once winning creatives are identified, I move to <strong>campaign launch and optimization</strong>, deploying the best-performing ad sets with optimized budgets, bids, and placements. I monitor performance daily, adjusting targeting, spend, and creatives to maximize ROI. The final phase is <strong>reporting and scaling</strong> — you receive clear weekly reports with key metrics, and I scale the best-performing campaigns while continuously testing new angles to sustain long-term growth.</p>
+
+                <h2><i class="fa-solid fa-user-check" aria-hidden="true"></i>Ideal For</h2>
+                <p>This service is ideal for <strong>e-commerce stores</strong> that want to drive consistent, profitable traffic to their online store through targeted Facebook and Instagram ad campaigns. It's equally effective for <strong>service-based businesses</strong> such as consultants, coaches, agencies, and local service providers who need a steady stream of qualified leads.</p>
+                <p><strong>Mobile apps and digital products</strong> benefit from cost-effective user acquisition campaigns that scale efficiently, while <strong>local businesses</strong> such as restaurants, clinics, salons, and retail stores can reach customers in their area with precisely targeted location-based ads. If you have a product or service to sell and want a reliable, data-driven system for customer acquisition, this service is built for you.</p>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Run Ads That Actually Deliver?</h2>
+                <p>Let's discuss your goals and build a Facebook ad campaign that brings in real, trackable results.</p>
+                <a href="../contact.html" class="btn btn-primary">Start a Campaign</a>
+                <a href="../index.html" class="btn btn-outline">Back to Home</a>
             </div>
         </div>
-    </header>
-    <main id="main">
-        <section class="page-hero">
-            <div class="container">
-                <h1>Facebook Ads That Convert</h1>
-                <span class="service-tagline" style="display:block;text-align:center;font-size:clamp(0.9rem,1.2vw+0.3rem,1.1rem);margin-bottom:10px;">High-performing ad campaigns that deliver real results</span>
-                <p>Data-driven Facebook and Instagram ad campaigns designed to maximize reach, engagement, and return on ad spend.</p>
-            </div>
-        </section>
-        <section class="service-detail">
-            <div class="container">
-                <div class="service-detail-grid">
-                    <div class="service-detail-text reveal">
-                        <h2>Turn Your Ad Budget Into Predictable Revenue</h2>
-                        <p>
-                            Running Facebook ads without a strategy is like throwing money into a fire and hoping it keeps you warm. I design, build, and manage ad campaigns that are structured for one thing: measurable results.
-                        </p>
-                        <p>
-                            From audience research and ad creative to budget management and performance reporting, I handle every part of the campaign lifecycle — so you get the best possible return on every dollar spent.
-                        </p>
-                    </div>
-                    <div class="service-detail-icon reveal">
-                        <i class="fa-brands fa-facebook"></i>
-                    </div>
-                </div>
+    </article>
 
-                <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-list-check" aria-hidden="true"></i>What This Service Includes</h2>
-                    <div class="bullet-list">
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Campaign Strategy & Goal Setting</h4>
-                                <p>I define clear campaign objectives aligned with your business goals — whether that's lead generation, sales, website traffic, or brand awareness — and build a strategy to achieve them.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Audience Research & Targeting</h4>
-                                <p>I build precise audience segments using demographics, interests, behaviors, lookalikes, and custom audiences from your website visitors and customer lists.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Ad Creative & Copywriting</h4>
-                                <p>I create compelling ad visuals, headlines, and copy tailored to each audience segment and campaign stage — crafted to stop the scroll and drive action.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Budget Optimization & Bid Management</h4>
-                                <p>I manage your daily and lifetime budgets, use cost-cap and bid-cap strategies, and continuously shift spend toward the best-performing ad sets to maximize ROI.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>A/B Testing & Performance Analysis</h4>
-                                <p>I run split tests on audiences, creatives, placements, and formats to identify winning combinations, then scale what works and kill what doesn't.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Performance Tracking & Reporting</h4>
-                                <p>You receive clear, regular reports with key metrics — CTR, CPC, CPM, CPA, ROAS — along with insights and recommendations for continuous improvement.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-route" aria-hidden="true"></i>My Process for This Service</h2>
-                    <div class="workflow-steps">
-                        <div class="workflow-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Audience Research</h4>
-                                <p>I analyze your ideal customer profile, build precise audience segments using demographics, interests, behaviors, and lookalikes, and identify the best targeting approach for your campaign goals.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Creative Testing</h4>
-                                <p>I design multiple ad variations — different visuals, headlines, and copy — and run structured split tests to identify which combinations drive the strongest engagement and conversions.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Campaign Launch & Optimization</h4>
-                                <p>I deploy the winning ad sets with optimized budgets, bids, and placements, then monitor performance daily — adjusting targeting, spend, and creatives to maximize ROI.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h4>Reporting & Scaling</h4>
-                                <p>You receive clear weekly reports with key metrics (CTR, CPC, CPA, ROAS), and I scale the best-performing campaigns while continuously testing new angles for sustained growth.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-user-check" aria-hidden="true"></i>Ideal For</h2>
-                    <div class="benefits-grid">
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <h4>E-Commerce Stores</h4>
-                            <p>You sell products online and want to drive consistent, profitable traffic to your store through targeted Facebook and Instagram ad campaigns.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-user-tie"></i>
-                            <h4>Service-Based Businesses</h4>
-                            <p>You offer services (consulting, coaching, agency, local services) and want a steady stream of qualified leads through social media advertising.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-mobile-screen"></i>
-                            <h4>Mobile Apps & Digital Products</h4>
-                            <p>You have an app, course, or digital product and need cost-effective user acquisition campaigns that scale efficiently.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-building"></i>
-                            <h4>Local Businesses</h4>
-                            <p>You run a local business (restaurant, clinic, salon, store) and want to reach customers in your area with targeted location-based ads.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cta-section reveal">
-                    <h2>Ready to Run Ads That Actually Deliver?</h2>
-                    <p>Let's discuss your goals and build a Facebook ad campaign that brings in real, trackable results.</p>
-                    <a href="../contact.html" class="btn btn-primary">Start a Campaign</a>
-                    <a href="../index.html" class="btn btn-outline" style="margin-left:10px;">Back to Home</a>
-                </div>
-            </div>
-        </section>
-    </main>
     <footer>
-        <div class="container">
-            <div class="footer-content reveal">
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+        <div class="container" style="text-align:center;">
+            <div style="display:flex;justify-content:center;gap:14px;margin-bottom:20px;">
+                <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
-            <div class="copyright">
-                <p>&copy; 2026 Kazi Emon. All Rights Reserved.</p>
-            </div>
+            <p>&copy; 2026 Kazi Emon. All Rights Reserved.</p>
         </div>
     </footer>
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    </button>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:50px;height:50px;border-radius:50%;background:linear-gradient(to right,#7000FF,#00C2FF);color:#fff;border:none;font-size:1.2rem;cursor:pointer;z-index:999;opacity:0;visibility:hidden;transform:translateY(20px);transition:all 0.3s ease;box-shadow:0 4px 15px rgba(112,0,255,0.3);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 8px 25px rgba(112,0,255,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(112,0,255,0.3)'"><i class="fa-solid fa-arrow-up"></i></button>
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        hamburger.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); } });
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.querySelector('i').classList.toggle('fa-bars');
-            hamburger.querySelector('i').classList.toggle('fa-xmark');
-            var expanded = hamburger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-            hamburger.setAttribute('aria-expanded', expanded);
-        });
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.querySelector('i').classList.add('fa-bars');
-                hamburger.querySelector('i').classList.remove('fa-xmark');
-                hamburger.setAttribute('aria-expanded', 'false');
-            });
-        });
-        document.addEventListener('click', function(e) {
-            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                navMenu.classList.remove('active');
-                hamburger.querySelector('i').classList.add('fa-bars');
-                hamburger.querySelector('i').classList.remove('fa-xmark');
-                hamburger.setAttribute('aria-expanded', 'false');
-            }
-        });
-        window.addEventListener('scroll', function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var revealTop = reveals[i].getBoundingClientRect().top;
-                if (revealTop < windowHeight - 150) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        });
-        window.dispatchEvent(new Event('scroll'));
         var backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
-            backToTop.classList.toggle('visible', window.scrollY > 400);
-        });
-        backToTop.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        window.addEventListener('scroll', function() { backToTop.classList.toggle('visible', window.scrollY > 400); });
+        backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     </script>
 </body>
 </html>

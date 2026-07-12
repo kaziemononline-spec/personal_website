@@ -21,243 +21,148 @@
     <meta property="og:image" content="https://www.kaziemon.online/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.kaziemon.online/services/complementary-services.html">
-    <meta property="twitter:title" content="Complementary Marketing Services - Content & Brand Support | Kazi Emon">
-    <meta property="twitter:description" content="Content planning, social media strategy, brand-building guidance, and custom marketing solutions.">
-    <meta property="twitter:image" content="https://www.kaziemon.online/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.kaziemon.online/services/complementary-services.html">
+    <meta name="twitter:title" content="Complementary Marketing Services - Content & Brand Support | Kazi Emon">
+    <meta name="twitter:description" content="Content planning, social media strategy, brand-building guidance, and custom marketing solutions.">
+    <meta name="twitter:image" content="https://www.kaziemon.online/images/og-image.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            background: var(--bg-dark); color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        nav {
+            padding: 20px 0; border-bottom: 1px solid var(--border);
+            background: rgba(3,0,20,0.85); backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 100;
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
+        .logo span { color: var(--primary); }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .back-link:hover { color: var(--primary); }
+        article { padding: 40px 0 60px; }
+        .article-header { margin-bottom: 30px; text-align: center; }
+        .service-icon-header { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+        h1 {
+            font-family: 'Outfit', sans-serif; font-size: 2.2rem; line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .service-tagline-header {
+            display: block; font-size: 1.05rem; color: var(--secondary);
+            font-weight: 500; margin-bottom: 20px;
+        }
+        .article-body h2 {
+            font-family: 'Outfit', sans-serif; font-size: 1.4rem;
+            margin: 35px 0 15px; color: var(--text-main);
+        }
+        .article-body h2 i { color: var(--primary); margin-right: 10px; }
+        .article-body h3 {
+            font-family: 'Outfit', sans-serif; font-size: 1.1rem;
+            margin: 22px 0 6px; color: var(--text-main);
+        }
+        .article-body p { margin-bottom: 18px; color: var(--text-muted); font-size: 1rem; }
+        .article-body strong { color: var(--text-main); }
+        .cta-section {
+            text-align: center; padding: 40px 30px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 20px; margin: 40px 0 20px;
+        }
+        .cta-section h2 {
+            font-family: 'Outfit', sans-serif; font-size: 1.5rem;
+            margin-bottom: 12px; color: var(--text-main);
+        }
+        .cta-section p {
+            color: var(--text-muted); margin-bottom: 20px;
+            max-width: 500px; margin-left: auto; margin-right: auto;
+        }
+        .cta-section .btn { margin: 0 5px; }
+        footer {
+            text-align: center; padding: 30px 0 20px;
+            border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .service-icon-header { font-size: 2.2rem; }
+        }
+    </style>
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <header>
+    <nav>
         <div class="container">
-            <a href="../index.html" class="logo">
-                <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
-                Kazi<span>Emon</span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../index.html#services" class="active" aria-current="page">Services</a></li>
-                <li><a href="../index.html#articles">Articles</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger" role="button" aria-label="Toggle navigation" aria-expanded="false" tabindex="0">
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            <a href="../index.html" class="logo">Kazi<span>Emon</span></a>
+            <a href="../index.html#services" class="back-link"><i class="fa-solid fa-arrow-left"></i> All Services</a>
+        </div>
+    </nav>
+
+    <article>
+        <div class="container">
+            <div class="article-header">
+                <div class="service-icon-header"><i class="fa-solid fa-handshake"></i></div>
+                <h1>Complementary Marketing Services</h1>
+                <span class="service-tagline-header">Everything else your brand needs to grow</span>
+            </div>
+
+            <div class="article-body">
+                <h2><i class="fa-solid fa-eye" aria-hidden="true"></i>Overview</h2>
+                <p>A strong digital presence isn't built on one channel or tactic alone. It requires a thoughtful blend of content, social media, brand positioning, and the right supporting systems working together. Many businesses focus heavily on one area — like paid ads or design — but neglect the foundational elements that make those efforts effective in the first place.</p>
+                <p>I offer a range of complementary marketing services that fill the gaps and strengthen your overall marketing foundation. Whether you need help planning your content calendar, refining your brand voice, getting tailored advice on a specific marketing challenge, or conducting competitor research, I provide practical, no-fluff support that moves your business forward.</p>
+                <p>This service is designed to be flexible — you don't need a long-term retainer or a predefined package. Tell me what you need, and I'll create a custom solution that fits your situation, budget, and timeline. It's marketing support on your terms.</p>
+
+                <h2><i class="fa-solid fa-list-check" aria-hidden="true"></i>What's Included</h2>
+                <h3>Social Media Content Planning</h3>
+                <p>I help you plan your social media content — topic ideas, posting schedules, content themes, and platform-specific strategies — to keep your audience engaged and your brand active without the daily scramble for what to post.</p>
+                <h3>Brand Positioning Guidance</h3>
+                <p>I help you define or refine your brand voice, messaging, unique value proposition, and visual identity guidelines so you communicate clearly and consistently across every channel your business uses.</p>
+                <h3>General Digital Marketing Support</h3>
+                <p>Have a specific marketing question or challenge? I provide on-demand advice and practical solutions for a wide range of scenarios — no project is too small, and no question is too basic.</p>
+                <h3>Custom Solutions Based on Your Needs</h3>
+                <p>Every business is unique. If you need something that doesn't fit neatly into a predefined package, I'll work with you to create a custom solution tailored to your specific situation, goals, and budget.</p>
+                <h3>Content Repurposing Strategy</h3>
+                <p>I help you get more mileage from your existing content — turning blog posts into social posts, videos into articles, and one piece of content into a multi-channel campaign that extends its reach and lifespan.</p>
+                <h3>Competitor &amp; Market Research</h3>
+                <p>I analyze your competitors' digital presence and your market landscape to identify opportunities, gaps, and strategies that can give you a competitive edge and inform your marketing decisions.</p>
+
+                <h2><i class="fa-solid fa-route" aria-hidden="true"></i>My Process</h2>
+                <p>I begin with a <strong>needs assessment</strong>, understanding your current marketing situation — what's working, what's missing, and what specific support you need to fill the gaps in your strategy. From there, I develop a <strong>custom plan</strong> tailored to your unique requirements, covering content themes, posting schedules, brand positioning, or any other area that needs attention.</p>
+                <p>The next phase is <strong>implementation and support</strong>, where I help put the plan into action — whether that's creating a content calendar, refining brand messaging, or providing hands-on guidance for specific marketing tasks. We then enter a cycle of <strong>review and iteration</strong>, discussing what's working and adjusting the approach as needed. This flexible process ensures your marketing stays effective as your business grows and evolves.</p>
+
+                <h2><i class="fa-solid fa-user-check" aria-hidden="true"></i>Ideal For</h2>
+                <p>This service is well-suited for <strong>content creators and bloggers</strong> who need help planning their content, refining their brand voice, or developing a content strategy that attracts and retains their audience. <strong>Social media managers</strong> looking for fresh ideas, content planning support, or brand positioning guidance will also find great value here.</p>
+                <p><strong>Entrepreneurs who know they need marketing support but aren't sure exactly what</strong> will benefit from the flexibility of this service — I help identify your needs and provide tailored solutions that fit your budget and goals. And for <strong>small teams without a dedicated marketing department</strong>, this service fills the gap by providing expert guidance on content, brand, and digital strategy without the cost of a full-time hire.</p>
+            </div>
+
+            <div class="cta-section">
+                <h2>Need Something Specific?</h2>
+                <p>Every business has unique needs. Tell me what you're looking for, and I'll create a custom solution tailored to you.</p>
+                <a href="../contact.html" class="btn btn-primary">Let's Talk</a>
+                <a href="../index.html" class="btn btn-outline">Back to Home</a>
             </div>
         </div>
-    </header>
-    <main id="main">
-        <section class="page-hero">
-            <div class="container">
-                <h1>Complementary Marketing Services</h1>
-                <span class="service-tagline" style="display:block;text-align:center;font-size:clamp(0.9rem,1.2vw+0.3rem,1.1rem);margin-bottom:10px;">Everything else your brand needs to grow</span>
-                <p>Everything else your brand needs to build a well-rounded digital presence — from content planning to brand positioning and beyond.</p>
-            </div>
-        </section>
-        <section class="service-detail">
-            <div class="container">
-                <div class="service-detail-grid">
-                    <div class="service-detail-text reveal">
-                        <h2>Fill the Gaps in Your Marketing</h2>
-                        <p>
-                            A strong digital presence isn't built on one channel or tactic alone. It requires a thoughtful blend of content, social media, brand positioning, and the right supporting systems. I offer a range of complementary services that fill the gaps and strengthen your overall marketing foundation.
-                        </p>
-                        <p>
-                            Whether you need help planning your content calendar, refining your brand voice, or getting tailored advice on a specific marketing challenge, I provide practical, no-fluff support that moves your business forward.
-                        </p>
-                    </div>
-                    <div class="service-detail-icon reveal">
-                        <i class="fa-solid fa-handshake"></i>
-                    </div>
-                </div>
+    </article>
 
-                <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-list-check" aria-hidden="true"></i>What This Service Includes</h2>
-                    <div class="bullet-list">
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Social Media Content Planning</h4>
-                                <p>I help you plan your social media content — topic ideas, posting schedules, content themes, and platform-specific strategies to keep your audience engaged and your brand active.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Brand Positioning Guidance</h4>
-                                <p>I help you define or refine your brand voice, messaging, unique value proposition, and visual identity guidelines so you communicate clearly and consistently across all channels.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>General Digital Marketing Support</h4>
-                                <p>Have a specific marketing question or challenge? I provide on-demand advice and practical solutions for a wide range of digital marketing scenarios — no project too small.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Custom Solutions Based on Your Needs</h4>
-                                <p>Every business is unique. If you need something that doesn't fit neatly into a predefined package, I'll work with you to create a custom solution tailored to your specific situation.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Content Repurposing Strategy</h4>
-                                <p>I help you get more mileage from your existing content — turning blog posts into social posts, videos into articles, and one piece of content into a multi-channel campaign.</p>
-                            </div>
-                        </div>
-                        <div class="bullet-item">
-                            <i class="fa-solid fa-check-circle"></i>
-                            <div>
-                                <h4>Competitor & Market Research</h4>
-                                <p>I analyze your competitors' digital presence and your market landscape to identify opportunities, gaps, and strategies that can give you a competitive edge.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-route" aria-hidden="true"></i>My Process for This Service</h2>
-                    <div class="workflow-steps">
-                        <div class="workflow-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Needs Assessment</h4>
-                                <p>I start by understanding your current marketing situation — what's working, what's missing, and what specific support you need to fill the gaps in your strategy.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Custom Plan Development</h4>
-                                <p>Based on your unique needs, I build a tailored plan covering content themes, posting schedules, brand positioning, or any other area that needs attention.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Implementation & Support</h4>
-                                <p>I help put the plan into action — whether that's creating a content calendar, refining brand messaging, or providing hands-on guidance for specific marketing tasks.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h4>Review & Iterate</h4>
-                                <p>We review the results, discuss what's working, and adjust the approach as needed. This flexible cycle ensures your marketing stays effective as your business grows.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-section reveal">
-                    <h2><i class="fa-solid fa-user-check" aria-hidden="true"></i>Ideal For</h2>
-                    <div class="benefits-grid">
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-pen-fancy"></i>
-                            <h4>Content Creators & Bloggers</h4>
-                            <p>You need help planning your content, refining your brand voice, or developing a content strategy that attracts and retains your audience.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-hashtag"></i>
-                            <h4>Social Media Managers</h4>
-                            <p>You need fresh ideas, content planning support, or brand positioning guidance to take your social media presence to the next level.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <h4>Entrepreneurs Needing Direction</h4>
-                            <p>You know you need marketing support but aren't sure exactly what. I help identify your needs and provide tailored solutions that fit your budget and goals.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fa-solid fa-building"></i>
-                            <h4>Small Teams Without a Marketing Dept</h4>
-                            <p>You don't have a dedicated marketing person but need expert guidance on content, brand, and digital strategy to keep your business growing.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cta-section reveal">
-                    <h2>Need Something Specific?</h2>
-                    <p>Every business has unique needs. Tell me what you're looking for, and I'll create a custom solution tailored to you.</p>
-                    <a href="../contact.html" class="btn btn-primary">Let's Talk</a>
-                    <a href="../index.html" class="btn btn-outline" style="margin-left:10px;">Back to Home</a>
-                </div>
-            </div>
-        </section>
-    </main>
     <footer>
-        <div class="container">
-            <div class="footer-content reveal">
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+        <div class="container" style="text-align:center;">
+            <div style="display:flex;justify-content:center;gap:14px;margin-bottom:20px;">
+                <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.2rem;color:#fff;transition:0.3s;border:1px solid rgba(255,255,255,0.2);" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
-            <div class="copyright">
-                <p>&copy; 2026 Kazi Emon. All Rights Reserved.</p>
-            </div>
+            <p>&copy; 2026 Kazi Emon. All Rights Reserved.</p>
         </div>
     </footer>
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    </button>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" style="position:fixed;bottom:30px;right:30px;width:50px;height:50px;border-radius:50%;background:linear-gradient(to right,#7000FF,#00C2FF);color:#fff;border:none;font-size:1.2rem;cursor:pointer;z-index:999;opacity:0;visibility:hidden;transform:translateY(20px);transition:all 0.3s ease;box-shadow:0 4px 15px rgba(112,0,255,0.3);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 8px 25px rgba(112,0,255,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(112,0,255,0.3)'"><i class="fa-solid fa-arrow-up"></i></button>
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        hamburger.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); } });
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.querySelector('i').classList.toggle('fa-bars');
-            hamburger.querySelector('i').classList.toggle('fa-xmark');
-            var expanded = hamburger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-            hamburger.setAttribute('aria-expanded', expanded);
-        });
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.querySelector('i').classList.add('fa-bars');
-                hamburger.querySelector('i').classList.remove('fa-xmark');
-                hamburger.setAttribute('aria-expanded', 'false');
-            });
-        });
-        document.addEventListener('click', function(e) {
-            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                navMenu.classList.remove('active');
-                hamburger.querySelector('i').classList.add('fa-bars');
-                hamburger.querySelector('i').classList.remove('fa-xmark');
-                hamburger.setAttribute('aria-expanded', 'false');
-            }
-        });
-        window.addEventListener('scroll', function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var revealTop = reveals[i].getBoundingClientRect().top;
-                if (revealTop < windowHeight - 150) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        });
-        window.dispatchEvent(new Event('scroll'));
         var backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
-            backToTop.classList.toggle('visible', window.scrollY > 400);
-        });
-        backToTop.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        window.addEventListener('scroll', function() { backToTop.classList.toggle('visible', window.scrollY > 400); });
+        backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     </script>
 </body>
 </html>

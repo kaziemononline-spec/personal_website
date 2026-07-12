@@ -374,28 +374,9 @@ header .container { display: flex; justify-content: space-between; align-items: 
 }
 .service-link:hover { gap: 12px; color: var(--secondary); }
 
-/* ================= SERVICE ACCORDION ================= */
-.service-details {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.25s ease;
-    margin-top: 0;
-}
-.service-card.expanded .service-details {
-    max-height: 1000px;
-    opacity: 1;
-    margin-top: 24px;
-}
-.service-details-inner {
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-}
 .detail-block {
     margin-bottom: 16px;
-}
-.detail-block:last-child {
-    margin-bottom: 0;
+    margin-top: 14px;
 }
 .detail-block h4 {
     font-family: 'Outfit', sans-serif;
@@ -435,9 +416,6 @@ header .container { display: flex; justify-content: space-between; align-items: 
     height: 6px;
     border-radius: 50%;
     background: var(--primary);
-}
-.service-card.expanded {
-    border-color: var(--primary);
 }
 
 /* ================= ARTICLES ================= */
@@ -934,37 +912,7 @@ footer {
     color: var(--text-muted);
 }
 
-/* ================= SERVICE CARD TOGGLE ================= */
-.service-link {
-    cursor: pointer;
-    user-select: none;
-    background: none;
-    border: none;
-    font-family: inherit;
-    padding: 0;
-}
-.service-link .arrow-icon {
-    display: inline-block;
-    transition: transform 0.25s ease;
-}
-.service-card.expanded .service-link .arrow-icon {
-    transform: rotate(180deg);
-}
-.service-link-detail {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--primary);
-    font-weight: 600;
-    font-size: clamp(0.82rem, 0.7vw + 0.25rem, 0.9rem);
-    text-decoration: none;
-    transition: gap 0.3s, color 0.3s;
-    margin-top: 16px;
-}
-.service-link-detail:hover {
-    gap: 12px;
-    color: var(--secondary);
-}
+
 
 /* ================= BACK TO TOP ================= */
 .back-to-top {
