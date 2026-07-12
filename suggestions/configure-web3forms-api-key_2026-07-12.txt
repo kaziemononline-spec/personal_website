@@ -1,104 +1,48 @@
-#1 Priority Suggestion: configure-web3forms-api-key
-
----
-
-## QA Review Report — kaziemon.online
+# Website QA Review — Kazi Emon (kaziemon.online)
 **Date:** July 12, 2026
-**Reviewer:** @tester
+**Tester:** @tester subagent
+
+## Rating: 8.5/10
+
+## #1 Priority Suggestion: configure web3forms API key
 
 ---
 
-### Rating
-**7.8 / 10**
+## What's Working
+
+### 1. WhatsApp Icon Placement ✅
+- No floating green WhatsApp button exists anywhere on the site
+- Footer social row: WhatsApp icon present alongside LinkedIn, Facebook, Instagram with same size/style/hover
+- Contact page social links row: all 4 icons uniform
+- WhatsApp appears as contact method on contact.html
+- All pages have WhatsApp in footer social row
+
+### 2. Learn More / Learn Less Toggle ✅
+- Text changes correctly between "Learn More" and "Learn Less"
+- Arrow icon flips smoothly via CSS transform
+- aria-expanded toggled properly
+- All 4 cards operate independently
+
+### 3. Animations ✅
+- Service card expand/collapse smooth (max-height transition 0.3s)
+- Service card hover: translateY(-6px), shadow increase, icon scale
+- Social icon hover: translateY(-4px) scale(1.08), background color change
+- Scroll reveal animations working
+
+### 4. Responsive Design ✅
+- Mobile (375px): hamburger works, single column layout, icons visible
+- Tablet (768px): 2-column grids, nav slides in from right
+- Desktop (1024px): hero/about stack correctly
+
+### 5. General ✅
+- Semantic HTML, skip link, alt text, heading hierarchy
+- JSON-LD structured data
+- FAQ accordion working
 
 ---
 
-### What's Working
+## Issues Found
 
-**Homepage**
-- All 4 service cards have correct "Learn More" links pointing to their respective service pages under `services/` — all verified working ✓
-- Hero section is compelling with clear headline, subtext, and dual CTAs
-- Smooth scroll-reveal animations on sections
-- Clean "About" section with stats (5+ years, 50+ projects, 30+ clients)
-- Well-structured services grid with 4 distinct cards
-- Working FAQ accordion with meaningful answers
-- Testimonials section placeholder is honest and includes a CTA
-- WhatsApp floating button present and properly linked
-- Back-to-top button functioning
-- Scroll-based active nav highlighting works correctly
-
-**Service Pages (All 4)**
-- Proper navigation with Home → `../index.html`, About → `../about.html`, Contact → `../contact.html` ✓
-- Services link in nav correctly marked `active` and pointing to `../index.html#services` ✓
-- Consistent header, footer, and social links across all pages ✓
-- "Services" link navigates back to homepage services section correctly
-- Hero sections each have proper service name heading and tailored tagline
-- "Overview" section (service-detail-grid) has relevant heading and 2 paragraphs per service
-- "What's Included" section has 6 expanded bullet items with detailed descriptions each ✓
-- "My Process for This Service" sections added with 4 unique steps per service ✓
-- "Ideal For" section has 4 benefit cards with icons per service ✓
-- CTA sections have both a primary button to `../contact.html` and a "Back to Home" outline button ✓
-- All buttons and links use proper relative paths (`../` prefix)
-
-**SEO & Meta**
-- Every page has complete meta tags: title, description, keywords, author, canonical URL ✓
-- OG tags (title, description, image, url, type, site_name, image dimensions) present on every page ✓
-- Twitter card tags present on every page ✓
-- JSON-LD structured data on homepage and about page
-- Proper favicon set (SVG, PNG, Apple touch, ICO)
-- Font preconnect for performance optimization
-
-**Design & Accessibility**
-- Consistent dark theme, purple/cyan accent colors throughout
-- Same fonts (Outfit + Plus Jakarta Sans) across all pages
-- Skip-to-content links on all pages (`href="#main"`)
-- `aria-label` on icon-only buttons and links
-- Semantic HTML structure
-- Hamburger menu with `aria-expanded` state management
-- Responsive design with `clamp()` for fluid typography and spacing
-- `loading="lazy"` on images for performance
-
-**About Page**
-- Comprehensive about content with all 4 service specialties explained
-- Skills tags for quick scanning
-- Responsive 2-column layout that collapses on mobile
-
-**Contact Page**
-- Multiple contact methods displayed with icons
-- Web3Forms integration with client-side validation (name, email, subject, message)
-- Email validation before submission
-- Success/error status messages displayed to user
-- Google Mail compose link for direct email
-
----
-
-### Issues Found
-
-| # | Severity | Issue |
-|---|----------|-------|
-| 1 | **High** | **Contact form will not submit successfully** — The Web3Forms API key is set to the placeholder `YOUR_WEB3FORMS_ACCESS_KEY`. Any user who fills out the form will get an error message. This is a critical functionality blocker. |
-| 2 | **Medium** | **WhatsApp floating button missing on all 4 service pages** — The homepage, about page, and contact page all have a persistent WhatsApp chat button. The service pages lack this, creating an inconsistent user experience. Users on service pages can't instantly reach out via WhatsApp without navigating back. |
-| 3 | **Low** | **No JSON-LD structured data on service pages** — Only the homepage and about page have schema.org structured data. Service pages would benefit from having `Service` or `Product` schema markup for rich search results. |
-| 4 | **Info** | **Service pages show "Services" as active in nav** — This is correct behavior since these are service sub-pages, but nav points to the homepage anchor, not a standalone services page. |
-
----
-
-### Suggestions
-
-1. **CRITICAL: Replace the Web3Forms API key** — Set `YOUR_WEB3FORMS_ACCESS_KEY` to a real access key immediately. The contact form is the primary lead generation tool and is currently broken.
-
-2. **Add WhatsApp button to service pages** — Copy the WhatsApp float HTML from the homepage into all service pages for consistent cross-page communication access.
-
-3. **Add JSON-LD structured data** — Add `Service` schema markup to each service page for enhanced search engine results (rich snippets).
-
-4. **Consider adding client logos or case studies** — The testimonials section currently shows a placeholder. Adding real testimonials or client logos would significantly boost social proof.
-
-5. **Add a "Related Services" section** — At the bottom of each service page, consider showing links to other services to encourage exploration and cross-selling.
-
----
-
-### Verdict
-
-**KEEP** — The site is live, well-designed, and content-rich. The 4 service pages are well-structured with comprehensive content, proper navigation, strong SEO meta tags, and consistent branding.
-
-**Summary:** Excellent design, comprehensive content, good SEO. Fix the contact form key and consider adding WhatsApp buttons and JSON-LD to service pages.
+1. Web3Forms API key placeholder - contact form non-functional
+2. Testimonials section still shows placeholder text
+3. Minor nav active state inconsistencies

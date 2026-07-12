@@ -600,17 +600,23 @@
         });
 
         // Service card accordion toggle (Learn More / Learn Less)
-        document.querySelectorAll('.service-link').forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                var card = this.closest('.service-card');
-                var isExpanded = card.classList.toggle('expanded');
-                this.setAttribute('aria-expanded', isExpanded);
-                var arrow = this.querySelector('.arrow-icon');
-                if (isExpanded) {
-                    this.innerHTML = 'Learn Less <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>';
-                } else {
-                    this.innerHTML = 'Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>';
+        document.querySelectorAll('.service-card').forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                var link = e.target.closest('.service-link');
+                var detailLink = e.target.closest('.service-link-detail');
+                if (detailLink) return;
+                if (!link && !e.target.closest('.service-details')) {
+                    link = this.querySelector('.service-link');
+                }
+                if (link) {
+                    e.preventDefault();
+                    var isExpanded = this.classList.toggle('expanded');
+                    link.setAttribute('aria-expanded', isExpanded);
+                    if (isExpanded) {
+                        link.innerHTML = 'Learn Less <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>';
+                    } else {
+                        link.innerHTML = 'Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>';
+                    }
                 }
             });
         });
