@@ -1,0 +1,107 @@
+# 🧪 Website QA Report — kaziemon.online
+
+**Date:** July 12, 2026
+**Reviewer:** Tester Agent
+
+**#1 Priority Suggestion:** improve-favicon-and-og-image
+
+---
+
+## Rating: **8.5 / 10**
+
+This is a polished, professional single-page portfolio with strong visual design and solid content. It achieves everything a personal brand site should — clear messaging, good aesthetics, and functional interactivity. A few polish items keep it from a 9+.
+
+---
+
+## What's Working ✅
+
+### Visual Design
+- **Dark theme is executed beautifully** — The `#030014` background with `#7000FF` purple and `#00C2FF` cyan accents is consistent throughout. Gradient text on hero headings looks premium.
+- **Typography pairing is excellent** — Outfit (display) + Plus Jakarta Sans (body) gives a modern, tech-forward feel.
+- **Hover effects are tasteful** — Cards lift with `translateY(-10px)`, borders glow with purple, icons scale subtly. Not overdone.
+- **Backdrop blur on sticky header** creates a nice glass-morphism effect.
+- **Scroll-triggered reveal animations** (`fadeInUp`) are smooth and not jarring.
+- **Back-to-top button** appears at the right scroll point and uses the gradient theme.
+
+### Content & Messaging
+- **Hero copy is tight** — "Digital Growth, Simplified" is memorable and positioned well.
+- **Services section has exactly 4 cards** as specified, each with:
+  - Relevant Font Awesome icon ✅
+  - Title ✅
+  - Cyan tagline (`--secondary` color) ✅
+  - Descriptive paragraph ✅
+  - "Learn More" button that expands to "What's Included" with 4 bullet points ✅
+- **About section** reads authentically and builds trust with stats (5+ years, 50+ projects, 30+ clients).
+- **Process section** (Discover → Plan → Execute → Optimize) clearly explains methodology.
+- **Articles section** has 3 real, published articles with actual content — not lorem ipsum.
+- **Testimonials section** is honest about being a placeholder ("The first testimonial could be yours") which is charming.
+
+### Footer ✅
+- **"Email Me" button** with `btn-gradient` style linking to Gmail compose ✅
+  - URL: `https://mail.google.com/mail/?view=cm&fs=1&to=kaziaremon@gmail.com` ✅
+- Social links for LinkedIn, Facebook, Instagram all open in new tabs and have correct URLs. ✅
+- Copyright notice present. ✅
+
+### Contact Section ✅
+- Email `kaziaremon@gmail.com` is fully clickable, linking to Gmail compose. ✅
+- Contact form uses `FormSubmit.co` service with proper validation.
+- Success/error states are styled with appropriate colors (cyan for success, red for error).
+- Form includes: name, email, subject, message fields — all properly labeled.
+
+### Navigation & Structure
+- **5 nav items** (Home, About, Services, Articles, Contact) work correctly.
+- Active nav state updates based on scroll position via JS.
+- Inner pages (about.html, contact.html) have consistent navigation with `index.html#services` and `index.html#articles` anchor links back to the home page sections.
+- Hamburger menu for mobile with proper `aria-expanded` toggling.
+- Click-outside-to-close behavior on mobile menu.
+
+### Advanced Pages
+- **4 service detail pages** in `/services/` with deep content (meta-ads, canva, digital-growth, article-writing).
+- **3 article pages** in `/articles/` with full article content, reading time, and related article links.
+- **sitemap.xml** covers all 10 pages.
+- **Schema.org JSON-LD** for Person type on the homepage.
+
+### Performance
+- Images use `loading="lazy"` ✅
+- `preconnect` hints for Google Fonts and CDNJS ✅
+- Single CSS file, no render-blocking JS in `<head>` ✅
+- Font Awesome loaded from CDN ✅
+
+---
+
+## Issues Found ⚠️
+
+### Medium Priority
+
+1. **OG image aspect ratio is non-standard** — The OG image is 2100x2160 (nearly square). Social sharing platforms expect 1200x630 (1.91:1). This means shared links on Facebook/LinkedIn will show a cropped or oddly sized preview. Fix: Resize the OG image to 1200x630.
+
+2. **Contact form on contact.html lacks `action` attribute fallback** — The index page form has `action="https://formsubmit.co/ajax/kaziaremon@gmail.com" method="POST"` as a non-JS fallback, but the contact.html form omits these attributes. If JS fails to load, the form silently does nothing. Fix: Add the same `action` and `method` to contact.html's form.
+
+### Low Priority
+
+3. **Footer "Email Me" button only on index page** — The about.html and contact.html footers lack the gradient "Email Me" CTA button that appears on the homepage footer. For consistency, it should appear on all pages.
+
+4. **Article pages use a simplified header** — Article pages have a minimal header (just logo + "All Articles" link) without the full nav menu. This is a deliberate design choice but may disorient users who want to navigate to other sections. Consider adding at least a hamburger menu with full nav on article pages.
+
+5. **Inline styles in testimonials section** — The testimonials section uses inline `style` attributes (`style="display:flex;justify-content:center;max-width:550px"`) rather than CSS classes. Minor inconsistency with the otherwise clean codebase.
+
+6. **No visible focus indicators on interactive elements** — Tab-navigating the site doesn't show clear focus rings on buttons, links, or form inputs (beyond the skip link). This hurts keyboard accessibility.
+
+7. **Testimonial placeholders** — While the honest placeholder text is fine, consider adding at least 1-2 real testimonials or case studies to build social proof for new visitors.
+
+---
+
+## Verdict: **KEEP** ✅
+
+**Reasoning:** The site is in excellent shape. All required features are present and functioning:
+- ✅ 4 service cards with accordion "What's Included" details
+- ✅ "Email Me" button linking to Gmail compose
+- ✅ Clickable email in contact section
+- ✅ Dark theme with purple + cyan accents
+- ✅ Clean, professional layout
+- ✅ All navigation links work
+- ✅ Hamburger menu, back-to-top button, scroll animations all functional
+
+No breaking bugs, layout breakage, or missing content was found. The issues identified are polish/optimization items, not blockers. The site is ready to ship as-is, and improvements can be made incrementally.
+
+The #1 priority action: Fix the OG image dimensions for proper social sharing previews — this directly impacts how the site appears when shared on LinkedIn, Facebook, and Twitter.

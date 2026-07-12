@@ -780,6 +780,25 @@ header .container { display: flex; justify-content: space-between; align-items: 
     margin-right: auto;
 }
 
+/* ================= FOCUS VISIBLE ================= */
+:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+.form-group input:focus-visible,
+.form-group textarea:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 0;
+    border-radius: 12px;
+}
+.service-link:focus-visible,
+.article-link:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
 /* ================= FOOTER ================= */
 footer {
     padding: 60px 0 30px;
