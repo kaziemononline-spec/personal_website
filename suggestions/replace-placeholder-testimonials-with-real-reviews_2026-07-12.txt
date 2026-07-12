@@ -1,0 +1,40 @@
+# 🧪 Website QA Report — kaziemon.online
+
+**Date:** July 12, 2026
+**Reviewer:** Tester Agent
+
+## Rating: 8.5 / 10
+
+---
+
+## What's Working ✅
+
+1. **Dark theme executed beautifully** — The #030014 background with purple (#7000FF) and cyan (#00C2FF) accents is consistent, modern, and professional. Gradient hero text and hover effects are tasteful.
+
+2. **Typography is excellent** — Outfit (display) + Plus Jakarta Sans (body) pairing gives a clean, tech-forward feel. All text is readable, properly sized, and has good contrast against the dark background.
+
+3. **"Dhaka, Bangladesh" is present** in the contact section ✅ — both on the homepage and the contact page.
+
+4. **Business hours are removed** ✅ — No trace of "Mon-Fri, 9:00 AM - 6:00 PM" anywhere on the site.
+
+5. **Social media links verified in both the contact section and the footer** ✅ — All three platforms (LinkedIn, Facebook, Instagram) appear in both locations with correct URLs opening in new tabs.
+
+6. **Contact section social icons are visible and styled** — Both contact section and footer have matching circular icon buttons with purple hover effects.
+
+7. **Container width is well-balanced** — max-width 1400px with responsive padding adjustments ensure content doesn't feel too narrow or too stretched.
+
+8. **Mobile responsiveness** — Media queries handle layout shifts well with grids collapsing, font sizes scaling, and touch targets appropriately sized.
+
+---
+
+## Issues Found ⚠️
+
+1. **Missing rel="noopener noreferrer" on some social media links** — A few target="_blank" links lack this security attribute.
+
+2. **Testimonial section is still a placeholder** — The "first testimonial could be yours" message doesn't build trust for first-time visitors.
+
+---
+
+## Verdict: KEEP ✅
+
+All required changes are functional. No breaking bugs or layout issues found.
