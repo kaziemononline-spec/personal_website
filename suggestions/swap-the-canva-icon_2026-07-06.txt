@@ -1,0 +1,25 @@
+## QA Review — kaziemon.online
+### Date: 2026-07-06
+### Change: Accordion feature on service cards
+
+**Rating: 8.5/10**
+
+### What's Working Well
+- All 4 service cards are present with correct, unique content for each (Meta Ads, Canva, Digital Growth, Article Writing)
+- Accordion mechanic is properly implemented — button toggles, smooth CSS transitions on max-height/opacity, aria-expanded state management, and button text swaps correctly (Learn More → Show Less with up arrow)
+- Dark theme (#030014) + purple/cyan accents are consistent and clean throughout
+- Mobile responsive breakpoints are well-defined (1200px → 1024px → 768px → 480px); services grid collapses to single column on mobile
+- Images use loading="lazy", preconnect hints for Google Fonts/CDN are present, CSS is cacheable
+- 3 detail sections ("What I Do", "Who It's For", "My Process") per card — all populated with relevant content, no placeholders
+
+### What Could Be Improved
+1. **Canva icon is a maple leaf (fa-canadian-maple-leaf)** — Since Canva is an Australian tool, the Canadian maple leaf feels mismatched. Consider using fa-palette, fa-paintbrush, or fa-objects-column instead.
+2. **Accordion max-height: 1000px** — If actual content is ~400px, collapsing delays before the animation visibly starts. A JS-driven height calculation or smaller max-height (~600px) would feel snappier.
+3. **CF Challenge Platform script injected** — Adds an extra iframe + JS that can delay interactivity. This is a Cloudflare setting, not a code issue, but worth noting.
+4. **Testimonials section shows placeholder text** ("The first testimonial could be yours") — Fine for now but could feel incomplete to visitors.
+5. **No will-change on .service-details** — Having will-change: transform, opacity on the accordion panel could help GPU-accelerate the animation on lower-end devices, especially on mobile.
+
+### Verdict: KEEP
+
+### #1 Priority Suggestion
+Swap the Canva icon — Replace fa-canadian-maple-leaf with a more appropriate icon like fa-palette or fa-paintbrush for better brand accuracy.
