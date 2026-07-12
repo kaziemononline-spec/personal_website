@@ -178,7 +178,12 @@
                     </div>
                 </div>
 
-                <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/ajax/kaziaremon@gmail.com" method="POST" style="padding:0;background:none;border:none;">
+                <form class="contact-form reveal" id="contactForm" method="POST" style="padding:0;background:none;border:none;">
+                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                    <input type="hidden" name="subject" id="hiddenSubject" value="New Contact Form Submission">
+                    <input type="hidden" name="from_name" value="Kazi Emon Website">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -224,6 +229,10 @@
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
+
+    <a href="https://wa.me/8801560066374?text=Hi%20Kazi%2C%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
 
     <script>
         const hamburger = document.querySelector('.hamburger');
@@ -278,8 +287,14 @@
         var contactForm = document.getElementById('contactForm');
         var formStatus = document.getElementById('formStatus');
 
+        function validateEmail(email) {
+            var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+
             var name = document.getElementById('name').value.trim();
             var email = document.getElementById('email').value.trim();
             var subject = document.getElementById('subject').value.trim();
@@ -291,25 +306,34 @@
                 return;
             }
 
+            if (!validateEmail(email)) {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
             var submitBtn = contactForm.querySelector('.form-submit');
             submitBtn.disabled = true;
             submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>';
 
-            var formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('subject', subject);
-            formData.append('message', message);
+            document.getElementById('hiddenSubject').value = 'New Contact: ' + subject;
 
-            fetch('https://formsubmit.co/ajax/kaziaremon@gmail.com', {
+            var formData = new FormData(contactForm);
+
+            fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: formData
             })
             .then(function(response) { return response.json(); })
             .then(function(data) {
-                formStatus.className = 'form-status success';
-                formStatus.textContent = 'Message sent! I\'ll get back to you within 24 hours.';
-                contactForm.reset();
+                if (data.success) {
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = 'Message sent! I\'ll get back to you within 24 hours.';
+                    contactForm.reset();
+                } else {
+                    formStatus.className = 'form-status error';
+                    formStatus.textContent = 'Something went wrong. Please email me directly at kaziaremon@gmail.com';
+                }
             })
             .catch(function() {
                 formStatus.className = 'form-status error';
@@ -321,7 +345,7 @@
                 setTimeout(function() {
                     formStatus.className = 'form-status';
                     formStatus.textContent = '';
-                }, 5000);
+                }, 6000);
             });
         });
     </script>

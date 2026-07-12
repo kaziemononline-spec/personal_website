@@ -875,6 +875,95 @@ footer {
 
 .copyright { color: var(--text-muted); font-size: clamp(0.82rem, 0.6vw + 0.25rem, 0.9rem); border-top: 1px solid var(--border); padding-top: clamp(14px, 2vw, 20px); }
 
+/* ================= FAQ ================= */
+#faq { padding: clamp(50px, 8vw, 100px) 0; }
+.faq-list {
+    max-width: min(800px, 100%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.5vw, 14px);
+}
+.faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+.faq-item:hover { border-color: rgba(112,0,255,0.3); }
+.faq-question {
+    width: 100%;
+    padding: clamp(16px, 2.5vw, 22px) clamp(18px, 3vw, 26px);
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.95rem, 1vw + 0.2rem, 1.05rem);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: 14px;
+    transition: 0.3s;
+}
+.faq-question i {
+    font-size: 0.85rem;
+    color: var(--primary);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+}
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 clamp(18px, 3vw, 26px);
+}
+.faq-item.active .faq-answer {
+    max-height: 400px;
+    padding: 0 clamp(18px, 3vw, 26px) clamp(18px, 2.5vw, 24px);
+}
+.faq-answer p {
+    font-size: clamp(0.85rem, 0.7vw + 0.25rem, 0.93rem);
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+/* ================= WHATSAPP FLOAT ================= */
+.whatsapp-float {
+    position: fixed;
+    bottom: clamp(75px, 10vw, 90px);
+    right: clamp(15px, 3vw, 30px);
+    width: clamp(50px, 5vw, 56px);
+    height: clamp(50px, 5vw, 56px);
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    z-index: 998;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+    transition: all 0.3s ease;
+    animation: whatsappPulse 2s infinite;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+    color: #fff;
+}
+@keyframes whatsappPulse {
+    0% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35); }
+    50% { box-shadow: 0 4px 25px rgba(37, 211, 102, 0.55); }
+    100% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35); }
+}
+
 /* ================= BACK TO TOP ================= */
 .back-to-top {
     position: fixed;
