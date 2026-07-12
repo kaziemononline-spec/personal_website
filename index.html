@@ -596,6 +596,14 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
+        // Service card accordion toggle
+        document.querySelectorAll('.service-card').forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('.service-link')) return;
+                this.classList.toggle('expanded');
+            });
+        });
+
         // FAQ accordion
         document.querySelectorAll('.faq-question').forEach(function(btn) {
             btn.addEventListener('click', function() {
