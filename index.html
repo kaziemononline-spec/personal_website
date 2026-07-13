@@ -227,7 +227,7 @@
                             <li>Ongoing guidance and consultation</li>
                         </ul>
                     </div>
-                    <a href="services/digital-marketing-advisory.html" class="service-link" data-service="0">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></a>
+                    <a href="services/digital-marketing-advisory.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></a>
                 </div>
                 <div class="service-card reveal">
                     <i class="fa-brands fa-facebook-f service-icon" aria-hidden="true"></i>
@@ -243,7 +243,7 @@
                             <li>Performance tracking and reporting</li>
                         </ul>
                     </div>
-                    <a href="services/facebook-ads.html" class="service-link" data-service="1">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></a>
+                    <a href="services/facebook-ads.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></a>
                 </div>
                 <div class="service-card reveal">
                     <i class="fa-solid fa-palette service-icon" aria-hidden="true"></i>
@@ -259,7 +259,7 @@
                             <li>Fast turnaround on design requests</li>
                         </ul>
                     </div>
-                    <a href="services/canva-design.html" class="service-link" data-service="2">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></a>
+                    <a href="services/canva-design.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></a>
                 </div>
                 <div class="service-card reveal">
                     <i class="fa-solid fa-handshake service-icon" aria-hidden="true"></i>
@@ -275,7 +275,7 @@
                             <li>Custom solutions based on your needs</li>
                         </ul>
                     </div>
-                    <a href="services/complementary-services.html" class="service-link" data-service="3">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></a>
+                    <a href="services/complementary-services.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -495,33 +495,6 @@
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <!-- Service Detail Modal -->
-    <div id="serviceModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <div class="modal-body">
-                <div class="modal-header">
-                    <i class="modal-icon" aria-hidden="true"></i>
-                    <h2 id="modal-title" class="modal-title"></h2>
-                </div>
-                <div class="modal-description"></div>
-                <div class="modal-section">
-                    <h3>What's Included</h3>
-                    <ul class="modal-list"></ul>
-                </div>
-                <div class="modal-section">
-                    <h3>Who This Is For</h3>
-                    <p class="modal-audience"></p>
-                </div>
-                <div class="modal-section">
-                    <h3>How It Works</h3>
-                    <ol class="modal-steps"></ol>
-                </div>
-                <a href="#contact-form-section" class="modal-cta">Get Started <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-        </div>
-    </div>
-
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
@@ -615,167 +588,7 @@
             });
         });
 
-        // ===== SERVICE MODAL =====
-        var serviceData = [
-            {
-                icon: 'fa-chart-line',
-                title: 'Digital Marketing Advisory',
-                description: [
-                    'Running a business in today\'s digital landscape can feel overwhelming. With so many platforms, tools, and strategies to choose from, it\'s easy to waste time and money on what doesn\'t work. That\'s where I come in.',
-                    'I work closely with you to understand your business goals, target audience, and current challenges. Together, we build a personalized digital strategy that focuses on what actually moves the needle — whether that\'s growing your social media presence, generating more leads, or increasing online sales.',
-                    'This isn\'t a one-size-fits-all template. Every recommendation is tailored to your industry, budget, and growth stage. I provide clear, actionable steps so you know exactly what to do next.',
-                    'Beyond the initial strategy, I offer ongoing consultation to help you adapt and refine your approach as your business grows. Think of me as your on-demand digital growth partner.'
-                ],
-                whatsIncluded: [
-                    'In-depth business and audience analysis',
-                    'Custom digital channel strategy and prioritization',
-                    'Content and messaging framework',
-                    'Growth roadmap with milestones and KPIs',
-                    'Monthly check-ins and strategy adjustments',
-                    'Competitive landscape assessment'
-                ],
-                whoItsFor: 'Small to medium business owners who know they need to grow online but aren\'t sure where to start — or feel stuck with their current approach.',
-                howItWorks: [
-                    'Discovery Call — We discuss your business, goals, and current challenges.',
-                    'Strategy Development — I analyze your market and build a custom growth plan.',
-                    'Implementation & Support — You execute with my guidance, and we refine as we go.'
-                ]
-            },
-            {
-                icon: 'fa-facebook-f',
-                title: 'Facebook Ads That Convert',
-                description: [
-                    'Facebook and Instagram ads remain one of the most powerful ways to reach your ideal customers — but only when they\'re set up correctly. Poor targeting, weak creative, and neglected optimization are why most ad campaigns fail to deliver results.',
-                    'I design and manage Facebook ad campaigns from the ground up, starting with a deep understanding of your customer profile and business objectives. From there, I build audiences, write ad copy, design visuals, and structure campaigns for maximum efficiency.',
-                    'My approach is data-driven and ROI-focused. I constantly monitor performance, test variations, and reallocate budget to what\'s working. The result is a campaign that doesn\'t just get views — it gets results, whether that\'s leads, sales, or brand awareness.',
-                    'You\'ll receive regular performance reports so you always know where your ad spend is going and what it\'s generating. No jargon, no fluff — just clear numbers and insights.'
-                ],
-                whatsIncluded: [
-                    'Full campaign audit or strategy from scratch',
-                    'Custom audience research and targeting',
-                    'Ad creative direction and copywriting',
-                    'Budget structure and bidding strategy',
-                    'Ongoing split testing and optimization',
-                    'Weekly performance reports with insights'
-                ],
-                whoItsFor: 'Business owners who want to run Facebook ads but lack the time, expertise, or confidence to do it themselves — or who are currently running ads that aren\'t performing well.',
-                howItWorks: [
-                    'Kickoff & Research — I study your business, competitors, and ideal customer.',
-                    'Campaign Build — I set up audiences, creatives, copy, and tracking.',
-                    'Launch & Optimize — I launch the campaign and continuously optimize for the best ROI.'
-                ]
-            },
-            {
-                icon: 'fa-palette',
-                title: 'Canva Design Services',
-                description: [
-                    'Your brand\'s visual identity is often the first impression potential customers have of your business. In a crowded digital space, professional and consistent design helps you stand out and build trust.',
-                    'I create custom Canva designs that align with your brand guidelines and speak directly to your audience. From social media graphics and story templates to promotional posters, banners, and marketing collateral, I handle a wide range of design needs with quick turnaround times.',
-                    'You don\'t need to be a designer or spend hours fiddling with templates. Just share your vision, brand colors, and any reference materials, and I\'ll deliver polished, ready-to-use designs that elevate your brand.',
-                    'I also offer template creation so you can maintain consistency across your content, even when producing it in-house. The goal is to make your brand look professional and cohesive across every touchpoint.'
-                ],
-                whatsIncluded: [
-                    'Custom social media graphics (posts, stories, covers)',
-                    'Promotional posters, banners, and flyers',
-                    'Branded presentation decks',
-                    'Marketing collateral design',
-                    'Editable Canva templates for in-house use',
-                    'Fast turnaround — typically 24 to 48 hours'
-                ],
-                whoItsFor: 'Entrepreneurs, small business owners, and content creators who need high-quality visual content but don\'t have design skills or a dedicated designer on staff.',
-                howItWorks: [
-                    'Brief & Brand Review — You share your needs, brand assets, and design preferences.',
-                    'Design Creation — I create the visuals and send them for your review.',
-                    'Revisions & Delivery — I make any adjustments and deliver the final files in your preferred format.'
-                ]
-            },
-            {
-                icon: 'fa-handshake',
-                title: 'Complementary Marketing Services',
-                description: [
-                    'A strong digital presence requires more than just ads or good design. It needs a cohesive strategy that ties together your messaging, content, brand positioning, and overall marketing approach.',
-                    'I offer complementary marketing services designed to fill the gaps and strengthen the areas that support your core growth efforts. This includes content planning to keep your social feeds active and engaging, brand positioning guidance, and general digital marketing advice to help you make smarter decisions.',
-                    'Think of this as a flexible support system. Whether you need someone to brainstorm content ideas, review your brand messaging, or advise on a new marketing channel, I\'m here to help.',
-                    'These services pair perfectly with my other offerings, but they also work as standalone support if you just need an extra hand in specific areas.'
-                ],
-                whatsIncluded: [
-                    'Monthly content calendar planning',
-                    'Brand voice and messaging refinement',
-                    'Social media strategy and best practices',
-                    'Marketing channel recommendations',
-                    'Ad-hoc digital marketing consultation'
-                ],
-                whoItsFor: 'Business owners who already have some marketing foundations in place but need extra support in specific areas to maintain momentum and consistency.',
-                howItWorks: [
-                    'Needs Assessment — We identify which areas need the most support.',
-                    'Custom Plan — I create a focused plan addressing those needs.',
-                    'Ongoing Support — I provide the agreed-upon services with regular check-ins to track progress.'
-                ]
-            }
-        ];
 
-        var modal = document.getElementById('serviceModal');
-        var modalOverlay = modal;
-        var modalContent = modal.querySelector('.modal-content');
-
-        function openModal(index) {
-            var service = serviceData[index];
-            if (!service) return;
-
-            modal.querySelector('.modal-icon').className = 'fa-solid ' + service.icon + ' modal-icon';
-            modal.querySelector('.modal-title').textContent = service.title;
-
-            var descContainer = modal.querySelector('.modal-description');
-            descContainer.innerHTML = '';
-            service.description.forEach(function(p) {
-                var para = document.createElement('p');
-                para.textContent = p;
-                descContainer.appendChild(para);
-            });
-
-            var listContainer = modal.querySelector('.modal-list');
-            listContainer.innerHTML = '';
-            service.whatsIncluded.forEach(function(item) {
-                var li = document.createElement('li');
-                li.textContent = item;
-                listContainer.appendChild(li);
-            });
-
-            modal.querySelector('.modal-audience').textContent = service.whoItsFor;
-
-            var stepsContainer = modal.querySelector('.modal-steps');
-            stepsContainer.innerHTML = '';
-            service.howItWorks.forEach(function(step) {
-                var li = document.createElement('li');
-                li.textContent = step;
-                stepsContainer.appendChild(li);
-            });
-
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        modal.querySelector('.modal-close').addEventListener('click', closeModal);
-
-        modalOverlay.addEventListener('click', function(e) {
-            if (e.target === modalOverlay) closeModal();
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
-        });
-
-        document.querySelectorAll('.service-link[data-service]').forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                openModal(parseInt(this.dataset.service));
-            });
-        });
     </script>
 
 </body>
