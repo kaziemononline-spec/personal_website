@@ -656,6 +656,30 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .form-status.success { display: block; background: rgba(0, 194, 255, 0.1); border: 1px solid var(--secondary); color: var(--secondary); }
 .form-status.error { display: block; background: rgba(255, 0, 0, 0.1); border: 1px solid #ff3333; color: #ff6666; }
 
+/* ================= BACK LINK (service detail pages) ================= */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: clamp(0.85rem, 0.7vw + 0.25rem, 0.95rem);
+    font-weight: 500;
+    transition: color 0.3s, gap 0.3s;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.back-link i {
+    font-size: 0.85rem;
+    transition: transform 0.3s;
+}
+.back-link:hover {
+    color: var(--secondary);
+    gap: 12px;
+}
+.back-link:hover i {
+    transform: translateX(-3px);
+}
+
 /* ================= SERVICE DETAIL PAGES ================= */
 .service-detail { padding: clamp(50px, 8vw, 100px) 0; }
 .service-detail-grid {
