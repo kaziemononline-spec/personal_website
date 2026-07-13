@@ -365,14 +365,28 @@ header .container { display: flex; justify-content: space-between; align-items: 
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: gap 0.3s;
-    background: none;
-    border: none;
+    transition: gap 0.3s, background 0.3s;
     cursor: pointer;
     font-family: inherit;
-    padding: 0;
+    padding: 10px 24px;
+    background: rgba(112, 0, 255, 0.1);
+    border: 1px solid rgba(112, 0, 255, 0.25);
+    border-radius: 10px;
+    text-decoration: none;
 }
-.service-link:hover { gap: 12px; color: var(--secondary); }
+.service-link:hover {
+    gap: 12px;
+    color: #fff;
+    background: var(--primary);
+    border-color: var(--primary);
+}
+.service-link:hover .arrow-icon {
+    transform: translateX(2px);
+}
+.arrow-icon {
+    transition: transform 0.3s;
+    font-size: 0.75em;
+}
 
 .detail-block {
     margin-bottom: 16px;
