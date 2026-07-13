@@ -495,6 +495,33 @@
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
+    <!-- Service Detail Modal -->
+    <div id="serviceModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <i class="modal-icon" aria-hidden="true"></i>
+                    <h2 id="modal-title" class="modal-title"></h2>
+                </div>
+                <div class="modal-description"></div>
+                <div class="modal-section">
+                    <h3>What's Included</h3>
+                    <ul class="modal-list"></ul>
+                </div>
+                <div class="modal-section">
+                    <h3>Who This Is For</h3>
+                    <p class="modal-audience"></p>
+                </div>
+                <div class="modal-section">
+                    <h3>How It Works</h3>
+                    <ol class="modal-steps"></ol>
+                </div>
+                <a href="#contact-form-section" class="modal-cta">Get Started <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
@@ -751,31 +778,5 @@
         });
     </script>
 
-    <!-- Service Detail Modal -->
-    <div id="serviceModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <div class="modal-body">
-                <div class="modal-header">
-                    <i class="modal-icon" aria-hidden="true"></i>
-                    <h2 id="modal-title" class="modal-title"></h2>
-                </div>
-                <div class="modal-description"></div>
-                <div class="modal-section">
-                    <h3>What's Included</h3>
-                    <ul class="modal-list"></ul>
-                </div>
-                <div class="modal-section">
-                    <h3>Who This Is For</h3>
-                    <p class="modal-audience"></p>
-                </div>
-                <div class="modal-section">
-                    <h3>How It Works</h3>
-                    <ol class="modal-steps"></ol>
-                </div>
-                <a href="#contact-form-section" class="modal-cta">Get Started <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
