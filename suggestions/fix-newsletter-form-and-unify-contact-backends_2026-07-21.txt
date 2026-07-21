@@ -1,0 +1,16 @@
+# Full QA Report — kaziemon.online (Post-Fix Review)
+# Date: July 21, 2026
+# Rating: 7.8 / 10
+# Verdict: IMPROVE
+
+## #1 Priority: Fix newsletter form and unify contact backends
+
+## Issues Found:
+1. Newsletter form is non-functional (fake animation only)
+2. Two different contact form backends (FormSubmit on index, Web3Forms on contact.html)
+3. Home page contact form lacks Web3Forms access_key and honeypot
+4. Navigation missing "Work" on inner pages
+5. Service page CTAs link to Gmail compose URLs instead of contact.html
+6. Article pages use minimal footer/nav
+
+## Verdict: IMPROVE

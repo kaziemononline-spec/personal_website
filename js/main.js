@@ -182,15 +182,28 @@
                 btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
                 btn.disabled = true;
 
-                setTimeout(function () {
+                const formData = new FormData();
+                formData.append('access_key', '3b3fb149-1b7f-4fc7-b0a7-6d99b86f36e7');
+                formData.append('email', email);
+                formData.append('subject', 'New Newsletter Subscription');
+                formData.append('from_name', 'Kazi Emon Website');
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(function () {
                     btn.innerHTML = '<i class="fa-solid fa-check"></i>';
                     input.value = '';
-
                     setTimeout(function () {
                         btn.innerHTML = originalHtml;
                         btn.disabled = false;
                     }, 2000);
-                }, 1000);
+                })
+                .catch(function () {
+                    btn.innerHTML = originalHtml;
+                    btn.disabled = false;
+                });
             }
         });
     }
@@ -205,25 +218,30 @@
             const btn = this.querySelector('.form-submit-btn');
             const originalHtml = btn.innerHTML;
 
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Please fill in all fields.';
+                return;
+            }
+
             btn.innerHTML = 'Sending <i class="fa-solid fa-spinner fa-spin"></i>';
             btn.disabled = true;
             formStatus.className = 'form-status';
             formStatus.textContent = '';
 
             const formData = new FormData(this);
-            const data = {};
-            formData.forEach(function (value, key) {
-                data[key] = value;
-            });
 
-            fetch('https://formsubmit.co/ajax/kaziaremon@gmail.com', {
+            fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(data)
+                body: formData
             })
             .then(function (res) { return res.json(); })
             .then(function (response) {
-                if (response.success === true || response.message) {
+                if (response.success) {
                     formStatus.className = 'form-status success';
                     formStatus.textContent = 'Message sent! I\'ll get back to you within 24 hours.';
                     contactForm.reset();

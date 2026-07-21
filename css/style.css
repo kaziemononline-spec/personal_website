@@ -1327,6 +1327,18 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 }
 
 /* ================= BACK TO TOP ================= */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .back-to-top {
     position: fixed;
     bottom: clamp(16px, 3vw, 30px);
