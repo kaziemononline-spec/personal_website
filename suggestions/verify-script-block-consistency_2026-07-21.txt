@@ -25,3 +25,6 @@ Rating: 8/10
 Verdict: IMPROVE
 
 #1 Priority Suggestion: Fix script — either add class="nav-link" to <a> tags in nav, or change querySelector('.nav-link') to querySelector('#navMenu a') so hamburger close-on-click works
+
+=== Follow-up ===
+Fix applied in commit 604731e: changed `.nav-link` to `#navMenu a` in script.

@@ -1,0 +1,26 @@
+# QA Report — Canva Design Service Page
+# Date: July 21, 2026
+# Page: https://www.kaziemon.online/services/canva-design.html
+# Rating: 8 / 10
+# Verdict: KEEP
+
+## What's Working
+- OG meta tags (og:title, og:description, og:image, twitter:card) present and correct
+- Navbar matches index.html structure with proper hamburger lines, aria labels, and id attributes
+- <main id="main"> for consistency with homepage
+- Footer matches index.html: includes footer-wave SVG, footer-grid with brand/links/services/newsletter sections, footer-bottom with copyright
+- Back-to-top button present and functional
+- FAQ accordion uses the same script logic as before
+- Content sections (Overview, What's Included, What's NOT Included, How It Works, Who This Is For, FAQ, CTA) all intact
+- Hamburger menu controlled by new script with click-outside-to-close behavior
+- No inline padding-top style on container (handled by navbar CSS now)
+
+## Issues / Improvement Opportunities
+1. **Nav links use class `nav-link` but the HTML has no `nav-link` class** — The script selects `.nav-link` but the nav `<a>` tags don't have that class. The close-on-click won't work for mobile nav links until fixed.
+2. **Back-to-top scroll listener now uses `{ passive: true }`** — Good, but the old `reveal()` scroll listener was removed. If other service pages rely on `.reveal` animations, that's fine since this page doesn't use them.
+3. **OG image referenced (`og-image.jpg`)** — Should verify this file exists at `../images/og-image.jpg` relative to the services directory (or at the absolute path).
+
+## #1 Priority: Add `nav-link` class to navbar `<a>` elements so mobile menu close-on-click works properly.
+
+## Verdict
+KEEP — The page is fully aligned with index.html's nav, footer, and meta tags. Only minor issue is the missing `nav-link` class on anchor tags.
