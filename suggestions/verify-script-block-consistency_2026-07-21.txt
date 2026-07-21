@@ -1,0 +1,27 @@
+=== Tester QA Report ===
+File: services/complementary-marketing.html
+Date: 2026-07-21
+URL: https://www.kaziemon.online/services/complementary-marketing.html
+Commit: fdbcfa6
+
+Rating: 8/10
+
+✓ Working:
+- OG meta tags (13 total) present in head for social sharing
+- Navigation replaced with semantic <nav class="navbar">, proper ARIA, hamburger with 3 spans
+- "Insights" link (previously "Articles") matches other pages
+- <main id="main"> added for skip-to-content accessibility
+- Inline padding style removed from container
+- Full footer grid deployed — brand section, quick links, services links, newsletter form, copyright with heart
+- Wave SVG decoration in footer
+- Back-to-top button present
+- FAQ accordion script functional
+- All existing content preserved (Overview, What's Included, What's NOT, How It Works, FAQ, CTA)
+
+✗ Issues:
+1. Script still references `.nav-link` class but nav links use `<a>` directly, not `.nav-link` — nav close-on-link-click won't fire
+2. OG image (og-image.jpg) may not exist yet — placeholder reference
+
+Verdict: IMPROVE
+
+#1 Priority Suggestion: Fix script — either add class="nav-link" to <a> tags in nav, or change querySelector('.nav-link') to querySelector('#navMenu a') so hamburger close-on-click works
