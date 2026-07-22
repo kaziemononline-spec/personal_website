@@ -86,30 +86,38 @@
     handleNavScroll();
 
     /* ─── ACTIVE NAV LINK (scroll spy, homepage only) ─── */
+    var sectionToPage = {
+        'about': 'about.html',
+        'contact': 'contact.html'
+    };
+
     function updateActiveNav() {
-        const sections = document.querySelectorAll('section[id]');
+        var sections = document.querySelectorAll('section[id]');
         if (sections.length === 0) return;
 
-        const scrollPos = window.scrollY + 120;
+        var scrollPos = window.scrollY + 120;
 
         navLinks.forEach(function (link) {
             link.classList.remove('active');
         });
 
-        let currentId = 'home';
+        var currentId = 'home';
         sections.forEach(function (section) {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
+            var top = section.offsetTop;
+            var height = section.offsetHeight;
             if (scrollPos >= top && scrollPos < top + height) {
                 currentId = section.id;
             }
         });
 
-        const matchingLink = document.querySelector('.nav-link[href="#' + currentId + '"]');
-        if (matchingLink) {
-            matchingLink.classList.add('active');
+        var link = document.querySelector('.nav-link[href="#' + currentId + '"]');
+        if (!link && sectionToPage[currentId]) {
+            link = document.querySelector('.nav-link[href="' + sectionToPage[currentId] + '"]');
+        }
+        if (link) {
+            link.classList.add('active');
         } else {
-            const homeLink = document.querySelector('.nav-link[href="#main"]');
+            var homeLink = document.querySelector('.nav-link[href="#main"]');
             if (homeLink) homeLink.classList.add('active');
         }
     }
