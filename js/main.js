@@ -85,9 +85,11 @@
     window.addEventListener('scroll', handleNavScroll, { passive: true });
     handleNavScroll();
 
-    /* ─── ACTIVE NAV LINK (scroll spy) ─── */
+    /* ─── ACTIVE NAV LINK (scroll spy, homepage only) ─── */
     function updateActiveNav() {
         const sections = document.querySelectorAll('section[id]');
+        if (sections.length === 0) return;
+
         const scrollPos = window.scrollY + 120;
 
         navLinks.forEach(function (link) {
@@ -112,8 +114,10 @@
         }
     }
 
-    window.addEventListener('scroll', updateActiveNav, { passive: true });
-    window.addEventListener('load', updateActiveNav);
+    if (document.querySelectorAll('section[id]').length > 0) {
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+        window.addEventListener('load', updateActiveNav);
+    }
 
     /* ─── SCROLL REVEAL ─── */
     function revealElements() {
@@ -214,8 +218,9 @@
     if (contactForm && formStatus) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            const btn = this.querySelector('.form-submit-btn');
-            const originalHtml = btn.innerHTML;
+
+            const submitBtn = this.querySelector('.form-submit-btn, .form-submit');
+            const originalHtml = submitBtn ? submitBtn.innerHTML : '';
 
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -227,10 +232,18 @@
                 return;
             }
 
-            btn.innerHTML = 'Sending <i class="fa-solid fa-spinner fa-spin"></i>';
-            btn.disabled = true;
+            if (submitBtn) {
+                submitBtn.innerHTML = 'Sending <i class="fa-solid fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
+            }
             formStatus.className = 'form-status';
             formStatus.textContent = '';
+
+            var hiddenSubject = document.getElementById('hiddenSubject');
+            var subjectInput = document.getElementById('subject');
+            if (hiddenSubject && subjectInput) {
+                hiddenSubject.value = 'New Contact: ' + subjectInput.value.trim();
+            }
 
             const formData = new FormData(this);
 
@@ -254,8 +267,10 @@
                 formStatus.textContent = 'Something went wrong. Please email me directly at kaziaremon@gmail.com.';
             })
             .finally(function () {
-                btn.innerHTML = originalHtml;
-                btn.disabled = false;
+                if (submitBtn) {
+                    submitBtn.innerHTML = originalHtml;
+                    submitBtn.disabled = false;
+                }
             });
         });
     }

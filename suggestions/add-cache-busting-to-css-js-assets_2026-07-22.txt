@@ -1,0 +1,40 @@
+# QA Report — Kazi Emon Website (kaziemon.online)
+**Date:** July 22, 2026
+**Version tested:** Latest deployed commit (9705330)
+
+## #1 Priority Suggestion: deploy latest commit
+
+## Rating
+**8.5/10**
+
+## What's Working
+
+**✅ "By the Numbers" Results Grid (formerly Testimonials)**
+- Clean 4-column grid with bold gradient numbers (50+, 30+, 38%, 3.2x)
+- Excellent use of the purple/cyan gradient on metrics
+- Hover states with translateY and purple border glow add polish
+- CTA below turns static metrics into lead generation
+- Responsive: collapses to 2 columns on tablet/mobile
+
+**✅ Portfolio Grid (formerly Slick Carousel)**
+- All 3 case studies visible at once — huge UX improvement
+- Cards have consistent sizing, good hover effects, clean glassmorphism
+- Removed jQuery + Slick dependencies (saves ~95KB + 2 HTTP requests)
+- Responsive grid adapts cleanly
+
+**✅ Newsletter Form Feedback**
+- Text feedback now shows on subscribe: "You're subscribed!" in green
+- Status auto-clears after 4 seconds
+
+**✅ Performance Wins**
+- No jQuery, no Slick — faster page loads
+
+## Issues Found
+
+**⚠️ CDN Caching** — Some visitors may see old version until cache propagates
+**⚠️ Results grid on <480px** — 2 columns may be cramped on very small screens
+**⚠️ Section ID still `#testimonials`** — should rename to `#results`
+**⚠️ Newsletter success green contrast** — `#00C851` could be brighter
+
+## Verdict
+**KEEP** ✅ — Clear improvement. Portfolio grid is the standout upgrade. Removed jQuery/Slick dependencies for performance win.
