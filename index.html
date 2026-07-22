@@ -37,9 +37,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
-
     <link rel="stylesheet" href="css/style.css">
 
     <script type="application/ld+json">
@@ -241,7 +238,7 @@
                     <span class="section-subtitle">Case Studies</span>
                     <h2 class="section-title">Featured Work</h2>
                 </div>
-                <div class="portfolio-carousel reveal">
+                <div class="portfolio-grid reveal">
                     <div class="portfolio-card">
                         <div class="portfolio-visual" style="background: linear-gradient(135deg, #7000FF, #4A00B0);">
                             <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
@@ -339,24 +336,30 @@
         <section id="testimonials" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-subtitle">Social Proof</span>
-                    <h2 class="section-title">What Clients Say</h2>
+                    <span class="section-subtitle">Results That Speak</span>
+                    <h2 class="section-title">By the Numbers</h2>
                 </div>
-                <div class="testimonial-wrapper reveal">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">
-                            <i class="fa-solid fa-star" aria-hidden="true"></i>
-                            <i class="fa-solid fa-star" aria-hidden="true"></i>
-                            <i class="fa-solid fa-star" aria-hidden="true"></i>
-                            <i class="fa-solid fa-star" aria-hidden="true"></i>
-                            <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "I'm currently delivering results for amazing clients — their feedback will be added here once their projects are complete."
-                        </p>
-                        <p class="testimonial-cta">Ready to become the next success story?</p>
-                        <a href="#contact" class="btn btn-outline">Start Your Success Story</a>
+                <div class="results-grid reveal">
+                    <div class="result-card">
+                        <span class="result-number">50+</span>
+                        <span class="result-label">Projects Delivered</span>
                     </div>
+                    <div class="result-card">
+                        <span class="result-number">30+</span>
+                        <span class="result-label">Happy Clients</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-number">38%</span>
+                        <span class="result-label">Avg. CPA Reduction</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-number">3.2x</span>
+                        <span class="result-label">Avg. ROAS</span>
+                    </div>
+                </div>
+                <div class="results-cta reveal">
+                    <p>Ready to add your results to this list?</p>
+                    <a href="#contact" class="btn btn-primary">Start Your Success Story</a>
                 </div>
             </div>
         </section>
@@ -465,6 +468,7 @@
                     <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
                     <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
                 </form>
+                <p class="newsletter-status" id="newsletterStatus"></p>
                 <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
             </div>
         </div>
@@ -480,8 +484,6 @@
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script src="js/main.js"></script>
 
 </body>

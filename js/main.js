@@ -37,24 +37,7 @@
         typeEffect();
     }
 
-    /* ─── PORTFOLIO CAROUSEL (Slick) ─── */
-    if (typeof $ !== 'undefined' && $.fn && $.fn.slick) {
-        $('.portfolio-carousel').slick({
-            dots: true,
-            arrows: true,
-            infinite: true,
-            speed: 600,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            centerMode: false,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            pauseOnHover: true,
-            responsive: [
-                { breakpoint: 768, settings: { arrows: false, dots: true } }
-            ]
-        });
-    }
+    /* ─── PORTFOLIO (static grid, carousel removed per QA) ─── */
 
     /* ─── HAMBURGER / MOBILE NAV ─── */
     const hamburger = document.getElementById('hamburger');
@@ -169,6 +152,7 @@
 
     /* ─── NEWSLETTER FORM ─── */
     const newsletterForm = document.getElementById('newsletterForm');
+    const newsletterStatus = document.getElementById('newsletterStatus');
 
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function (e) {
@@ -176,35 +160,50 @@
             const input = this.querySelector('input');
             const email = input.value.trim();
 
-            if (email) {
-                const btn = this.querySelector('button');
-                const originalHtml = btn.innerHTML;
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-                btn.disabled = true;
+            if (!email) return;
 
-                const formData = new FormData();
-                formData.append('access_key', '3b3fb149-1b7f-4fc7-b0a7-6d99b86f36e7');
-                formData.append('email', email);
-                formData.append('subject', 'New Newsletter Subscription');
-                formData.append('from_name', 'Kazi Emon Website');
+            const btn = this.querySelector('button');
+            const originalHtml = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+            btn.disabled = true;
+            if (newsletterStatus) newsletterStatus.textContent = '';
 
-                fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(function () {
-                    btn.innerHTML = '<i class="fa-solid fa-check"></i>';
-                    input.value = '';
-                    setTimeout(function () {
-                        btn.innerHTML = originalHtml;
-                        btn.disabled = false;
-                    }, 2000);
-                })
-                .catch(function () {
+            const formData = new FormData();
+            formData.append('access_key', '3b3fb149-1b7f-4fc7-b0a7-6d99b86f36e7');
+            formData.append('email', email);
+            formData.append('subject', 'New Newsletter Subscription');
+            formData.append('from_name', 'Kazi Emon Website');
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(function () {
+                btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+                input.value = '';
+                if (newsletterStatus) {
+                    newsletterStatus.textContent = 'You\'re subscribed!';
+                    newsletterStatus.className = 'newsletter-status success';
+                }
+                setTimeout(function () {
                     btn.innerHTML = originalHtml;
                     btn.disabled = false;
-                });
-            }
+                    if (newsletterStatus) {
+                        setTimeout(function () {
+                            newsletterStatus.textContent = '';
+                            newsletterStatus.className = 'newsletter-status';
+                        }, 4000);
+                    }
+                }, 2000);
+            })
+            .catch(function () {
+                btn.innerHTML = originalHtml;
+                btn.disabled = false;
+                if (newsletterStatus) {
+                    newsletterStatus.textContent = 'Something went wrong. Try again.';
+                    newsletterStatus.className = 'newsletter-status error';
+                }
+            });
         });
     }
 
