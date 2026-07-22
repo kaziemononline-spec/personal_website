@@ -1,0 +1,44 @@
+Tester QA Report — July 22, 2026
+URL: https://www.kaziemon.online/
+
+Rating: 9/10
+Verdict: KEEP
+
+=== What's Working ✅ ===
+
+Design & Visual
+- Beautiful dark theme with purple/cyan accents
+- Premium glassmorphism cards with glow effects
+- Typing animation, code snippet visual on-brand
+- Results grid, consistent styling across all pages
+
+Content & Messaging
+- "every marketing dollar spent" — correct international phrasing
+- "Remote-first — serving clients worldwide" in About section
+- Four clearly defined services with distinct value propositions
+- Service pages have: Overview, What's Included, Not Included, How It Works, FAQ
+- Payment Methods section on contact.html (PayPal, Wise, Payoneer)
+
+Navigation & Structure
+- Homepage nav: About → about.html, Contact → contact.html ✅
+- Four service cards link to correct /services/ pages ✅
+- Subpage navs consistent, footer links consistent
+
+Contact Section (Homepage)
+- No form on homepage — just "Send a Detailed Message" button linking to contact.html ✅
+
+Contact Page
+- Full form with Web3Forms, Subject field, 7 contact methods, Payment Methods ✅
+
+Technical
+- .deb files gone ✅
+- Preconnect hints, lazy loading, semantic HTML, accessibility
+- Back-to-top, smooth scroll reveal, responsive
+
+=== Issues Found ⚠️ ===
+
+1. Scroll Spy Broken for About & Contact Nav Items — The scroll spy looks for anchor links, but About/Contact now point to page URLs. When scrolling to About/Contact sections, "Home" stays highlighted. (Fixed in follow-up commit.)
+
+=== Verdict ===
+
+KEEP — Significant improvement overall. Scroll spy regression fixed immediately in follow-up.
