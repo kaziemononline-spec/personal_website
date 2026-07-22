@@ -654,10 +654,19 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: clamp(20px, 3vw, 30px);
     max-width: min(1200px, 100%);
     margin: 0 auto;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card .service-features {
+    flex: 1;
 }
 
 .glass-card {
@@ -763,6 +772,7 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 }
 
 .service-link {
+    margin-top: auto;
     color: var(--primary);
     font-weight: 600;
     font-size: clamp(0.85rem, 0.7vw + 0.25rem, 0.95rem);
@@ -1737,6 +1747,7 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     .contact-wrap { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .results-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
