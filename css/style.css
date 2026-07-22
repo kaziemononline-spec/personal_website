@@ -1733,7 +1733,7 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     gap: 12px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= RESPONSIVE BREAKPOINTS ================= */
 @media (max-width: 1024px) {
     .hero-grid {
         grid-template-columns: 1fr;
