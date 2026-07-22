@@ -200,35 +200,39 @@
                     </div>
                 </div>
 
-                <form class="contact-form reveal" id="contactForm" method="POST" style="padding:0;background:none;border:none;">
-                    <input type="hidden" name="access_key" value="3b3fb149-1b7f-4fc7-b0a7-6d99b86f36e7">
-                    <input type="hidden" name="subject" id="hiddenSubject" value="New Contact Form Submission">
-                    <input type="hidden" name="from_name" value="Kazi Emon Website">
-                    <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off">
+                <div class="contact-details-card reveal">
+                    <h2>Send a Message</h2>
+                    <p>Fill out the form below and I'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="contactForm" method="POST">
+                        <input type="hidden" name="access_key" value="3b3fb149-1b7f-4fc7-b0a7-6d99b86f36e7">
+                        <input type="hidden" name="subject" id="hiddenSubject" value="New Contact Form Submission">
+                        <input type="hidden" name="from_name" value="Kazi Emon Website">
+                        <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off">
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
-                    </div>
-                    <div class="form-status" id="formStatus"></div>
-                    <button type="submit" class="form-submit">
-                        Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                </form>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <div class="form-status" id="formStatus"></div>
+                        <button type="submit" class="form-submit">
+                            Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
                 </div>
                 <div style="margin-top:24px;">
                     <a href="index.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home</a>

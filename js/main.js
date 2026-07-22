@@ -204,7 +204,7 @@
                         setTimeout(function () {
                             newsletterStatus.textContent = '';
                             newsletterStatus.className = 'newsletter-status';
-                        }, 4000);
+                        }, 15000);
                     }
                 }, 2000);
             })

@@ -1,0 +1,33 @@
+Tester QA Report - 2026-07-22
+
+Rating: 7.5/10
+Verdict: IMPROVE
+
+#1 Priority Suggestion: Fix service card CTA button alignment (flex column + margin-top: auto)
+
+What is working:
+- Visual design: dark theme, purple/cyan accents, glassmorphism cards, typography
+- Content: professional copy, clear service differentiation, strong USP
+- Layout: logical section flow, scroll spy, consistent subpages
+- Responsiveness: clamp() font sizing, hamburger menu, fluid grids
+- Functionality: hero typing effect, newsletter form, scroll animations
+- Performance: lazy loading, font preconnect, minimal HTTP requests, Cloudflare CDN
+- Accessibility: skip-link, focus-visible outlines, ARIA labels, semantic HTML
+
+Issues found:
+- Critical: CTA buttons not aligned at same level (cards lack flex column)
+- Medium: 4 cards in 3-col grid creates orphaned 4th card
+- Medium: No inline contact form on homepage
+- Minor: Missing aria-hidden on portfolio decorative icons
+- Minor: Loading state transition on contact form
+- Minor: Newsletter success message timeout too short
+
+Improvement suggestions:
+1. Add flex column to glass-card + margin-top: auto on service-link (ALREADY IMPLEMENTED)
+2. Balance services grid (2x2 for 4 cards)
+3. Add inline contact form to homepage
+4. Add aria-hidden to portfolio icons
+5. Consider hero image preloading
+6. Trim/expand descriptions for height consistency
+
+Note: The #1 fix was already applied in commit 6cc85ad before tester ran.
