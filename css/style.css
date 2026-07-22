@@ -1747,7 +1747,6 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     .about-skills { justify-content: center; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .results-grid { grid-template-columns: repeat(2, 1fr); }
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1819,7 +1818,8 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     .portfolio-grid { grid-template-columns: 1fr; }
     .about-skills { justify-content: center; }
     .contact-form-wrap { padding: 20px; }
-    .form-submit-btn { width: 100%; justify-content: center; }
+    .form-submit-btn,
+    .form-submit { width: 100%; justify-content: center; }
     .footer-links ul li a { min-height: 44px; display: inline-flex; align-items: center; }
 }
 
