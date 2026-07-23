@@ -1766,6 +1766,7 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     .about-skills { justify-content: center; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .results-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
