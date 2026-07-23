@@ -1,0 +1,23 @@
+# QA Report - July 22, 2026
+## Rating: 9/10
+## Verdict: KEEP
+
+## Deployed Fixes Verified:
+1. ✅ Services grid: auto-fit + minmax — no orphaned 4th card
+2. ✅ Service cards: flex column, equal heights, CTA buttons aligned at bottom
+3. ✅ Homepage contact: single column centered (no empty grid column)
+4. ✅ Contact form: wrapped in glass card matching design
+5. ✅ form-submit button: width fit-content desktop, full-width mobile
+6. ✅ Newsletter timeout: extended to 15 seconds
+7. ✅ Unused hero-bg.jpg removed
+
+## Remaining Minor Issues:
+- Article page footers missing newsletter signup and full footer links
+- Inline styles on contact page links
+- bg-card vs bg-glass variable inconsistency (negligible visual diff)
+
+## Suggestions:
+- Unify article page footers with full footer
+- Add sitemap.xml for SEO
+- Monitor Web3Forms API limits
+- Add meta theme-color for mobile browser chrome

@@ -601,6 +601,7 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     border-radius: 20px;
     border: 1px solid var(--border);
     box-shadow: var(--shadow-card);
+    aspect-ratio: 1166 / 1200;
 }
 
 .about-text h3 {
@@ -654,9 +655,9 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: clamp(20px, 3vw, 30px);
-    max-width: min(1200px, 100%);
+    max-width: min(900px, 100%);
     margin: 0 auto;
 }
 
@@ -812,6 +813,8 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     border-radius: var(--radius-xl);
     overflow: hidden;
     transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .portfolio-card:hover {
@@ -835,6 +838,7 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 
 .portfolio-body {
     padding: clamp(20px, 3vw, 30px);
+    flex: 1;
 }
 
 .portfolio-tag {
@@ -914,6 +918,7 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    aspect-ratio: 600 / 400;
 }
 
 .article-card:hover .article-img {
@@ -1223,8 +1228,8 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     background: rgba(255, 255, 255, 0.06);
     border-radius: 50%;
     font-size: 1.1rem;
@@ -1409,6 +1414,11 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     outline: 2px solid var(--secondary);
     outline-offset: 0;
     border-radius: 12px;
+}
+
+/* ================= ARTICLE PAGES ================= */
+.featured-img {
+    aspect-ratio: 600 / 400;
 }
 
 /* ================= SERVICE PAGES ================= */
