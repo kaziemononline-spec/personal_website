@@ -1,0 +1,16 @@
+# Final QA Review — 2026-07-23
+
+## Rating: 9.5/10
+## Verdict: KEEP
+
+### All 8 Fixes Verified Live
+1. ✅ Services grid: 2x2 desktop, 1-col mobile
+2. ✅ Image width/height + aspect-ratio on all 8 images
+3. ✅ Portfolio & article cards equal height with flex:1
+4. ✅ Footer social buttons 44px (was 42px)
+5. ✅ Font Awesome: all.min.css → fontawesome + solid + brands subset
+6. ✅ Hamburger & newsletter button: min 44x44px touch targets
+7. ✅ --text-dim: #7C8BA8 (up from #64748B, passes WCAG AA)
+8. ✅ Hero marketing badge: right:0 (was right:-10px)
+9. ✅ Service link & FAQ buttons: min-height 44px on mobile
+10. ✅ CSS cache buster bumped to v5
