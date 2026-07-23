@@ -1810,6 +1810,7 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
         justify-content: center;
     }
 
+    .services-grid { grid-template-columns: 1fr; }
     .results-grid { grid-template-columns: repeat(2, 1fr); }
 
     .form-row { grid-template-columns: 1fr; }
@@ -1832,7 +1833,7 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     .btn-group .btn { justify-content: center; min-height: 48px; }
     .btn { min-height: 48px; }
     .section-title { font-size: clamp(1.4rem, 6vw, 1.8rem); }
-    .services-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
     .articles-grid { grid-template-columns: 1fr; }
     .portfolio-grid { grid-template-columns: 1fr; }
     .about-skills { justify-content: center; }
@@ -1848,5 +1849,6 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     .container { padding: 0 12px; }
     .hero-title { font-size: 1.4rem; }
     .hero-marketing-badge { flex-direction: column; text-align: center; gap: 6px; }
+    .hero-stats-card { padding: 16px; }
     .logo { font-size: 1rem; }
 }
