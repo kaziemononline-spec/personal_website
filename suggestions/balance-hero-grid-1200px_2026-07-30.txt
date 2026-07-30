@@ -1,0 +1,21 @@
+# QA Review — Desktop Hero Section — 2026-07-30
+
+## Rating: 8.5/10
+
+## What's Working
+- 1200px grid max-width prevents awkward stretching on wide/ultra-wide screens
+- 320px min-height on hero-visual improves column balance vs old 450px
+- Grid feels centered and intentional at all desktop sizes
+- Button hover states smooth (0.3s cubic-bezier) — not abrupt
+- SCROLL indicator properly centered below the two-column grid
+- No mobile regressions — all breakpoints (768px, 480px, 375px, 320px) clean
+
+## Issues Found
+1. Hero grid narrower than other sections at 1920px+ (1200px vs 1400px container) — intentional for readability
+2. Typing effect shows blank cursor on initial load before JS fires
+3. Marketing badge gap from stats card can feel slightly large at ~1100px width
+
+## Verdict: KEEP ✅
+Safe and beneficial change. 1200px constraint makes hero feel intentional on large screens. 320px min-height improves column balance.
+
+## #1 Priority Suggestion: balance-hero-grid-1200px
