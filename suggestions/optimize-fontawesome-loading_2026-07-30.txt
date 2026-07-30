@@ -1,0 +1,28 @@
+# QA Review — 2026-07-30
+
+## Rating: 9/10
+
+## What's Working
+- Premium dark theme with perfect purple/cyan balance
+- Hero section striking with animated gradient text, glowing spheres, glassmorphism
+- SCROLL indicator has proper letter-spacing and smooth arrowBounce animation
+- Glassmorphism cards with hover effects
+- 6 responsive breakpoints with fluid clamp() values
+- No mobile overlap behind fixed navbar (padding: 110px at 480px)
+- 100dvh fallback for mobile viewports
+- Clear value proposition and professional copy
+- Typing effect, hamburger menu, scroll spy all functional
+- scroll-padding-top: 80px ensures anchor links clear navbar
+- Preconnect, lazy loading, semantic HTML, JSON-LD structured data
+
+## Issues Found
+1. Typing effect width jank — cursor jumps as text width changes
+2. Redundant duplicate JS on service pages (inline blocks + main.js)
+3. Font Awesome loaded as 3 separate HTTP requests
+4. No inline contact form on homepage (only links to contact.html)
+5. Hero min-height 100vh may be too tall on some mobile browsers
+
+## Verdict: KEEP ✅
+Production-ready. Ship confidently.
+
+## #1 Priority Suggestion: optimize-fontawesome-loading
