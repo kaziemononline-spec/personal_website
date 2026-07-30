@@ -375,6 +375,12 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     margin-bottom: clamp(12px, 1.5vw, 16px);
 }
 
+.typing-text {
+    display: inline-block;
+    min-width: 13em;
+    text-align: left;
+}
+
 .typing-cursor {
     color: var(--primary);
     animation: blink 0.8s step-end infinite;
