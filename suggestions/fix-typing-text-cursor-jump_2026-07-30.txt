@@ -1,0 +1,16 @@
+# QA Review — Typing Effect Cursor Fix — 2026-07-30
+
+## Issue
+The typing effect ("Platform Optimization" → "Facebook Ads" → "Strategic Planning") had cursor jumping left/right due to different word lengths. Plain inline `<span>` had no width constraint.
+
+## Fix
+Added to `.typing-text`: `display: inline-block; min-width: 13em; text-align: left;`
+Also bumped CSS cache to `v=7`.
+
+## Result
+Cursor stays in a fixed position as words cycle. Works at all font sizes (desktop 1.3rem down to mobile 0.78rem) since `em` scales proportionally.
+
+## Rating: 8/10
+No regressions. Clean fix.
+
+## Verdict: KEEP
