@@ -69,6 +69,20 @@
         });
     }
 
+    /* ─── SCROLL PROGRESS BAR ─── */
+    const progressBar = document.getElementById('scrollProgress');
+
+    function updateProgress() {
+        if (!progressBar) return;
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
     /* ─── NAVBAR SCROLL EFFECT ─── */
     const navbar = document.querySelector('.navbar');
 
