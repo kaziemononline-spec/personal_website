@@ -27,7 +27,7 @@
 /* ================= RESET ================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; word-break: break-word; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; word-break: break-word; }
 
 body {
     background-color: var(--bg-dark);
@@ -96,6 +96,11 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(6px); opacity: 1; }
 }
 
 @keyframes pulseGlow {
@@ -549,19 +554,27 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 
 .hero-scroll-indicator {
     position: absolute;
-    bottom: clamp(16px, 3vh, 30px);
+    bottom: clamp(24px, 4vh, 36px);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     color: var(--text-dim);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    animation: float 3s ease-in-out infinite;
     z-index: 1;
+}
+
+.hero-scroll-indicator span {
+    letter-spacing: 4px;
+}
+
+.hero-scroll-indicator i {
+    animation: arrowBounce 2s ease-in-out infinite;
+    font-size: 0.85rem;
 }
 
 /* ================= ABOUT ================= */
@@ -1834,10 +1847,14 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 }
 
 @media (max-width: 480px) {
+    .hero { padding-top: 110px; }
     .hero-title { font-size: clamp(1.6rem, 8vw, 2rem); }
     .hero-subtitle { font-size: 0.9rem; }
     .hero-desc { font-size: 0.88rem; margin-bottom: clamp(28px, 4vw, 32px); }
+    .hero-grid { gap: 24px; }
     .hero-stats-card { flex-direction: column; gap: 16px; padding: 20px; align-items: center; }
+    .hero-marketing-badge { margin-top: 14px; }
+    .hero-scroll-indicator { bottom: clamp(12px, 2vh, 20px); }
     .btn-group { flex-direction: column; align-items: stretch; gap: 14px; }
     .btn-group .btn { justify-content: center; min-height: 48px; }
     .btn { min-height: 48px; }
@@ -1856,19 +1873,23 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 
 @media (max-width: 375px) {
     .container { padding: 0 clamp(12px, 3vw, 16px); }
+    .hero { padding-top: 100px; }
     .hero-title { font-size: clamp(1.35rem, 7vw, 1.6rem); }
     .hero-subtitle { font-size: clamp(0.82rem, 3vw, 0.9rem); }
     .hero-desc { font-size: clamp(0.82rem, 3vw, 0.88rem); }
     .hero-marketing-badge { flex-direction: column; text-align: center; gap: 6px; }
+    .hero-grid { gap: 20px; }
     .section-title { font-size: clamp(1.3rem, 5.5vw, 1.5rem); }
     .result-number { font-size: clamp(1.6rem, 6vw, 2rem); }
 }
 
 @media (max-width: 320px) {
     .container { padding: 0 10px; }
+    .hero { padding-top: 90px; }
     .hero-title { font-size: 1.25rem; }
     .hero-subtitle { font-size: 0.78rem; }
     .hero-desc { font-size: 0.78rem; margin-bottom: 20px; }
+    .hero-grid { gap: 16px; }
     .hero-stat-num { font-size: 1.3rem; }
     .hero-stat-label { font-size: 0.6rem; }
     .logo { font-size: 0.95rem; }
