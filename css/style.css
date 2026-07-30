@@ -1768,6 +1768,17 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 }
 
 /* ================= RESPONSIVE BREAKPOINTS ================= */
+@media (min-width: 1025px) {
+    .hero-grid {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-visual {
+        min-height: 320px;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-grid {
         grid-template-columns: 1fr;
