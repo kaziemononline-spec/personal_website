@@ -37,8 +37,6 @@
         typeEffect();
     }
 
-    /* ─── PORTFOLIO (static grid, carousel removed per QA) ─── */
-
     /* ─── HAMBURGER / MOBILE NAV ─── */
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
@@ -127,23 +125,138 @@
         window.addEventListener('load', updateActiveNav);
     }
 
-    /* ─── SCROLL REVEAL ─── */
-    function revealElements() {
-        const reveals = document.querySelectorAll('.reveal');
-        const windowHeight = window.innerHeight;
-        const revealPoint = 120;
+    /* ─── SCROLL REVEAL (IntersectionObserver) ─── */
+    const revealElements = document.querySelectorAll('.reveal');
+    if (revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: '0px 0px -40px 0px'
+        });
 
-        reveals.forEach(function (el) {
-            const top = el.getBoundingClientRect().top;
-            if (top < windowHeight - revealPoint) {
-                el.classList.add('active');
-            }
+        revealElements.forEach(function (el) {
+            revealObserver.observe(el);
         });
     }
 
-    window.addEventListener('scroll', revealElements, { passive: true });
-    window.addEventListener('load', revealElements);
-    revealElements();
+    /* ─── ENTRANCE FADE (for hero sequence) ─── */
+    const entranceEls = document.querySelectorAll('.entrance-fade');
+    if (entranceEls.length > 0) {
+        setTimeout(function () {
+            entranceEls.forEach(function (el, i) {
+                setTimeout(function () {
+                    el.classList.add('active');
+                }, i * 150);
+            });
+        }, 200);
+    }
+
+    /* ─── NUMBER COUNTING ANIMATION ─── */
+    const countEls = document.querySelectorAll('[data-count]');
+    if (countEls.length > 0) {
+        const countObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    var originalText = el.textContent;
+                    var raw = originalText.replace(/[+\-%a-zA-Z]/g, '').trim();
+                    var target = raw.indexOf('.') > -1 ? parseFloat(raw) : parseInt(raw);
+                    var hasDecimal = raw.indexOf('.') > -1;
+                    var hasPlus = originalText.indexOf('+') > -1;
+                    var hasX = originalText.indexOf('x') > -1;
+                    var hasPercent = originalText.indexOf('%') > -1;
+                    var duration = 1800;
+                    var startTime = performance.now();
+                    var suffix = '';
+                    if (hasPlus) suffix = '+';
+                    else if (hasX) suffix = 'x';
+                    else if (hasPercent) suffix = '%';
+
+                    function update(now) {
+                        var progress = Math.min((now - startTime) / duration, 1);
+                        var eased = 1 - Math.pow(1 - progress, 3);
+                        var current = eased * target;
+                        var display = hasDecimal ? current.toFixed(1) : Math.floor(current);
+                        el.textContent = display + suffix;
+                        if (progress < 1) {
+                            requestAnimationFrame(update);
+                        } else {
+                            el.textContent = target + suffix;
+                            el.classList.add('active');
+                        }
+                    }
+                    requestAnimationFrame(update);
+                    countObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        countEls.forEach(function (el) {
+            el.classList.add('stat-number-init');
+            countObserver.observe(el);
+        });
+    }
+
+    /* ─── CARD 3D TILT EFFECT ─── */
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    if (tiltCards.length > 0) {
+        tiltCards.forEach(function (card) {
+            var isInside = false;
+            card.addEventListener('mouseenter', function () {
+                isInside = true;
+            });
+            card.addEventListener('mousemove', function (e) {
+                if (!isInside) return;
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 12;
+                const rotateY = (centerX - x) / 12;
+                this.style.transform = 'perspective(1200px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
+            });
+            card.addEventListener('mouseleave', function () {
+                isInside = false;
+                this.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+    }
+
+    /* ─── MAGNETIC BUTTON EFFECT ─── */
+    const magneticBtns = document.querySelectorAll('.btn-magnetic');
+    if (magneticBtns.length > 0) {
+        magneticBtns.forEach(function (btn) {
+            btn.addEventListener('mousemove', function (e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                this.style.transform = 'translate(' + (x * 0.25) + 'px, ' + (y * 0.25) + 'px)';
+            });
+            btn.addEventListener('mouseleave', function () {
+                this.style.transform = '';
+            });
+        });
+    }
+
+    /* ─── SMOOTH SECTION LINK SCROLL ─── */
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
 
     /* ─── BACK TO TOP ─── */
     const backToTop = document.getElementById('backToTop');

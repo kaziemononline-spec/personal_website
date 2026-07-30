@@ -82,6 +82,25 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     line-height: 1.2;
 }
 
+/* ================= ATMOSPHERE OVERLAY ================= */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(112, 0, 255, 0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(0, 194, 255, 0.025) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 0%, rgba(112, 0, 255, 0.02) 0%, transparent 50%);
+}
+
+/* ================= SCROLLBAR ================= */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: rgba(112, 0, 255, 0.25); border-radius: 3px; transition: background 0.3s; }
+::-webkit-scrollbar-thumb:hover { background: rgba(112, 0, 255, 0.45); }
+
 /* ================= ANIMATIONS ================= */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(40px); }
@@ -145,6 +164,36 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     75% { transform: translate(-40px, -10px) scale(1.02); }
 }
 
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUpSoft {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDownSoft {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(112, 0, 255, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(112, 0, 255, 0.4), 0 0 60px rgba(0, 194, 255, 0.1); }
+}
+
+@keyframes shimmerSlide {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
 .reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -154,6 +203,38 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+.reveal-1 { transition-delay: 0.1s; }
+.reveal-2 { transition-delay: 0.2s; }
+.reveal-3 { transition-delay: 0.3s; }
+.reveal-4 { transition-delay: 0.4s; }
+.reveal-5 { transition-delay: 0.5s; }
+.reveal-6 { transition-delay: 0.6s; }
+
+/* Entrance animation helper for hero sequence */
+.entrance-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.entrance-fade.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tilt card 3D effect */
+.tilt-wrapper {
+    perspective: 1200px;
+}
+.tilt-card {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Magnetic button effect */
+.btn-magnetic {
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ================= GLASSMORPHISM NAVBAR ================= */
@@ -581,6 +662,28 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 .hero-scroll-indicator i {
     animation: arrowBounce 2s ease-in-out infinite;
     font-size: 0.85rem;
+}
+
+/* ================= SECTION DIVIDERS ================= */
+.section-divider {
+    width: 60%;
+    max-width: 400px;
+    height: 1px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, rgba(112, 0, 255, 0.12), rgba(0, 194, 255, 0.08), transparent);
+    position: relative;
+}
+.section-divider::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(112, 0, 255, 0.3);
 }
 
 /* ================= ABOUT ================= */
@@ -1035,6 +1138,18 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     font-size: clamp(0.8rem, 0.7vw + 0.2rem, 0.9rem);
     color: var(--text-dim);
     white-space: nowrap;
+}
+
+.stat-number-init {
+    opacity: 0;
+    transform: translateY(15px);
+}
+.stat-number-init.active {
+    animation: countUp 0.6s ease-out forwards;
+}
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .results-cta {

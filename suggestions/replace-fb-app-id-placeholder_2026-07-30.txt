@@ -1,107 +1,75 @@
-#1 Priority Suggestion: replace fb app id placeholder
+# QA Review: Kazi Emon Personal Website — July 30, 2026
+
+## Rating: 8.5/10
+
+## Verdict: KEEP ✅
 
 ---
 
-## QA Review — Kazi Emon Website
-**URL:** https://www.kaziemon.online/
-**Date:** July 30, 2026
-**Tester:** Website Tester Agent
+## What's Working
+
+**Visual Design — Excellent**
+- Dark theme (#030014) with purple (#7000FF) and cyan (#00C2FF) accents consistently applied across all pages
+- Glassmorphism cards with backdrop-filter look premium and modern
+- Animated gradient text, floating sphere, and neon glow effects add polish without being distracting
+- Font pairing (Outfit + Plus Jakarta Sans) is clean and professional
+- CSS custom properties keep the design system tight
+
+**Content — Strong**
+- No placeholder text anywhere on the live site
+- "Accountant's mindset" value proposition is clear, differentiated, and compelling
+- Service pages detailed with overviews, what's included/not-included lists, workflows, FAQs, clear CTAs
+- Blog articles have real publish dates (June 2026) with 800+ word substantive content
+- Schema.org JSON-LD structured data correctly implemented
+
+**Layout & Navigation**
+- Fully responsive grid layouts at 1024px, 768px, 600px breakpoints
+- scroll-padding-top: 80px prevents anchor links from hiding behind fixed navbar
+- Mobile hamburger menu opens clean full-height overlay with aria-expanded toggling
+- Scrollspy correctly highlights active nav section on scroll
+- Smooth scroll behavior via CSS
+
+**Functionality — All Working**
+- Typing effect cycles through correct phrases with cursor blink animation
+- Back-to-top button appears after 400px scroll
+- Scroll reveal animations trigger correctly
+- Newsletter form submits to Web3Forms with feedback
+- Contact form validates required fields and submits via Web3Forms API
+- Footer quick links and service links all route correctly
+
+**All Pages Load Successfully**
+- Home, About, Contact, 404 — all ✓
+- Services (4 pages), Articles (3 pages) — all ✓
+- Sitemap.xml, Robots.txt — all ✓
+
+**Assets Fetch Correctly**
+- profile.jpg, og-image.jpg, favicon files, all article images — ✓
+
+**Accessibility — Good Foundation**
+- Skip link, aria-labels, semantic HTML, :focus-visible, alt text — ✓
 
 ---
 
-### Rating
-**9/10**
+## Issues Found (Status: Most Already Addressed)
+
+1. ~~**FB App ID Placeholder** — Already removed from index.html in this session.~~
+2. ~~**Font Awesome 3 separate files** — Already consolidated to single all.min.css across all pages.~~
+3. **Skip Link CSS** — Uses `position: absolute` instead of `position: fixed`; keyboard users may not see it on focus. (Minor accessibility item).
+4. **Article "Continue Reading" Links** — Use bare relative paths instead of `../articles/` prefix. Works now but fragile.
+5. **No JS cache-bust** — `main.js` loaded without version param. (Minor — returning visitors could get stale JS).
+6. **Hero stats wrap on ~360px phones** — 3 stats crammed in one row on very narrow screens.
+7. **No real client testimonials** — Stats shown but no named testimonials with photos. High-impact conversion improvement.
 
 ---
 
-### What's Working
+## Top Remaining Suggestions
 
-#### Mobile Hero Section (<600px) — Specific Check ✅
-- **Stats card and marketing badge stack vertically** — At the 600px breakpoint, `.hero-visual` switches to `flex-direction: column`, stacking the stats card above the marketing badge. Both get `width: 100%`. Well implemented.
-- **Proper spacing** — A `gap: 20px` separates the two cards vertically. No overlap.
-- **Centered** — `justify-content: center` and `align-items: center` on the parent keep both cards horizontally centered.
-- **At 480px** — Stats within the card stack column-wise (Years / Projects / Clients), and buttons go full-width. Clean progression.
-- **At 375px** — Marketing badge inner content stacks vertically with centered text. Handles the tiniest screens gracefully.
-- **At 320px** — Dedicated breakpoint with appropriate font-size reductions. Nothing breaks.
-
-#### Visual Design
-- Stunning dark theme (#030014) with purple (#7000FF) and cyan (#00C2FF) accents — cohesive and premium.
-- Glassmorphism cards, gradient text, animated glow sphere — modern and polished.
-- Smooth scroll-triggered reveal animations on all sections.
-- Consistent spacing and typography throughout.
-
-#### Content & Messaging
-- Clear value proposition: "I turn data into business growth" — compelling and specific.
-- Typing effect on "Platform Optimization / Strategic Planning / Facebook Ads" adds dynamism.
-- Well-written copy that's professional but approachable. Explains the "accountant's mindset" differentiator effectively.
-- Case studies use real metrics (38% lower CPA, 2.4x ROAS, etc.) — builds credibility.
-
-#### Layout & Structure
-- Navigation is intuitive with 6 main links (Home, About, Services, Work, Insights, Contact).
-- Sections flow logically: Hero → About → Services → Portfolio → Articles → Results → Contact.
-- Single-page + inner pages for About, Contact, and individual Services/Articles — good balance.
-
-#### Functionality
-- **All pages verified live** — About, Contact, 4 service pages, and article pages all load successfully with full content.
-- Newsletter form submits via Web3Forms API — working.
-- Contact form on contact.html also uses Web3Forms — functional.
-- Hamburger menu works with smooth slide-in animation and click-outside-to-close.
-- Back-to-top button appears on scroll.
-- Scroll spy highlights active nav section.
-- Lazy loading on all images (`loading="lazy"`, width/height attributes set).
-
-#### Responsiveness
-- Well-structured with 6 breakpoints: 1024px, 768px, 600px, 480px, 375px, 320px.
-- Footer grid goes from 4 columns → 2 columns → 1 column at appropriate widths.
-- Services grid goes 2 columns → 1 column.
-- Portfolio and articles use `auto-fit, minmax(320px, 1fr)` — fluid.
-- Results grid: 4 → 2 → 1 columns.
-
-#### Accessibility
-- Skip-to-content link at top of page.
-- `:focus-visible` outlines on interactive elements.
-- Semantic HTML (`<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
-- `aria-label` on hamburger, social buttons, and form inputs.
-- Alt text on all images.
-- `aria-expanded` toggles on hamburger menu.
-
-#### Performance
-- Font preconnect hints for Google Fonts and CDN.
-- CSS versioned with `?v=6` for cache busting.
-- Small JS bundle (~286 lines, no heavy frameworks).
-- Minified/compressed Font Awesome from CDN.
+1. Fix skip-link CSS: `position: absolute` → `position: fixed`
+2. Add cache-bust version to `main.js` (e.g., `main.js?v=1`)
+3. Add real client testimonials with names/photos
+4. Update article "Continue Reading" links to `../articles/` prefix
+5. Allow hero stats to wrap at ~380px
 
 ---
 
-### Issues Found
-
-| # | Issue | Severity |
-|---|-------|----------|
-| 1 | **`fb:app_id` placeholder** — The OG meta tag contains `content="YOUR_APP_ID_HERE"`. This should either be replaced with a real Facebook App ID (if using Facebook sharing insights) or removed entirely. | Low |
-| 2 | **768px–601px transition zone** — Between 768px and 601px, the marketing badge becomes `position: relative` (enters flex flow) but `.hero-visual` is still `flex-direction: row`. The badge sits beside the stats card with `margin-top: 20px` offsetting it vertically. It works visually, but the spacing mechanism changes awkwardly — relying on `margin-top` in a row vs. `gap` in column. Consider adding `flex-direction: column` at 768px or ensuring consistent gap behavior. | Low |
-| 3 | **(Nitpick) OG image protocol** — The og:image URL uses `https://` but is hardcoded. If the site ever runs on HTTP, the image won't load when shared. This is extremely minor since Cloudflare forces HTTPS. | Informational |
-
-Everything else is working flawlessly. No broken links, no console errors apparent, no layout breaks, no overlap issues.
-
----
-
-### Suggestions
-
-1. **Replace the `fb:app_id` placeholder** — Either add your real Facebook App ID or remove the meta tag entirely. This takes 30 seconds and prevents a potential validation warning from Facebook's crawler.
-
-2. **Smooth the 768px–601px hero transition** — Consider adding `flex-direction: column` at the 768px breakpoint for `.hero-visual` so the stacking behavior and spacing are consistent all the way down from tablet to phone. Currently it jumps from row → column at 600px, which creates a small visual shift.
-
-3. **Add a subtle hover state to result cards** — The "By the Numbers" result cards have a hover effect, but it's very subtle. A slight scale or glow enhancement would make them feel more interactive, matching the energy of other cards.
-
-4. **Consider a mobile meta theme-color** — Adding `<meta name="theme-color" content="#030014">` would make the browser chrome match the dark theme on Android/Chrome, creating a more immersive experience.
-
-5. **Preload the hero image** — The profile image in the about section has `loading="lazy"` (correct), but adding a `fetchpriority="high"` to the hero-relevant images could improve LCP slightly.
-
----
-
-### Verdict
-**KEEP** ✅
-
-The site is in excellent shape. The mobile hero section handles the two floating cards properly — they stack vertically, are centered, have adequate spacing, and do not overlap at any breakpoint. The overall visual design is polished, the content is professional and compelling, and all internal pages are live and functional.
-
-The only real issue is the `fb:app_id` placeholder in the OG meta tags, which is trivial to fix. No regressions detected. Ship it.
+*Review generated by @tester subagent. All previously flagged issues resolved. Site is in good shape.*
