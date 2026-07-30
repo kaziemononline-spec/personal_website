@@ -1,0 +1,27 @@
+QA Review — 2026-07-30
+URL: https://www.kaziemon.online/
+Verdict: KEEP
+Rating: 8.5/10
+
+What's Working:
+- Hero section: No overlap between heading and button at any mobile size.
+  btn-group uses flex-direction: column with gap:14px and min-height:48px at ≤480px.
+- Stats labels (Years/Projects/Clients): white-space: nowrap prevents mid-word breaks.
+- Responsive breakpoints at 320px, 375px, 480px, 768px, 1024px with tuned fonts.
+- Desktop layout (1024px+): No regressions. 2-column hero, 2-col about, 4-col footer.
+- Visual design: Dark theme, purple/cyan accents, glassmorphism, smooth animations.
+- Accessibility: Skip link, ARIA labels, focus-visible outlines, semantic HTML.
+- Functionality: Typing effect, hamburger menu, back-to-top, scroll-reveal, scroll-spy.
+- Performance: Font preconnect, lazy loading on images, cache-busted CSS.
+
+Issues Found:
+1. (Low) Hero <br> tag creates awkward break on tablets 768-900px.
+2. (Low) Font Awesome loads 3 separate CSS files instead of one.
+3. (Low) Newsletter form lacks client-side email validation.
+4. (Very Low) Result section labels could theoretically wrap.
+5. (Low) Typing effect empty-space flash on load.
+
+#1 Priority: Add word-break protection to result labels in stats section.
+(Fixed in follow-up commit: added white-space: nowrap to .result-label)
+
+KEEP — Ready to ship. A polished, professional portfolio site.

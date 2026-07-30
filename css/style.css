@@ -1015,6 +1015,7 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
 .result-label {
     font-size: clamp(0.8rem, 0.7vw + 0.2rem, 0.9rem);
     color: var(--text-dim);
+    white-space: nowrap;
 }
 
 .results-cta {
