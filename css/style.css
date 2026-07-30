@@ -1827,11 +1827,17 @@ p { color: var(--text-muted); font-size: clamp(0.88rem, 0.8vw + 0.4rem, 1rem); }
     .footer-social { justify-content: center; }
 }
 
+@media (max-width: 600px) {
+    .hero-visual { flex-direction: column; gap: 20px; }
+    .hero-stats-card { width: 100%; }
+    .hero-marketing-badge { width: 100%; justify-content: center; text-align: center; }
+}
+
 @media (max-width: 480px) {
     .hero-title { font-size: clamp(1.6rem, 8vw, 2rem); }
     .hero-subtitle { font-size: 0.9rem; }
     .hero-desc { font-size: 0.88rem; margin-bottom: clamp(28px, 4vw, 32px); }
-    .hero-stats-card { flex-direction: column; gap: 12px; padding: 16px; }
+    .hero-stats-card { flex-direction: column; gap: 16px; padding: 20px; align-items: center; }
     .btn-group { flex-direction: column; align-items: stretch; gap: 14px; }
     .btn-group .btn { justify-content: center; min-height: 48px; }
     .btn { min-height: 48px; }
