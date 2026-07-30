@@ -192,6 +192,7 @@
                     else if (hasX) suffix = 'x';
                     else if (hasPercent) suffix = '%';
 
+                    el.classList.add('active');
                     function update(now) {
                         var progress = Math.min((now - startTime) / duration, 1);
                         var eased = 1 - Math.pow(1 - progress, 3);
@@ -202,7 +203,6 @@
                             requestAnimationFrame(update);
                         } else {
                             el.textContent = target + suffix;
-                            el.classList.add('active');
                         }
                     }
                     requestAnimationFrame(update);
@@ -247,14 +247,18 @@
     const magneticBtns = document.querySelectorAll('.btn-magnetic');
     if (magneticBtns.length > 0) {
         magneticBtns.forEach(function (btn) {
+            var originalTransform = '';
+            btn.addEventListener('mouseenter', function () {
+                originalTransform = this.style.transform || '';
+            });
             btn.addEventListener('mousemove', function (e) {
                 const rect = this.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
-                this.style.transform = 'translate(' + (x * 0.25) + 'px, ' + (y * 0.25) + 'px)';
+                this.style.transform = originalTransform + ' translate(' + (x * 0.2) + 'px, ' + (y * 0.2) + 'px)';
             });
             btn.addEventListener('mouseleave', function () {
-                this.style.transform = '';
+                this.style.transform = originalTransform;
             });
         });
     }
