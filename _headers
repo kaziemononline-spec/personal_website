@@ -5,11 +5,17 @@
 # HTML documents: always revalidate so the CDN never serves a stale or partial
 # copy of the page to browsers or crawlers (e.g. Facebook's ranged fetches)
 /index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
 /404.html
   Cache-Control: public, max-age=0, must-revalidate
 
 # Versioned static assets: cache long-term (cache-busting uses ?v= query strings)
 /css/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /js/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /images/*
   Cache-Control: public, max-age=31536000, immutable
