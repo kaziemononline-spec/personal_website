@@ -1,0 +1,15 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# HTML documents: always revalidate so the CDN never serves a stale or partial
+# copy of the page to browsers or crawlers (e.g. Facebook's ranged fetches)
+/index.html
+/404.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Versioned static assets: cache long-term (cache-busting uses ?v= query strings)
+/css/*
+/js/*
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
