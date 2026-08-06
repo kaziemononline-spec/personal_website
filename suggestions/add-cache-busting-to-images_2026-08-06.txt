@@ -1,0 +1,29 @@
+# QA Review — Live Site — 2026-08-06
+
+#1 Priority Suggestion: add-cache-busting-to-images
+
+## Rating
+9/10
+
+## Verdict
+KEEP
+
+## What's Working
+- Site loads HTTP 200 with full correct homepage; 404.html and services pages render correctly.
+- New _headers deployed: HTML Cache-Control revalidation, assets immutable 1y, nosniff + Referrer-Policy present.
+- Visual design, content, layout, functionality, performance, accessibility all pass.
+
+## Issues Found
+1. Images cached immutable 1y but have NO cache-busting (risk of stale images if replaced in place).
+2. Explicit HTML revalidation only covers /index.html and /404.html; other HTML pages rely on Pages defaults.
+3. Minor pre-existing: full Font Awesome set loads; typing cursor jump on longest word.
+4. Environment note: bare domain kaziemon.online still has no DNS records (pending dashboard fix).
+
+## Suggestions
+1. Add ?v= query strings to image references so immutable cache is safe.
+2. Extend _headers with explicit revalidation for all remaining HTML paths.
+3. Subset Font Awesome to used icons.
+4. Re-run Facebook Sharing Debugger once DNS fix is done.
+
+## Tester Notes
+Full tester output archived in the 2026-08-06 QA session. No regressions introduced.
