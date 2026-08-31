@@ -1,0 +1,69 @@
+# QA Report — Three.js 3D Immersive Experience Update
+
+**Date:** 2026-09-01 (retrieved during QA)
+**URL Tested:** https://www.kaziemon.online/
+**Assets Verified:** index.html (live), css/style.css?v=9, js/three-scene.js?v=1, js/main.js?v=2
+
+---
+
+#1 Priority Suggestion: test-and-validate-3d-deployment-successfully
+
+## Rating: 8.5 / 10
+
+---
+
+## What's Working
+
+- **3D Canvas is live and properly layered** — The `<canvas id="three-canvas">` is fixed-position, z-index 0, pointer-events: none, correctly sitting behind all page content. The `<main>` and hero sit at z-index 1+, so content is always above the 3D layer. ✅
+- **Particle system is well-implemented** — 2000 particles on desktop, 800 on mobile. Custom GLSL vertex/fragment shaders with additive blending create glowing purple/cyan/white dots that pulse organically. The noise-based position animation creates a living, breathing particle field. ✅
+- **Wireframe data globe** — Visible in hero area with wireframe sphere, 3 orbital rings, 60 data points, and 20 connecting lines. Pulsing scale animation. Positioned at (18, 2, -10) to float in the right column of the hero. ✅
+- **8 floating wireframe geometries** — icosahedron, octahedron, tetrahedron, torus, dodecahedron, box, cone, torus knot — all with independent rotation speeds, floating amplitude, and opacity. ✅
+- **Mouse-reactive parallax** — Camera position tracks mouse with smooth interpolation (0.05 smoothing). Particle system and globe respond to mouse movement. Hero parallax layers also respond via separate JS in main.js. ✅
+- **Scroll-driven camera movement** — Camera Y moves with scroll (−15 per 100% scroll), Z zooms slightly (50→40). Globe fades out and moves down as you scroll past hero. ✅
+- **Hero section is clean and complete** — Badge ("Digital Growth Architect"), title with gradient text, typing effect cycling through "Platform Optimization", "Strategic Planning", "Facebook Ads", description, two CTA buttons, stat cards (5+/50+/30+), marketing badge, scroll mouse indicator. ✅
+- **Entrance animations** — .entrance-fade elements animate in with 150ms staggered delays on page load. Smooth cubic-bezier easing. ✅
+- **Glassmorphism navbar** — Enhanced with blur(24px) saturate(1.4), transitions to opaque on scroll with purple border accent and shadow. ✅
+- **3D card tilt effect** — .tilt-card elements respond to mouse position with perspective transforms, disabled on mobile (window.innerWidth > 768). ✅
+- **Magnetic button effect** — .btn-magnetic buttons follow mouse cursor subtly, disabled on mobile. ✅
+- **Typing effect** — Cycles through 3 specializations with proper typing/deleting speed variation and pauses. ✅
+- **Scroll reveal** — IntersectionObserver-based reveal for all .reveal sections with staggered delays. ✅
+- **Number counting animation** — Count-up effect with eased timing for stat numbers. ✅
+- **Performance optimizations** — Tab visibility detection pauses animation when hidden, clock delta reset prevents jumps on tab focus, pixel ratio capped at 2, passive event listeners throughout. ✅
+- **Responsive design** — Hero grid collapses to single column at 1024px, mobile nav hamburger at 768px, stats stack at 480px, reduced particles/geometries on mobile. ✅
+- **Content integrity** — All original content sections preserved (About, Services, Portfolio, Articles, Results, Contact, Footer). All links, social icons, newsletter form intact. ✅
+- **Accessibility basics** — Skip link, aria-labels on buttons, semantic HTML (nav, main, section, article), focus-visible outlines, alt text on images. ✅
+- **Color scheme** — Consistent use of #030014 background, #7000FF primary, #00C2FF secondary throughout all CSS variables and 3D scene. ✅
+
+---
+
+## Issues Found
+
+- **MEDIUM — Globe positioned behind hero-visual text area** — Globe at (18, 2, -10) in 3D space lands where the hero-visual column sits, behind the glass cards/stats. May be partially obscured on desktop, reducing visual impact. Reduce "wow factor" in the most important viewport.
+- **MEDIUM — Scroll camera movement may feel disorienting** — Camera moves down −15 and zooms +10 across the whole page, not just hero. Could feel unstable/dizzy on a long 7+ section page. Globe fades to 0 by ~33% scroll, leaving upper-right empty.
+- **LOW-MEDIUM — No WebGL fallback / error handling** — If Three.js fails to load or WebGL is unavailable, page silently falls back to CSS background. Badge/scroll indicator imply 3D that isn't there.
+- **LOW-MEDIUM — Three.js r128 is outdated** — Released March 2021; current is r170+. Works fine but misses 4+ years of performance/security fixes.
+- **LOW — Hero parallax runs constantly via requestAnimationFrame** — Runs even when hero not visible; wastes mobile battery. Could wrap in IntersectionObserver.
+- **LOW — Globe opacity animation potential flicker** — storeBaseOpacities + fade makes low-opacity children (inner sphere 0.03, rings 0.08) vanish faster than intended.
+- **LOW — hero-3d-overlay gradient covers part of hero** — Combined with 3D canvas creates double atmospheric layer; contrast appears adequate but worth watching.
+
+---
+
+## Suggestions
+
+1. Adjust globe position for visibility (e.g., position.set(25, 3, -20)) or reduce glass card opacity so globe shows through.
+2. Soften scroll camera movement — reduce sensitivity (0.0004) or limit total range; move mainly in hero then stop; add damping.
+3. Add WebGL fallback indicator — hide canvas if unavailable, remove "3D Data Visualization" badge when WebGL is unavailable.
+4. Update Three.js to latest stable (r170+).
+5. Wrap hero parallax RAF in IntersectionObserver to only run when .hero in viewport.
+6. Respect prefers-reduced-motion to disable entrance animations, parallax, and/or the 3D scene.
+7. Add subtle vignette to hero to focus text while letting 3D show on edges.
+
+---
+
+## Verdict: **KEEP**
+
+The 3D conversion is a significant visual upgrade that elevates the site from a solid personal website to an impressive, memorable experience. Implementation is technically clean — proper z-indexing, performance-conscious (visibility detection, reduced particles on mobile, capped pixel ratio), well-structured code, all original content intact and functional.
+
+The globe visibility and scroll camera issues are worth addressing in a follow-up polish pass, but neither is severe enough to warrant a revert.
+
+**Bottom line:** Clear improvement over the previous static version. Ship it, then iterate on globe visibility and scroll smoothing next round.
