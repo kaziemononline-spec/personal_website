@@ -37,7 +37,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=8">
+    <link rel="stylesheet" href="css/style.css?v=9">
 
     <script type="application/ld+json">
     {
@@ -65,6 +65,9 @@
     </script>
 </head>
 <body>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="three-canvas" class="three-canvas"></canvas>
 
     <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -97,28 +100,38 @@
     <main id="main">
 
         <section class="hero" id="home">
+            <div class="hero-3d-overlay"></div>
             <div class="container hero-grid">
-                <div class="hero-content">
-                    <p class="hero-badge">Digital Growth Architect</p>
-                    <h1 class="hero-title">
+                <div class="hero-content" data-parallax-layer="1">
+                    <p class="hero-badge entrance-fade">
+                        <i class="fa-solid fa-cube" aria-hidden="true" style="margin-right:6px;"></i>
+                        Digital Growth Architect
+                    </p>
+                    <h1 class="hero-title entrance-fade">
                         I turn data into<br>
                         <span class="gradient-text">business growth</span>
                     </h1>
-                    <p class="hero-subtitle">
+                    <p class="hero-subtitle entrance-fade">
                         Specializing in <span class="typing-text" id="typingText"></span><span class="typing-cursor">|</span>
                     </p>
-                    <p class="hero-desc">
+                    <p class="hero-desc entrance-fade">
                         With an analytical edge grounded in Accounting, I craft marketing strategies that optimize budgets, maximize ROI, and deliver measurable results — not just clicks.
                     </p>
-                    <div class="btn-group">
+                    <div class="btn-group entrance-fade">
                         <a href="#contact" class="btn btn-glow btn-magnetic">Let's Talk Results</a>
                         <a href="#portfolio" class="btn btn-outline btn-magnetic">View My Work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
-                <div class="hero-visual">
+                <div class="hero-visual" data-parallax-layer="2">
                     <div class="hero-glow-sphere"></div>
-                    <div class="hero-stats-card">
+                    <div class="hero-3d-badge">
+                        <div class="hero-3d-badge-inner">
+                            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                            <span>3D Data Visualization</span>
+                        </div>
+                    </div>
+                    <div class="hero-stats-card glass-card-3d">
                         <div class="hero-stat">
                             <span class="hero-stat-num" data-count="5">5+</span>
                             <span class="hero-stat-label">Years</span>
@@ -132,7 +145,7 @@
                             <span class="hero-stat-label">Clients</span>
                         </div>
                     </div>
-                    <div class="hero-marketing-badge">
+                    <div class="hero-marketing-badge glass-card-3d">
                         <i class="fa-solid fa-chart-line marketing-icon" aria-hidden="true"></i>
                         <span class="marketing-label">Data-Driven</span>
                         <span class="marketing-highlight">Digital Marketing</span>
@@ -140,8 +153,10 @@
                 </div>
             </div>
             <div class="hero-scroll-indicator">
-                <span>Scroll</span>
-                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll to explore</span>
             </div>
         </section>
 
@@ -497,7 +512,9 @@
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="js/main.js?v=1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/three-scene.js?v=1"></script>
+    <script src="js/main.js?v=2"></script>
 
 </body>
 </html>

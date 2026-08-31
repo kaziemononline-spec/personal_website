@@ -97,7 +97,7 @@
     window.addEventListener('scroll', handleNavScroll, { passive: true });
     handleNavScroll();
 
-    /* ─── ACTIVE NAV LINK (scroll spy, homepage only) ─── */
+    /* ─── ACTIVE NAV LINK (scroll spy) ─── */
     var sectionToPage = {
         'about': 'about.html',
         'contact': 'contact.html'
@@ -139,7 +139,7 @@
         window.addEventListener('load', updateActiveNav);
     }
 
-    /* ─── SCROLL REVEAL (IntersectionObserver) ─── */
+    /* ─── SCROLL REVEAL ─── */
     const revealElements = document.querySelectorAll('.reveal');
     if (revealElements.length > 0) {
         const revealObserver = new IntersectionObserver(function (entries) {
@@ -159,7 +159,7 @@
         });
     }
 
-    /* ─── ENTRANCE FADE (for hero sequence) ─── */
+    /* ─── ENTRANCE FADE ─── */
     const entranceEls = document.querySelectorAll('.entrance-fade');
     if (entranceEls.length > 0) {
         setTimeout(function () {
@@ -217,13 +217,14 @@
         });
     }
 
-    /* ─── CARD 3D TILT EFFECT ─── */
+    /* ─── ENHANCED CARD 3D TILT EFFECT ─── */
     const tiltCards = document.querySelectorAll('.tilt-card');
-    if (tiltCards.length > 0) {
+    if (tiltCards.length > 0 && window.innerWidth > 768) {
         tiltCards.forEach(function (card) {
             var isInside = false;
             card.addEventListener('mouseenter', function () {
                 isInside = true;
+                this.style.transition = 'transform 0.1s ease-out';
             });
             card.addEventListener('mousemove', function (e) {
                 if (!isInside) return;
@@ -232,20 +233,22 @@
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 12;
-                const rotateY = (centerX - x) / 12;
-                this.style.transform = 'perspective(1200px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+
+                this.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.03, 1.03, 1.03) translateZ(10px)';
             });
             card.addEventListener('mouseleave', function () {
                 isInside = false;
-                this.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                this.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1) translateZ(0)';
             });
         });
     }
 
     /* ─── MAGNETIC BUTTON EFFECT ─── */
     const magneticBtns = document.querySelectorAll('.btn-magnetic');
-    if (magneticBtns.length > 0) {
+    if (magneticBtns.length > 0 && window.innerWidth > 768) {
         magneticBtns.forEach(function (btn) {
             var originalTransform = '';
             btn.addEventListener('mouseenter', function () {
@@ -261,6 +264,34 @@
                 this.style.transform = originalTransform;
             });
         });
+    }
+
+    /* ─── MOUSE PARALLAX FOR HERO ─── */
+    var parallaxLayers = document.querySelectorAll('[data-parallax-layer]');
+    if (parallaxLayers.length > 0 && window.innerWidth > 768) {
+        var heroMouseX = 0, heroMouseY = 0;
+        var targetHeroMouseX = 0, targetHeroMouseY = 0;
+
+        document.addEventListener('mousemove', function (e) {
+            targetHeroMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+            targetHeroMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+        }, { passive: true });
+
+        function updateParallax() {
+            heroMouseX += (targetHeroMouseX - heroMouseX) * 0.05;
+            heroMouseY += (targetHeroMouseY - heroMouseY) * 0.05;
+
+            parallaxLayers.forEach(function (layer) {
+                var depth = parseInt(layer.getAttribute('data-parallax-layer')) || 1;
+                var moveX = heroMouseX * depth * 8;
+                var moveY = heroMouseY * depth * 5;
+                layer.style.transform = 'translate3d(' + moveX + 'px, ' + moveY + 'px, 0)';
+            });
+
+            requestAnimationFrame(updateParallax);
+        }
+
+        updateParallax();
     }
 
     /* ─── SMOOTH SECTION LINK SCROLL ─── */

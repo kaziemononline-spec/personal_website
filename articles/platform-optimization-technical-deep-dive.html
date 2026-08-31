@@ -31,9 +31,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css?v=8">
+    <link rel="stylesheet" href="../css/style.css?v=9">
 </head>
 <body class="article-page">
+    <!-- 3D Background Canvas -->
+    <canvas id="three-canvas" class="three-canvas"></canvas>
     <nav class="article-nav">
         <div class="container">
             <a href="../index.html" class="logo">Kazi<span>Emon</span></a>
@@ -117,6 +119,8 @@
         window.addEventListener('scroll', function() { backToTop.classList.toggle('visible', window.scrollY > 400); });
         backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     </script>
-    <script src="../js/main.js?v=1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="../js/three-scene.js?v=1"></script>
+    <script src="../js/main.js?v=2"></script>
 </body>
 </html>

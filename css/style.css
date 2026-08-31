@@ -18,6 +18,7 @@
     --gradient-primary: linear-gradient(135deg, #7000FF, #00C2FF);
     --gradient-purple: linear-gradient(135deg, #7000FF, #4A00B0);
     --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-3d: 0 20px 60px -15px rgba(112, 0, 255, 0.25);
     --radius-sm: 12px;
     --radius-md: 16px;
     --radius-lg: 20px;
@@ -96,6 +97,116 @@ body::before {
         radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
     background-size: 100% 100%, 100% 100%, 28px 28px;
     background-repeat: no-repeat, no-repeat, repeat;
+}
+
+/* ================= THREE.JS 3D CANVAS ================= */
+.three-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ================= 3D GLASS CARD ================= */
+.glass-card-3d {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-3d:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(112, 0, 255, 0.25);
+    box-shadow:
+        0 20px 60px -15px rgba(112, 0, 255, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px) translateZ(10px);
+}
+
+/* ================= HERO 3D OVERLAY ================= */
+.hero-3d-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(112, 0, 255, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 30% 80%, rgba(0, 194, 255, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ================= HERO 3D BADGE ================= */
+.hero-3d-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 3;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-3d-badge-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(112, 0, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(112, 0, 255, 0.3);
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--primary-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.hero-3d-badge-inner i {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    animation: spinSlow 8s linear infinite;
+}
+
+/* ================= SCROLL MOUSE INDICATOR ================= */
+.scroll-mouse {
+    width: 24px;
+    height: 38px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.scroll-wheel {
+    width: 3px;
+    height: 8px;
+    background: var(--primary-light);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 2s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+    0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 0.5; transform: translateX(-50%) translateY(10px); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(16px); }
+}
+
+/* ================= PARALLAX DEPTH LAYERS ================= */
+[data-parallax-layer] {
+    position: relative;
+    z-index: 1;
+    will-change: transform;
 }
 
 /* ================= SCROLLBAR ================= */
@@ -240,9 +351,13 @@ body::before {
     perspective: 1200px;
 }
 .tilt-card {
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
     transform-style: preserve-3d;
     will-change: transform;
+}
+
+.tilt-card:hover {
+    box-shadow: var(--shadow-3d);
 }
 
 /* Magnetic button effect */
@@ -271,9 +386,9 @@ body::before {
     width: 100%;
     padding: 0;
     z-index: 1000;
-    background: rgba(3, 0, 20, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(3, 0, 20, 0.6);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
     border-bottom: 1px solid var(--border);
     transition: all 0.3s ease;
 }
@@ -281,6 +396,7 @@ body::before {
 .navbar.scrolled {
     background: rgba(3, 0, 20, 0.92);
     border-bottom-color: rgba(112, 0, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
@@ -407,6 +523,7 @@ body::before {
     align-items: center;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .hero::before {
@@ -439,7 +556,7 @@ body::before {
     gap: clamp(30px, 5vw, 60px);
     align-items: center;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .hero-content {
@@ -575,7 +692,8 @@ body::before {
     justify-content: center;
     align-items: center;
     min-height: clamp(300px, 40vw, 450px);
-    animation: fadeInUp 1.2s ease-out;
+    perspective: 1000px;
+    animation: fadeInScale 1.2s ease-out;
 }
 
 .hero-glow-sphere {
@@ -673,18 +791,13 @@ body::before {
     color: var(--text-dim);
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    z-index: 1;
+    letter-spacing: 3px;
+    z-index: 2;
+    opacity: 0.7;
+    transition: opacity 0.3s;
 }
 
-.hero-scroll-indicator span {
-    letter-spacing: 4px;
-}
-
-.hero-scroll-indicator i {
-    animation: arrowBounce 2s ease-in-out infinite;
-    font-size: 0.85rem;
-}
+.hero-scroll-indicator:hover { opacity: 1; }
 
 /* ================= SECTION DIVIDERS ================= */
 .section-divider {
