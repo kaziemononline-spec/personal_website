@@ -1,0 +1,35 @@
+#1 Priority Suggestion: deploy latest 3D commit to cloudflare pages
+
+---
+
+## QA Review Report — https://www.kaziemon.online/
+
+**Date:** September 1, 2026
+**Reviewer:** Website Tester Agent (big-pickle)
+**Model:** opencode/big-pickle
+
+---
+
+### Finding
+
+The tester initially flagged that the new GSAP/ScrollTrigger 3D scroll rebuild appeared NOT to be live (its fetch hit a stale Cloudflare CDN cache showing the previous version). The rebuild existed on disk and was correctly committed/pushed; the "not deployed" impression was a CDN caching artifact.
+
+**Resolution performed:**
+- Confirmed the commit was pushed to the remote (verified via `git ls-remote`).
+- Bypassed the cache by fetching `https://www.kaziemon.online/index.html?v=9999` — the new 3D version IS live:
+  - Hero: "Kazi Emon / Scaling Digital Growth" (`.hero3d`, Z-axis zoom).
+  - 4 tunnel service cards (Platform Optimization, Strategic Planning, Facebook Ads, Business Infrastructure Optimization).
+  - "Latest Insights" horizontal-scroll article section, plus "By the Numbers" and "Let's Scale Your Growth" landing with social links.
+- Confirmed `scroll3d.js` is deployed and GSAP + ScrollTrigger CDN scripts are loaded in index.html.
+
+### Verdict: IMPROVE (deployment/cache only — build was already correct)
+
+The new build's code was judged strong and well-crafted (scroll3d.js uses `scrub`, `containerAnimation`, and graceful mobile/reduced-motion fallbacks). The tester's substantive, actionable suggestions beyond deployment:
+
+1. Confirm GSAP + ScrollTrigger are loaded on the live page. → **Verified present** in index.html before scroll3d.js.
+2. Add a no-JS / no-GSAP fallback so all content stays visible if the CDN is blocked. → **Applied**: gated `[data-landing]`, `.contact-detail`, `.contact-social-btn`, and `.landing-cta` reveal state via JS (GSAP) instead of CSS, so if GSAP never loads, content remains visible.
+3. Performance test on throttled/mid-range devices (heavy hero zoom to scale 14 + pin + 3D persists GPU load).
+4. Reserve article card heights so horizontal `scrollWidth` is stable — mitigated by `invalidateOnRefresh: true`; article cards have no images, so this is largely moot.
+
+### Next Steps
+Re-run a live QA pass to verify the 4 scroll effects end-to-end on a real mobile viewport and with `prefers-reduced-motion` enabled. Disk latency/caching resolved via cache-busted fetches.
