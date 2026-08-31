@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kazi Emon — Digital Marketing Expert</title>
+    <title>Kazi Emon — Scaling Digital Growth</title>
     <meta name="description" content="Kazi Emon helps businesses grow through data-driven Meta Ads, strategic planning, platform optimization, and high-converting digital marketing strategies.">
     <meta name="keywords" content="Kazi Emon, Meta Ads Expert, Digital Marketing, Facebook Ads, Platform Optimization, Strategic Planning, Business Growth, ROI">
     <meta name="author" content="Kazi Emon">
@@ -19,7 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.kaziemon.online/">
     <meta property="og:site_name" content="Kazi Emon" />
-    <meta property="og:title" content="Kazi Emon — Digital Marketing Expert">
+    <meta property="og:title" content="Kazi Emon — Scaling Digital Growth">
     <meta property="og:description" content="Data-driven digital marketing strategies that maximize ROI. Meta Ads, platform optimization, and strategic planning.">
     <meta property="og:image" content="https://www.kaziemon.online/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.kaziemon.online/">
-    <meta property="twitter:title" content="Kazi Emon — Digital Marketing Expert">
+    <meta property="twitter:title" content="Kazi Emon — Scaling Digital Growth">
     <meta property="twitter:description" content="Data-driven digital marketing strategies that maximize ROI. Meta Ads, platform optimization, and strategic planning.">
     <meta property="twitter:image" content="https://www.kaziemon.online/images/og-image.jpg">
 
@@ -37,7 +37,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=10">
+    <link rel="stylesheet" href="css/style.css?v=11">
 
     <script type="application/ld+json">
     {
@@ -66,9 +66,6 @@
 </head>
 <body>
 
-    <!-- 3D Background Canvas -->
-    <canvas id="three-canvas" class="three-canvas"></canvas>
-
     <div class="scroll-progress" id="scrollProgress"></div>
 
     <a href="#main" class="skip-link">Skip to content</a>
@@ -85,7 +82,6 @@
                 <li><a href="#main" class="nav-link active">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#portfolio" class="nav-link">Work</a></li>
                 <li><a href="#articles" class="nav-link">Insights</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
@@ -98,333 +94,169 @@
         </div>
     </nav>
 
-    <main id="main">
+    <!-- Global atomospheric background orbs (fixed) -->
+    <div class="bg-orbs" aria-hidden="true">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
 
-        <!-- ===== HERO SECTION ===== -->
-        <section class="hero" id="home">
-            <div class="hero-3d-overlay"></div>
+    <main id="main" class="scene3d-container">
 
-            <!-- Floating orbs background -->
-            <div class="hero-orbs" aria-hidden="true">
-                <div class="orb orb-1"></div>
-                <div class="orb orb-2"></div>
-                <div class="orb orb-3"></div>
-                <div class="orb orb-4"></div>
-                <div class="orb orb-5"></div>
+        <!-- ===== SECTION 1: HERO (Z-axis zoom entry) ===== -->
+        <section class="hero3d" id="home">
+            <div class="hero3d-panel hero3d-hero-panel">
+                <h1 class="hero3d-title" data-zoom>Kazi Emon</h1>
+                <h2 class="hero3d-subtitle" data-zoom>Scaling Digital Growth</h2>
+                <p class="hero3d-tagline" data-zoom>Data-driven marketing that turns budgets into measurable returns.</p>
             </div>
-
-            <div class="container hero-grid">
-                <div class="hero-content" data-parallax-layer="1">
-                    <p class="hero-badge entrance-fade">
-                        <i class="fa-solid fa-cube" aria-hidden="true" style="margin-right:6px;"></i>
-                        Digital Marketing Expert
-                    </p>
-                    <h1 class="hero-title entrance-fade">
-                        Hi, I am Kazi Emon<br>
-                        <span class="gradient-text">Digital Marketing Expert</span>
-                    </h1>
-                    <p class="hero-subtitle entrance-fade">
-                        I specialize in <span class="typing-text" id="typingText"></span><span class="typing-cursor">|</span>
-                    </p>
-                    <p class="hero-desc entrance-fade">
-                        With an analytical edge grounded in Accounting, I craft marketing strategies that optimize budgets, maximize ROI, and deliver measurable results — not just clicks.
-                    </p>
-                    <div class="btn-group entrance-fade">
-                        <a href="#contact" class="btn btn-glow btn-magnetic">Let's Talk Results</a>
-                        <a href="#services" class="btn btn-outline btn-magnetic">View Services <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-
-                <div class="hero-visual" data-parallax-layer="2">
-                    <div class="hero-glow-sphere"></div>
-                    <div class="hero-3d-badge">
-                        <div class="hero-3d-badge-inner">
-                            <i class="fa-solid fa-globe" aria-hidden="true"></i>
-                            <span>3D Data Visualization</span>
-                        </div>
-                    </div>
-                    <div class="hero-stats-card glass-card-3d">
-                        <div class="hero-stat">
-                            <span class="hero-stat-num" data-count="5">5+</span>
-                            <span class="hero-stat-label">Years</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-num" data-count="50">50+</span>
-                            <span class="hero-stat-label">Projects</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-num" data-count="30">30+</span>
-                            <span class="hero-stat-label">Clients</span>
-                        </div>
-                    </div>
-                    <div class="hero-marketing-badge glass-card-3d">
-                        <i class="fa-solid fa-chart-line marketing-icon" aria-hidden="true"></i>
-                        <span class="marketing-label">Data-Driven</span>
-                        <span class="marketing-highlight">Digital Marketing</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-scroll-indicator">
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
-                </div>
-                <span>Scroll to explore</span>
+            <div class="hero3d-scroll-hint">
+                <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+                <span>Scroll to enter</span>
             </div>
         </section>
 
-        <!-- ===== SERVICES SECTION (Anti-Gravity 3D Cards) ===== -->
-        <section id="services" class="section">
-            <div class="container">
-                <div class="section-header reveal reveal-1">
-                    <span class="section-subtitle">What I Do</span>
-                    <h2 class="section-title">Services & Expertise</h2>
+        <!-- ===== SECTION 2: SERVICES (3D Tunnel) ===== -->
+        <section class="tunnel-section" id="services">
+            <div class="tunnel-section-head">
+                <span class="tunnel-eyebrow">What I Do</span>
+                <h2 class="tunnel-heading">My Services</h2>
+            </div>
+
+            <div class="tunnel-world">
+                <div class="tunnel-card glass3d" data-service>
+                    <div class="service-icon-wrap">
+                        <i class="fa-solid fa-sliders service-icon" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="service-title">Platform Optimization</h3>
+                    <p class="service-desc">Fine-tune your digital platforms for maximum performance — speed, UX, and conversion funnels that turn visitors into customers.</p>
+                    <ul class="service-features">
+                        <li>Speed & Core Web Vitals</li>
+                        <li>Conversion funnel optimization</li>
+                        <li>UX/UI audit & analytics</li>
+                    </ul>
+                    <a href="services/digital-marketing-advisory.html" class="tunnel-link">Optimize Now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-                <div class="services-grid">
 
-                    <div class="service-card anti-gravity-card" style="--float-delay: 0s;">
-                        <div class="glass-card tilt-card reveal reveal-2">
-                            <div class="service-icon-wrap">
-                                <i class="fa-solid fa-sliders service-icon" aria-hidden="true"></i>
-                            </div>
-                            <h3>Platform Optimization</h3>
-                            <p>Fine-tune your digital platforms for maximum performance — from website speed and UX to conversion funnel architecture that turns visitors into paying customers.</p>
-                            <ul class="service-features">
-                                <li>Website speed & Core Web Vitals</li>
-                                <li>Conversion funnel optimization</li>
-                                <li>UX/UI audit & improvements</li>
-                                <li>A/B testing & analytics setup</li>
-                            </ul>
-                            <a href="services/digital-marketing-advisory.html" class="service-link">Optimize Now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
+                <div class="tunnel-card glass3d" data-service>
+                    <div class="service-icon-wrap">
+                        <i class="fa-solid fa-chess service-icon" aria-hidden="true"></i>
                     </div>
+                    <h3 class="service-title">Strategic Planning</h3>
+                    <p class="service-desc">Data-backed strategies built around your goals — channel selection, budget allocation, and a roadmap for sustainable growth.</p>
+                    <ul class="service-features">
+                        <li>Market & competitor analysis</li>
+                        <li>Channel & attribution planning</li>
+                        <li>Budget & ROI forecasting</li>
+                    </ul>
+                    <a href="services/digital-marketing-advisory.html" class="tunnel-link">Build Strategy <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
 
-                    <div class="service-card anti-gravity-card" style="--float-delay: 0.4s;">
-                        <div class="glass-card tilt-card reveal reveal-3">
-                            <div class="service-icon-wrap">
-                                <i class="fa-solid fa-chess service-icon" aria-hidden="true"></i>
-                            </div>
-                            <h3>Strategic Planning</h3>
-                            <p>Data-backed marketing strategies built around your business goals — channel selection, budget allocation, and a clear roadmap for sustainable, measurable growth.</p>
-                            <ul class="service-features">
-                                <li>Market & competitor analysis</li>
-                                <li>Channel selection & attribution</li>
-                                <li>Budget allocation & ROI forecasting</li>
-                                <li>Actionable growth roadmap</li>
-                            </ul>
-                            <a href="services/digital-marketing-advisory.html" class="service-link">Build Strategy <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
+                <div class="tunnel-card glass3d" data-service>
+                    <div class="service-icon-wrap">
+                        <i class="fa-brands fa-facebook-f service-icon" aria-hidden="true"></i>
                     </div>
+                    <h3 class="service-title">Facebook Ads</h3>
+                    <p class="service-desc">High-performing Meta ad campaigns engineered for real results — targeting, creative, and budget optimization for maximum ROAS.</p>
+                    <ul class="service-features">
+                        <li>Audience targeting & segmentation</li>
+                        <li>Ad creative & copywriting</li>
+                        <li>A/B testing & reporting</li>
+                    </ul>
+                    <a href="services/facebook-ads.html" class="tunnel-link">Scale Your Ads <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
 
-                    <div class="service-card anti-gravity-card" style="--float-delay: 0.8s;">
-                        <div class="glass-card tilt-card reveal reveal-4">
-                            <div class="service-icon-wrap">
-                                <i class="fa-brands fa-facebook-f service-icon" aria-hidden="true"></i>
-                            </div>
-                            <h3>Facebook Ads</h3>
-                            <p>High-performing Meta ad campaigns engineered for real results — audience targeting, creative strategy, copywriting, and budget optimization to maximize every dollar spent.</p>
-                            <ul class="service-features">
-                                <li>Audience targeting & segmentation</li>
-                                <li>Ad creative & copywriting</li>
-                                <li>A/B testing & budget optimization</li>
-                                <li>Performance tracking & ROAS reporting</li>
-                            </ul>
-                            <a href="services/facebook-ads.html" class="service-link">Scale Your Ads <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
+                <div class="tunnel-card glass3d" data-service>
+                    <div class="service-icon-wrap">
+                        <i class="fa-solid fa-building service-icon" aria-hidden="true"></i>
                     </div>
-
-                    <div class="service-card anti-gravity-card" style="--float-delay: 1.2s;">
-                        <div class="glass-card tilt-card reveal reveal-5">
-                            <div class="service-icon-wrap">
-                                <i class="fa-solid fa-building service-icon" aria-hidden="true"></i>
-                            </div>
-                            <h3>Business Infrastructure Optimization</h3>
-                            <p>Streamline your business operations and digital infrastructure — CRM setup, automation workflows, and systems that scale as your business grows.</p>
-                            <ul class="service-features">
-                                <li>CRM & marketing automation setup</li>
-                                <li>Workflow automation & integrations</li>
-                                <li>Data pipeline & reporting systems</li>
-                                <li>Scalable growth infrastructure</li>
-                            </ul>
-                            <a href="services/complementary-marketing.html" class="service-link">Get Started <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-
+                    <h3 class="service-title">Business Infrastructure Optimization</h3>
+                    <p class="service-desc">Streamline operations and digital infrastructure — CRM setup, automation workflows, and systems that scale as you grow.</p>
+                    <ul class="service-features">
+                        <li>CRM & marketing automation</li>
+                        <li>Workflow automation & integrations</li>
+                        <li>Scalable reporting systems</li>
+                    </ul>
+                    <a href="services/complementary-marketing.html" class="tunnel-link">Get Started <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </section>
 
-        <div class="section-divider" aria-hidden="true"></div>
-
-        <!-- ===== PORTFOLIO / CASE STUDIES ===== -->
-        <section id="portfolio" class="section">
-            <div class="container">
-                <div class="section-header reveal reveal-1">
-                    <span class="section-subtitle">Case Studies</span>
-                    <h2 class="section-title">Featured Work</h2>
-                </div>
-                <div class="portfolio-grid">
-                    <div class="portfolio-card tilt-card reveal reveal-2">
-                        <div class="portfolio-visual" style="background: linear-gradient(135deg, #7000FF, #4A00B0);">
-                            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                        </div>
-                        <div class="portfolio-body">
-                            <span class="portfolio-tag">Education</span>
-                            <h3>Educational Consultancy Ad Campaigns</h3>
-                            <p>Multi-platform ad campaigns for study-abroad consultancies. Targeted audience segmentation, retargeting funnels, and creative A/B testing that reduced cost-per-lead by 38%.</p>
-                            <div class="portfolio-metrics">
-                                <span><strong>38%</strong> Lower CPA</span>
-                                <span><strong>2.4x</strong> ROAS</span>
-                            </div>
-                        </div>
+        <!-- ===== SECTION 3: ARTICLES (Horizontal scroll in 3D) ===== -->
+        <section id="articles" class="articles3d-section">
+            <div class="articles3d-cont">
+                <div class="articles3d-pin">
+                    <div class="articles3d-head">
+                        <span class="tunnel-eyebrow">Read</span>
+                        <h2 class="tunnel-heading">Latest Insights</h2>
                     </div>
 
-                    <div class="portfolio-card tilt-card reveal reveal-3">
-                        <div class="portfolio-visual" style="background: linear-gradient(135deg, #FF6B35, #E0552D);">
-                            <i class="fa-solid fa-utensils" aria-hidden="true"></i>
-                        </div>
-                        <div class="portfolio-body">
-                            <span class="portfolio-tag">Food & Hospitality</span>
-                            <h3>Restaurant & Culinary Visual Marketing</h3>
-                            <p>Instagram-first visual campaigns for restaurants and food brands. Menu launches, event promotions, and location-based ad targeting driving foot traffic and online orders.</p>
-                            <div class="portfolio-metrics">
-                                <span><strong>52%</strong> More Foot Traffic</span>
-                                <span><strong>3.1x</strong> Engagement Rate</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="articles3d-track">
+                        <article class="article3d-card" data-article>
+                            <div class="article3d-meta">June 28, 2026</div>
+                            <h3 class="article3d-title">5 Proven Strategies to Boost Conversion Rates</h3>
+                            <p class="article3d-excerpt">Data-backed techniques to turn more visitors into paying customers without increasing ad spend.</p>
+                            <a href="articles/5-proven-strategies-to-boost-conversion-rates.html" class="tunnel-link">Read Article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </article>
 
-                    <div class="portfolio-card tilt-card reveal reveal-4">
-                        <div class="portfolio-visual" style="background: linear-gradient(135deg, #00C2FF, #0088CC);">
-                            <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
-                        </div>
-                        <div class="portfolio-body">
-                            <span class="portfolio-tag">EdTech</span>
-                            <h3>Skill Development Platform Management</h3>
-                            <p>End-to-end digital strategy for skill development platforms: enrollment campaigns, community building, content marketing, and automated funnel optimization.</p>
-                            <div class="portfolio-metrics">
-                                <span><strong>65%</strong> Enrollment Growth</span>
-                                <span><strong>4.2x</strong> Lead Volume</span>
-                            </div>
-                        </div>
+                        <article class="article3d-card" data-article>
+                            <div class="article3d-meta">June 15, 2026</div>
+                            <h3 class="article3d-title">Platform Optimization: A Technical Deep Dive</h3>
+                            <p class="article3d-excerpt">How architecture, speed, and UX refinements create measurable business growth.</p>
+                            <a href="articles/platform-optimization-technical-deep-dive.html" class="tunnel-link">Read Article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </article>
+
+                        <article class="article3d-card" data-article>
+                            <div class="article3d-meta">June 2, 2026</div>
+                            <h3 class="article3d-title">Scaling Smart: When & How to Invest in Ads</h3>
+                            <p class="article3d-excerpt">Frameworks for knowing exactly when your business is ready to scale ad spend profitably.</p>
+                            <a href="articles/scaling-smart-when-how-to-invest-in-ads.html" class="tunnel-link">Read Article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="section-divider" aria-hidden="true"></div>
-
-        <!-- ===== ARTICLES / BLOG ===== -->
-        <section id="articles" class="section">
-            <div class="container">
-                <div class="section-header reveal reveal-1">
-                    <span class="section-subtitle">Articles & Insights</span>
-                    <h2 class="section-title">Latest Thinking</h2>
+        <!-- ===== SECTION 4 + 5: RESULTS + CONTACT/SOCIAL (The Landing) ===== -->
+        <section id="contact" class="landing-section">
+            <div class="landing-inner">
+                <div class="section-header landing-reveal" data-landing>
+                    <span class="tunnel-eyebrow">By the Numbers</span>
+                    <h2 class="landing-heading">Results That Speak</h2>
                 </div>
-                <div class="articles-grid">
-                    <article class="article-card tilt-card reveal reveal-2">
-                        <div class="article-img-wrapper">
-                            <img src="images/article-conversion.jpg" alt="Data visualization showing conversion rate improvement" class="article-img" loading="lazy" width="600" height="400">
-                        </div>
-                        <div class="article-body">
-                            <span class="article-date">June 28, 2026</span>
-                            <h3>5 Proven Strategies to Boost Conversion Rates</h3>
-                            <p>Data-backed techniques to turn more visitors into paying customers without increasing ad spend.</p>
-                            <a href="articles/5-proven-strategies-to-boost-conversion-rates.html" class="article-link">Read Article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="article-card tilt-card reveal reveal-3">
-                        <div class="article-img-wrapper">
-                            <img src="images/article-platform.jpg" alt="Platform architecture diagram" class="article-img" loading="lazy" width="600" height="427">
-                        </div>
-                        <div class="article-body">
-                            <span class="article-date">June 15, 2026</span>
-                            <h3>Platform Optimization: A Technical Deep Dive</h3>
-                            <p>How architecture, speed, and UX refinements create measurable business growth.</p>
-                            <a href="articles/platform-optimization-technical-deep-dive.html" class="article-link">Read Article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="article-card tilt-card reveal reveal-4">
-                        <div class="article-img-wrapper">
-                            <img src="images/article-scaling.jpg" alt="Business growth chart" class="article-img" loading="lazy" width="600" height="400">
-                        </div>
-                        <div class="article-body">
-                            <span class="article-date">June 2, 2026</span>
-                            <h3>Scaling Smart: When & How to Invest in Ads</h3>
-                            <p>Frameworks for knowing exactly when your business is ready to scale ad spend profitably.</p>
-                            <a href="articles/scaling-smart-when-how-to-invest-in-ads.html" class="article-link">Read Article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </article>
+                <div class="results-grid">
+                    <div class="result-card"><span class="result-number" data-count="50">50+</span><span class="result-label">Projects</span></div>
+                    <div class="result-card"><span class="result-number" data-count="30">30+</span><span class="result-label">Clients</span></div>
+                    <div class="result-card"><span class="result-number" data-count="38">38%</span><span class="result-label">CPA Reduction</span></div>
+                    <div class="result-card"><span class="result-number" data-count="32">3.2x</span><span class="result-label">Avg. ROAS</span></div>
                 </div>
             </div>
-        </section>
 
-        <div class="section-divider" aria-hidden="true"></div>
+            <div class="landing-contact landing-inner">
+                <div class="section-header landing-reveal" data-landing>
+                    <span class="tunnel-eyebrow">Get in Touch</span>
+                    <h2 class="landing-heading">Let's Scale Your Growth</h2>
+                </div>
+                <p class="landing-contact-msg">I'm always open to new projects and strategic partnerships. Let's talk numbers.</p>
 
-        <!-- ===== RESULTS / BY THE NUMBERS ===== -->
-        <section id="testimonials" class="section">
-            <div class="container">
-                <div class="section-header reveal reveal-1">
-                    <span class="section-subtitle">Results That Speak</span>
-                    <h2 class="section-title">By the Numbers</h2>
+                <div class="contact-detail">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kaziaremon@gmail.com" target="_blank" rel="noopener noreferrer">kaziaremon@gmail.com</a>
                 </div>
-                <div class="results-grid reveal reveal-2">
-                    <div class="result-card tilt-card">
-                        <span class="result-number" data-count="50">50+</span>
-                        <span class="result-label">Projects Delivered</span>
-                    </div>
-                    <div class="result-card tilt-card">
-                        <span class="result-number" data-count="30">30+</span>
-                        <span class="result-label">Happy Clients</span>
-                    </div>
-                    <div class="result-card tilt-card">
-                        <span class="result-number" data-count="38">38%</span>
-                        <span class="result-label">Avg. CPA Reduction</span>
-                    </div>
-                    <div class="result-card tilt-card">
-                        <span class="result-number" data-count="32">3.2x</span>
-                        <span class="result-label">Avg. ROAS</span>
-                    </div>
+                <div class="contact-detail">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    <span>Dhaka, Bangladesh — serving clients worldwide</span>
                 </div>
-                <div class="results-cta reveal reveal-3">
-                    <p>Ready to add your results to this list?</p>
-                    <a href="#contact" class="btn btn-primary btn-magnetic">Start Your Success Story</a>
-                </div>
-            </div>
-        </section>
 
-        <div class="section-divider" aria-hidden="true"></div>
-
-        <!-- ===== CONTACT & SOCIAL ===== -->
-        <section id="contact" class="section">
-            <div class="container">
-                <div class="section-header reveal reveal-1">
-                    <span class="section-subtitle">Get In Touch</span>
-                    <h2 class="section-title">Let's Build Something Profitable</h2>
+                <div class="contact-social-links">
+                    <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" class="contact-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" class="contact-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" class="contact-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
-                <div class="contact-wrap reveal reveal-2">
-                    <div class="contact-info">
-                        <h3>Ready to grow?</h3>
-                        <p>I'm always open to discussing new projects, strategic partnerships, or growth opportunities. Let's talk numbers.</p>
-                        <div class="contact-detail">
-                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kaziaremon@gmail.com" target="_blank" rel="noopener noreferrer">kaziaremon@gmail.com</a>
-                        </div>
-                        <div class="contact-detail">
-                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                            <span>Dhaka, Bangladesh — serving clients worldwide</span>
-                        </div>
-                        <div class="contact-social-links">
-                            <a href="https://www.linkedin.com/in/md-kazi-abdur-rahim-emon/" target="_blank" class="contact-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" class="contact-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/md.kazi.abdur.rahim.emon/" target="_blank" class="contact-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                        </div>
-                        <div style="margin-top: 20px;">
-                            <a href="contact.html" class="btn btn-glow btn-magnetic">Send a Detailed Message <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
+
+                <div class="landing-cta">
+                    <a href="contact.html" class="btn btn-glow btn-magnetic">Send a Detailed Message <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </section>
@@ -433,11 +265,6 @@
 
     <!-- ===== FOOTER ===== -->
     <footer id="footer">
-        <div class="footer-wave">
-            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-                <path d="M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z" fill="rgba(112,0,255,0.08)"></path>
-            </svg>
-        </div>
         <div class="container footer-grid">
             <div class="footer-brand">
                 <a href="index.html" class="logo">
@@ -459,19 +286,8 @@
                     <li><a href="#main">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#articles">Insights</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-links">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="services/digital-marketing-advisory.html">Platform Optimization</a></li>
-                    <li><a href="services/facebook-ads.html">Facebook Ads</a></li>
-                    <li><a href="services/digital-marketing-advisory.html">Strategic Planning</a></li>
-                    <li><a href="services/complementary-marketing.html">Business Infrastructure</a></li>
                 </ul>
             </div>
 
@@ -498,9 +314,11 @@
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="js/three-scene.js?v=1"></script>
-    <script src="js/main.js?v=3"></script>
+    <!-- GSAP + ScrollTrigger via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/scroll3d.js?v=1"></script>
+    <script src="js/main.js?v=4"></script>
 
 </body>
 </html>
