@@ -56,11 +56,6 @@
     handleNavScroll();
 
     /* ─── ACTIVE NAV LINK (scroll spy) ─── */
-    var sectionToPage = {
-        'about': 'about.html',
-        'contact': 'contact.html'
-    };
-
     function updateActiveNav() {
         var sections = document.querySelectorAll('section[id]');
         if (!sections.length) return;
@@ -81,13 +76,10 @@
         });
 
         var link = document.querySelector('.nav-link[href="#' + currentId + '"]');
-        if (!link && sectionToPage[currentId]) {
-            link = document.querySelector('.nav-link[href="' + sectionToPage[currentId] + '"]');
-        }
         if (link) {
             link.classList.add('active');
         } else {
-            var homeLink = document.querySelector('.nav-link[href="#main"]');
+            var homeLink = document.querySelector('.nav-link[href="#home"]');
             if (homeLink) homeLink.classList.add('active');
         }
     }
@@ -96,22 +88,22 @@
         window.addEventListener('load', updateActiveNav);
     }
 
-    /* ─── SCROLL REVEAL ─── */
-    var revealElements = document.querySelectorAll('.reveal');
+    /* ─── SCROLL REVEAL (FADE IN) ─── */
+    var revealElements = document.querySelectorAll('.fade-in-up');
     if (revealElements.length > 0) {
         if (prefersReducedMotion) {
-            revealElements.forEach(function (el) { el.classList.add('active'); });
+            revealElements.forEach(function (el) { el.classList.add('visible'); });
         } else {
             var revealObserver = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
+                        entry.target.classList.add('visible');
                         revealObserver.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.08,
-                rootMargin: '0px 0px -40px 0px'
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
             });
             revealElements.forEach(function (el) {
                 revealObserver.observe(el);
@@ -140,7 +132,6 @@
                     else if (hasX) suffix = 'x';
                     else if (hasPercent) suffix = '%';
 
-                    el.classList.add('active');
                     function update(now) {
                         var progress = Math.min((now - startTime) / duration, 1);
                         var eased = 1 - Math.pow(1 - progress, 3);
@@ -153,64 +144,17 @@
                             el.textContent = target + suffix;
                         }
                     }
-                    requestAnimationFrame(update);
+                    if (!prefersReducedMotion) {
+                        requestAnimationFrame(update);
+                    }
                     countObserver.unobserve(el);
                 }
             });
         }, { threshold: 0.5 });
 
         countEls.forEach(function (el) {
-            if (prefersReducedMotion) return;
-            el.classList.add('stat-number-init');
             countObserver.observe(el);
         });
-    }
-
-    /* ─── MAGNETIC BUTTON EFFECT ─── */
-    var magneticBtns = document.querySelectorAll('.btn-magnetic');
-    if (magneticBtns.length > 0 && window.innerWidth > 768 && !prefersReducedMotion) {
-        magneticBtns.forEach(function (btn) {
-            var originalTransform = '';
-            btn.addEventListener('mouseenter', function () {
-                originalTransform = this.style.transform || '';
-            });
-            btn.addEventListener('mousemove', function (e) {
-                var rect = this.getBoundingClientRect();
-                var x = e.clientX - rect.left - rect.width / 2;
-                var y = e.clientY - rect.top - rect.height / 2;
-                this.style.transform = originalTransform + ' translate(' + (x * 0.2) + 'px, ' + (y * 0.2) + 'px)';
-            });
-            btn.addEventListener('mouseleave', function () {
-                this.style.transform = originalTransform;
-            });
-        });
-    }
-
-    /* ─── MOUSE PARALLAX FOR HERO VISUAL ─── */
-    var parallaxLayers = document.querySelectorAll('[data-parallax-layer]');
-    if (parallaxLayers.length > 0 && window.innerWidth > 768 && !prefersReducedMotion) {
-        var layerX = 0, layerY = 0;
-        var targetX = 0, targetY = 0;
-
-        document.addEventListener('mousemove', function (e) {
-            targetX = (e.clientX / window.innerWidth - 0.5) * 2;
-            targetY = (e.clientY / window.innerHeight - 0.5) * 2;
-        }, { passive: true });
-
-        function updateParallax() {
-            layerX += (targetX - layerX) * 0.05;
-            layerY += (targetY - layerY) * 0.05;
-
-            parallaxLayers.forEach(function (layer) {
-                var depth = parseInt(layer.getAttribute('data-parallax-layer')) || 1;
-                var moveX = layerX * depth * 8;
-                var moveY = layerY * depth * 5;
-                layer.style.transform = 'translate3d(' + moveX + 'px, ' + moveY + 'px, 0)';
-            });
-
-            requestAnimationFrame(updateParallax);
-        }
-        updateParallax();
     }
 
     /* ─── SMOOTH SECTION LINK SCROLL ─── */
