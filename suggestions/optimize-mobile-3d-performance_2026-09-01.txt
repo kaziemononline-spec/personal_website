@@ -1,0 +1,74 @@
+#1 Priority Suggestion: optimize-mobile-3d-performance
+
+---
+
+## QA Review Report — https://www.kaziemon.online/
+
+**Date:** September 1, 2026
+**Reviewer:** Website Tester Agent (big-pickle)
+**Model:** opencode/big-pickle
+
+---
+
+### Rating: 8.5 / 10
+
+---
+
+### What's Working
+
+- **Visual Design is exceptional.** The dark theme (#030014) with purple (#7000FF) and cyan (#00C2FF) accents is cohesive and professional throughout. The gradient text, glassmorphism cards, neon glows, and section dividers all feel premium and intentional.
+
+- **Three.js 3D Background is live and animating.** The particle field (2000 desktop / 800 mobile), wireframe data globe with orbiting rings, floating geometric shapes (icosahedrons, torus knots, dodecahedrons, etc.), and ambient glow spheres are all rendering and responding to mouse movement and scroll. This is genuinely impressive.
+
+- **Anti-gravity floating cards are working.** All 4 service cards (Platform Optimization, Strategic Planning, Facebook Ads, Business Infrastructure Optimization) have the `antiGravity` CSS animation with staggered delays (`--float-delay: 0s` through `1.2s`), creating a smooth cascading float effect. The hover-to-pause behavior is implemented correctly.
+
+- **3D tilt effects are functional.** The `tilt-card` class on service cards, portfolio cards, article cards, and result cards applies perspective-based rotation on `mousemove` (desktop only, disabled on mobile ≤768px). The `translateZ(10px)` and `scale3d(1.03)` give a satisfying depth feel.
+
+- **Floating glowing orbs are animating.** All 5 orbs (`.orb-1` through `.orb-5`) are present with `orbFloat` animation (14-20s durations, staggered delays), blurred radial gradients in purple and cyan tones. They're subtle and atmospheric.
+
+- **Glassmorphism navbar is clean and functional.** The frosted glass effect (`backdrop-filter: blur(24px) saturate(1.4)`) transitions from semi-transparent to solid on scroll, with a purple border accent. The active link underline animation works.
+
+- **Typing effect works perfectly.** Cycles through "Platform Optimization", "Strategic Planning", "Facebook Ads", "Business Infrastructure Optimization" with proper delete/retype behavior and a blinking cursor.
+
+- **Content is accurate and well-organized.** All 4 service cards match the described services exactly. The hero text says "Hi, I am Kazi Emon, Digital Marketing Expert" as expected. Case studies have real-sounding metrics. Articles are dated June 2026.
+
+- **Accessibility is solid.** Skip link present and functional. `aria-label` on hamburger button, social links, form inputs. `aria-hidden` on decorative icons. `:focus-visible` styles with cyan outline. Semantic HTML with `<nav>`, `<main>`, `<section>`, `<article>`, proper heading hierarchy.
+
+- **Responsive design is well-implemented.** Extensive use of `clamp()` for typography, spacing, and layout. Mobile hamburger menu with proper toggle behavior. Footer collapses gracefully. Service grid goes to single column on mobile.
+
+- **Performance-conscious Three.js.** Pixel ratio capped at 2. Particle count reduced on mobile (800 vs 2000). `powerPreference: 'high-performance'`. Visibility API pauses animation when tab hidden. Passive event listeners throughout.
+
+- **Forms work.** Newsletter form in footer uses Web3Forms API with proper error handling, loading states, and success messages. Contact form on contact.html also uses Web3Forms.
+
+- **SEO is comprehensive.** JSON-LD Person schema, Open Graph tags, Twitter card meta, canonical URL, descriptive meta description and keywords.
+
+---
+
+### Issues Found (minor polish)
+
+1. Hero badge "Digital Marketing Expert" is slightly redundant with the gradient title text.
+2. Homepage has no personal intro between hero and services (about content only on about.html).
+3. Mobile hamburger menu appears/disappears without a slide-in/fade-in animation.
+4. Three.js globe + particles may cause jank on low-end mobile devices (no reduced-motion fallback in the JS).
+5. `hero-marketing-badge` can overlap the `hero-stats-card` at ~900-1100px widths.
+6. Font Awesome full bundle (~80KB+) loaded for only ~20-25 icons.
+7. `#testimonials` section ID is misleading for a "By the Numbers" section (should be `#results`/`#stats`).
+
+---
+
+### Suggestions
+
+1. **Add a "reduced motion" media query** that disables the Three.js scene, anti-gravity float, and parallax for users who prefer reduced motion (accessibility + performance win).
+2. **Add a brief personal intro section** between hero and services on the homepage.
+3. **Lazy-load the Three.js scene** after the page is interactive rather than blocking initial render.
+4. **Rename `#testimonials` ID to `#results`** to match actual section content.
+5. **Add subtle CSS transitions to the mobile menu** (200-300ms).
+6. **Verify all service and article subpages load correctly** (critical conversion points).
+
+---
+
+### Verdict: **KEEP**
+
+This is a genuinely impressive, professional-grade personal portfolio site. The Three.js 3D background with particles, globe, and floating geometries is a standout feature that elevates it far above typical personal sites. The glassmorphism design, anti-gravity cards, typing effect, and tilt interactions all work together to create a cohesive, modern experience. The content is accurate, the SEO is solid, accessibility is well-considered, and the code quality is high.
+
+The issues found are minor polish items — no broken functionality, no critical accessibility failures, no regressions. The 8.5/10 reflects a site that's production-ready and genuinely impressive, with room for minor refinements.
