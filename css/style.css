@@ -2831,9 +2831,8 @@ body::before {
     will-change: transform, opacity;
 }
 
-[data-landing] {
-    opacity: 0;
-}
+/* Note: [data-landing] elements are hidden by JS (scroll3d.js) at init so that
+   content remains visible if JS/GSAP fails to load (no-JS fallback). */
 
 /* ── 3D SCROLL SAFETY: mobile & reduced motion ─── */
 @media (max-width: 768px) {
@@ -2841,7 +2840,6 @@ body::before {
     .articles3d-pin { height: auto; flex-direction: column; }
     .articles3d-track { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .article3d-card { flex: 0 0 80%; }
-    [data-landing] { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
     .hero3d-title, .hero3d-subtitle, .hero3d-tagline { transform: none !important; opacity: 1 !important; }

@@ -161,6 +161,14 @@
           and social links at the end of the journey.
     ───────────────────────────────────────────── */
     function initLanding() {
+        // Gate visibility through JS only (no-GSAP fallback keeps content visible)
+        document.querySelectorAll('[data-landing]').forEach(function (el) {
+            gsap.set(el, { opacity: 0 });
+        });
+        gsap.set('.contact-detail', { opacity: 0 });
+        gsap.set('.contact-social-links .contact-social-btn', { opacity: 0, scale: 0.6 });
+        gsap.set('.landing-cta', { opacity: 0 });
+
         document.querySelectorAll('[data-landing]').forEach(function (el, i) {
             gsap.fromTo(el, { y: 80, opacity: 0 }, {
                 y: 0,
