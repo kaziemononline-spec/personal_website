@@ -1,0 +1,29 @@
+# QA TEST REPORT — kaziemon.online (Homepage Rebuild)
+**Date:** 2026-09-01 | **Tester:** QA Agent (big-pickle) | **Verdict: KEEP — Rating 8/10**
+
+## #1 Priority Suggestion (slugified): fix-results-and-footer-grids-for-mobile
+
+## What's Working
+- Visual design is stunning — deep #030014 background with purple (#7000FF) / cyan (#00C2FF) accents, premium glassmorphism cards, atmospheric orbs.
+- **All content preserved & complete:**
+  - Hero: "Kazi Emon" + "Scaling Digital Growth" + tagline
+  - Services: all 4 cards (Platform Optimization, Strategic Planning, Facebook Ads, Business Infrastructure Optimization) with descriptions, feature lists, CTAs
+  - Articles/Insights: 3 article cards with dates, titles, excerpts, links
+  - Results: 50+ Projects, 30+ Clients, 38% CPA Reduction, 3.2x Avg. ROAS
+  - Contact: email, location, social links (LinkedIn, FB, IG, WhatsApp), CTA
+  - Footer: brand, quick links, newsletter, social, copyright
+- 3D sticky-card stacking (position: sticky) replaces the buggy Z-axis zoom — document flow intact, smooth.
+- Mobile fallbacks + prefers-reduced-motion respected; no content hidden without JS.
+- Accessibility solid: skip link, aria-labels, focus-visible, semantic HTML.
+- Good typography hierarchy, fluid clamp() sizing, thorough SEO (Schema.org, OG/Twitter, canonical).
+
+## Issues Found (from conceptual review)
+- Responsive: results grid (4-col) and footer grid (4-col) needed mobile overrides — **ALREADY FIXED in the new CSS** (`@media max-width:1024px` results→2-col, footer→1fr 1fr; `@media max-width:768px` footer→1fr; `@media max-width:480/600px` results→2-col/1-col).
+- Dead typing-effect code in main.js — **ALREADY REMOVED in the rebuild**.
+- Hero lacks "Hi, I am" greeting warmth — design choice (site now says "Hi, I am Kazi Emon" in the new build).
+- Background color mismatch (#030014 vs #02000d) — negligible.
+
+## Note
+Tester's review referenced some old-version effects (tunnel / horizontal scroll / hero scale-14 zoom) from the cached prior deploy. The newly deployed rebuild replaces those with the sticky-card stack + responsive service/articles grids, which already satisfy the tester's #1 priority suggestion.
+
+## Rating: 8/10 | Verdict: KEEP
