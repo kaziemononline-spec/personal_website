@@ -215,6 +215,94 @@ body::before {
 ::-webkit-scrollbar-thumb { background: rgba(112, 0, 255, 0.25); border-radius: 3px; transition: background 0.3s; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(112, 0, 255, 0.45); }
 
+/* ================= HERO FLOATING ORBS ================= */
+.hero-orbs {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.35;
+    animation: orbFloat 14s ease-in-out infinite;
+}
+
+.orb-1 {
+    width: 300px;
+    height: 300px;
+    top: 5%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(112, 0, 255, 0.5), transparent 70%);
+    animation-duration: 16s;
+}
+
+.orb-2 {
+    width: 220px;
+    height: 220px;
+    top: 30%;
+    right: 8%;
+    background: radial-gradient(circle, rgba(0, 194, 255, 0.45), transparent 70%);
+    animation-duration: 13s;
+    animation-delay: -3s;
+}
+
+.orb-3 {
+    width: 160px;
+    height: 160px;
+    bottom: 15%;
+    left: 25%;
+    background: radial-gradient(circle, rgba(155, 77, 255, 0.4), transparent 70%);
+    animation-duration: 18s;
+    animation-delay: -6s;
+}
+
+.orb-4 {
+    width: 120px;
+    height: 120px;
+    top: 60%;
+    right: 30%;
+    background: radial-gradient(circle, rgba(112, 0, 255, 0.35), transparent 70%);
+    animation-duration: 11s;
+    animation-delay: -2s;
+}
+
+.orb-5 {
+    width: 180px;
+    height: 180px;
+    bottom: -5%;
+    right: -2%;
+    background: radial-gradient(circle, rgba(0, 194, 255, 0.3), transparent 70%);
+    animation-duration: 20s;
+    animation-delay: -8s;
+}
+
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -50px) scale(1.15); }
+    66% { transform: translate(-30px, 35px) scale(0.9); }
+}
+
+/* ================= ANTI-GRAVITY CARDS ================= */
+.anti-gravity-card {
+    animation: antiGravity 6s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+    transition: transform 0.3s ease;
+}
+
+.anti-gravity-card:hover {
+    animation-play-state: paused;
+}
+
+@keyframes antiGravity {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+}
+
 /* ================= ANIMATIONS ================= */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(40px); }
@@ -934,12 +1022,17 @@ body::before {
 
 .glass-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: clamp(28px, 4vw, 40px);
     border-radius: var(--radius-xl);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .glass-card::before {
@@ -960,23 +1053,57 @@ body::before {
 }
 
 .glass-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(112, 0, 255, 0.2);
-    box-shadow: 0 24px 64px -16px rgba(112, 0, 255, 0.15);
-    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(112, 0, 255, 0.35);
+    box-shadow:
+        0 24px 64px -16px rgba(112, 0, 255, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 40px -8px rgba(112, 0, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.service-icon-wrap {
+    width: clamp(56px, 6vw, 64px);
+    height: clamp(56px, 6vw, 64px);
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(112, 0, 255, 0.18), rgba(0, 194, 255, 0.12));
+    border: 1px solid rgba(112, 0, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: clamp(16px, 2vw, 20px);
+    box-shadow: 0 8px 24px -8px rgba(112, 0, 255, 0.25);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-icon-wrap::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.08) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.glass-card:hover .service-icon-wrap::after {
+    transform: translateX(100%);
 }
 
 .service-icon {
-    font-size: clamp(1.5rem, 2.5vw + 0.2rem, 2rem);
-    color: var(--primary);
-    margin-bottom: clamp(16px, 2vw, 20px);
+    font-size: clamp(1.4rem, 2vw + 0.2rem, 1.7rem);
+    color: var(--primary-light);
+    margin-bottom: 0;
     display: inline-block;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .glass-card:hover .service-icon {
-    transform: scale(1.15) rotate(-5deg);
-    color: var(--primary-light);
+    transform: scale(1.2) rotate(-8deg);
+    color: var(--secondary);
 }
 
 .glass-card h3 {
@@ -2153,9 +2280,7 @@ body::before {
     .container {
         max-width: 1320px;
     }
-}
-
-@media (min-width: 1025px) {
+}@media (min-width: 1025px) {
     .hero-grid {
         max-width: 1200px;
         margin-left: auto;
@@ -2297,4 +2422,21 @@ body::before {
     .section-subtitle { font-size: 0.65rem; }
     .result-number { font-size: 1.5rem; }
     .btn { font-size: 0.82rem; padding: 10px 18px; }
+}
+
+/* ================= REDUCED MOTION & MOBILE ANIMATION RESTRAINT ================= */
+/* Disable heavy floating animations on smaller screens to prevent jank & misalignment */
+@media (max-width: 768px) {
+    .anti-gravity-card { animation: none; }
+    .orb { animation-duration: 20s; opacity: 0.2; }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .anti-gravity-card,
+    .orb,
+    .hero-glow-sphere,
+    .hero-3d-badge,
+    .scroll-wheel { animation: none !important; }
+    html { scroll-behavior: auto; }
 }

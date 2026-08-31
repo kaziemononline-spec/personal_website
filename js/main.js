@@ -4,7 +4,7 @@
     /* ─── TYPING EFFECT ─── */
     const typingEl = document.getElementById('typingText');
     if (typingEl) {
-        const words = ['Platform Optimization', 'Strategic Planning', 'Facebook Ads'];
+        const words = ['Platform Optimization', 'Strategic Planning', 'Facebook Ads', 'Business Infrastructure Optimization'];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
