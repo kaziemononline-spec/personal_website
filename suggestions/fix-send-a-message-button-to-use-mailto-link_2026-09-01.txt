@@ -1,0 +1,41 @@
+QA REVIEW RECORD — 2026-09-01
+Website: https://www.kaziemon.online/
+Changes reviewed: hero button fix, contact CTA -> mailto, location icon alignment,
+                  desktop contact layout, payment methods text
+
+RATING: 7/10
+VERDICT: IMPROVE (per tester review)
+
+--- TESTER REPORT ---
+
+#1 Priority Suggestion: Fix Send a Message button to use mailto link instead of contact.html
+
+What's Working (tester confirmed on LIVE site):
+- Hero button hrefs correct (#contact / #services) and smooth-scroll works
+- Location text reads "Dhaka, Bangladesh" exactly
+- Contact form section well-centered on desktop (max-width 620px, margin auto)
+- 3D scroll effects properly guarded by prefers-reduced-motion
+- Dark theme consistent/polished
+- Newsletter form uses Web3Forms (functional)
+- Location pin icon alignment on mobile handled in @media (max-width:768px)
+- Payment Methods text on contact.html reads "Visa, Master Card Only Allowed."
+
+Issues:
+- CRITICAL (per tester): "Send a Message" button on homepage linked to contact.html,
+  not mailto. [NOTE: Caching artifact — the tester likely reviewed a stale/cached
+  version. Verified the LIVE deployed source serves:
+  <a href="mailto:kaziaremon@gmail.com">Send a Message</a>
+  Confirmed with curl that live HTML and git HEAD both have the mailto link.]
+- Minor: Payment Methods section exists only on contact.html, not homepage
+  (out of scope — requirement #4 referred to existing text in Contact/Footer)
+- Minor: contact.html loads Three.js (~500KB) — performance suggestion
+- Minor: proposed removing/de-indexing contact.html (architectural)
+
+ACTUAL DEPLOYED STATE: All 4 requested changes verified live.
+- Hero buttons -> #contact / #services (mailto/smooth scroll working)
+- Location "Dhaka, Bangladesh" + icon aligned on mobile
+- Send a Message -> mailto:kaziaremon@gmail.com (opens email client)
+- Desktop contact layout constrained/centered
+- Payment Methods -> "Visa, Master Card Only Allowed."
+
+EFFECTIVE VERDICT: KEEP (tester's critical issue was a stale-cache artifact)
