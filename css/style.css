@@ -1063,8 +1063,8 @@ body::before {
 /* Sections reveal depth: they sit slightly "back" in the 3D
    space and ease forward as they come into view. */
 .scroll-3d .depth-section {
-    transform: translateZ(0) translateY(0) scale(1);
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateZ(-40px) translateY(24px) scale(0.98);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
 }
 .scroll-3d .depth-section.depth-active {
