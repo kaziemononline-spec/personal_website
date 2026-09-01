@@ -1,0 +1,37 @@
+# QA Review Report — Kazi Emon Personal Website (kaziemon.online)
+
+Date: 2026-09-01
+Verdict: KEEP
+
+**#1 Priority Suggestion:** fix hero name duplication
+
+---
+
+## Rating: 8.5/10
+
+## What's Working
+
+- Strong, cohesive dark theme (#030014 background with #7000FF purple and #00C2FF cyan accents) applied consistently across the entire site.
+- Glassmorphism done well — service cards and navbar use backdrop-filter blur with translucent backgrounds.
+- Complete content structure — all sections present in logical order: Hero → Services → Articles → Results → Contact → Footer. Nothing missing.
+- All internal links resolve — no 404s or dead links.
+- Rich, high-quality content across service and article subpages.
+- Excellent SEO & social metadata — meta tags, canonical, Open Graph, Twitter card, JSON-LD structured data.
+- Accessibility foundations present — skip-link, aria-labels, alt text, prefers-reduced-motion, focus-visible outlines, semantic HTML.
+- Thoughtful interactions — scroll progress, scroll-spy, animated counters, fade-in reveal, smooth scrolling, back-to-top, working newsletter form.
+- Responsive design — media queries at 1024/768/600/480px, mobile slide-in menu, fluid clamp typography, 50px touch targets on mobile.
+- Performance-conscious — lazy images, preconnect fonts, versioned caching.
+
+## Issues Found
+
+1. Hero name duplication — H1 has full name and H2 repeats "Kazi Emon". Top priority fix.
+2. Homepage ↔ subpage service naming mismatch.
+3. "Business Infrastructure Optimization" card links to a loosely-matching page.
+4. Nav inconsistency between homepage (4 items) and subpages (6 items).
+5. Newsletter form no empty-input feedback.
+6. No width/height attributes on article images (minor CLS concern).
+7. Font Awesome CDN without local fallback.
+
+## Verdict: KEEP
+
+Bottom line: high-quality, professional site. Issues are refinements, not regressions. Ship it.
