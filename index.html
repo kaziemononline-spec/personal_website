@@ -36,7 +36,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=16">
+    <link rel="stylesheet" href="css/style.css?v=17">
 
     <script type="application/ld+json">
     {
@@ -63,7 +63,7 @@
     }
     </script>
 </head>
-<body>
+<body class="scroll-3d">
 
     <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -110,16 +110,16 @@
                 <div class="orb orb-3"></div>
             </div>
 
-            <div class="container hero-content">
-                <span class="hero-badge fade-in-up">Digital Marketing Expert</span>
-                <h1 class="hero-title fade-in-up">
+            <div class="container hero-content hero-parallax">
+                <span class="hero-badge fade-in-up" data-depth="0">Digital Marketing Expert</span>
+                <h1 class="hero-title fade-in-up" data-depth="20">
                     Hi, I am<br>
                     <span class="gradient-text">Kazi Emon</span>
                 </h1>
-                <p class="hero-desc fade-in-up">
+                <p class="hero-desc fade-in-up" data-depth="10">
                     Data-driven marketing that turns budgets into measurable returns. I help businesses scale with platform optimization, strategic planning, and high-performing Meta ad campaigns.
                 </p>
-                <div class="btn-group fade-in-up">
+                <div class="btn-group fade-in-up" data-depth="-10">
                     <a href="#contact" class="btn btn-glow">Let's Work Together <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     <a href="#services" class="btn btn-outline">Explore Services</a>
                 </div>
@@ -132,7 +132,7 @@
         </section>
 
         <!-- ===== ABOUT ===== -->
-        <section id="about" class="about-section">
+        <section id="about" class="about-section depth-section">
             <div class="container">
                 <div class="section-header fade-in-up">
                     <span class="section-subtitle">About Me</span>
@@ -159,7 +159,7 @@
         </section>
 
         <!-- ===== SERVICES ===== -->
-        <section id="services" class="services-section">
+        <section id="services" class="services-section depth-section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-subtitle">What I Do</span>
@@ -261,7 +261,7 @@
         </section>
 
         <!-- ===== ARTICLES ===== -->
-        <section id="articles" class="articles-section">
+        <section id="articles" class="articles-section depth-section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-subtitle">Read</span>
@@ -315,7 +315,7 @@
         </section>
 
         <!-- ===== RESULTS ===== -->
-        <section class="results-section">
+        <section class="results-section depth-section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-subtitle">By the Numbers</span>
@@ -332,7 +332,7 @@
         </section>
 
         <!-- ===== CONTACT ===== -->
-        <section id="contact" class="contact-section">
+        <section id="contact" class="contact-section depth-section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-subtitle">Get in Touch</span>
@@ -420,7 +420,7 @@
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="js/main.js?v=6"></script>
+    <script src="js/main.js?v=7"></script>
 
 </body>
 </html>

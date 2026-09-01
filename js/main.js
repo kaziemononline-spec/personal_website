@@ -241,4 +241,71 @@
             });
         });
     }
+
+    /* ────────────────────────────────────────────────────────
+       3D SCROLL EFFECT START
+       Lightweight parallax + 3D depth on scroll.
+       To remove this effect, delete everything between this
+       marker and the "3D SCROLL EFFECT END" marker below, then
+       also remove the CSS block marked "3D SCROLL EFFECT" in
+       css/style.css.
+       ──────────────────────────────────────────────────────── */
+    if (!prefersReducedMotion && document.body.classList.contains('scroll-3d')) {
+        var depthElements = document.querySelectorAll('.hero-parallax [data-depth]');
+        var depthSections = document.querySelectorAll('.depth-section');
+        var ticking = false;
+
+        // Map each hero layer data-depth to a translateZ distance.
+        // JS overrides the resting CSS transform so we can combine
+        // the fixed 3D depth with a scroll-driven vertical drift.
+        function depthZ(value) {
+            if (value === '-20') return -30;
+            if (value === '-10') return -14;
+            if (value === '10') return 12;
+            if (value === '20') return 30;
+            return 0;
+        }
+
+        function applyDepth() {
+            var scrollY = window.scrollY;
+            var progress = Math.min(scrollY / window.innerHeight, 1);
+
+            // Hero layers drift vertically at slightly different
+            // rates to create smooth momentum while scrolling away.
+            depthElements.forEach(function (el) {
+                var depth = el.getAttribute('data-depth') || '0';
+                var z = depthZ(depth);
+                var drift = progress * 40; // px downward as you scroll
+                el.style.transform = 'translateZ(' + z + 'px) translateY(' + drift + 'px)';
+            });
+
+            ticking = false;
+        }
+
+        // Reveal sections "pushing forward" in 3D as they enter view.
+        var depthObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('depth-active');
+                } else {
+                    entry.target.classList.remove('depth-active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        depthSections.forEach(function (section) {
+            depthObserver.observe(section);
+        });
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(applyDepth);
+                ticking = true;
+            }
+        }, { passive: true });
+        applyDepth();
+    }
+    /* ────────────────────────────────────────────────────────
+       3D SCROLL EFFECT END
+       ──────────────────────────────────────────────────────── */
 })();

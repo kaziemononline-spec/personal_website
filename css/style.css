@@ -924,7 +924,7 @@ body::before {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: calc(var(--nav-height) + 16px) 0 64px;
+        padding: calc(var(--nav-height) + 12px) 0 56px;
     }
     .hero-content {
         display: flex;
@@ -932,23 +932,26 @@ body::before {
         align-items: center;
         justify-content: center;
         padding: 0;
+        width: 100%;
+        max-width: 760px;
+        min-height: min(480px, 100%);
     }
     .hero-badge {
-        margin-bottom: 18px;
+        margin-bottom: 20px;
         padding: 6px 14px;
     }
     .hero-title {
         font-size: clamp(2.6rem, 4.2vw, 3.6rem);
         line-height: 1.05;
-        margin-bottom: 18px;
+        margin-bottom: 20px;
     }
     .hero-desc {
         font-size: clamp(0.95rem, 1.05vw, 1.05rem);
-        line-height: 1.6;
+        line-height: 1.65;
         max-width: 560px;
-        margin-bottom: 26px;
+        margin: 0 auto 28px;
     }
-    .btn-group { margin-top: 2px; }
+    .btn-group { margin-top: 4px; }
     .hero-scroll-indicator { bottom: 20px; }
 }
 
@@ -986,7 +989,34 @@ body::before {
         display: flex;
         align-items: center;
     }
-    .hero { min-height: auto; padding-top: calc(var(--nav-height) + 24px); }
+    .hero {
+        min-height: auto;
+        padding: calc(var(--nav-height) + 28px) 0 90px;
+        justify-content: flex-start;
+    }
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 6px;
+    }
+    .hero-badge {
+        margin-bottom: 22px;
+        padding: 7px 18px;
+    }
+    .hero-title {
+        font-size: clamp(1.9rem, 7vw, 2.5rem);
+        line-height: 1.12;
+        margin-bottom: 22px;
+    }
+    .hero-desc {
+        font-size: clamp(0.92rem, 3.6vw, 1.05rem);
+        line-height: 1.75;
+        max-width: 100%;
+        margin: 0 auto 32px;
+    }
+    .hero-scroll-indicator { position: relative; bottom: auto; left: auto; transform: none; margin-top: 44px; }
     .orb { opacity: 0.18; }
 }
 
@@ -997,10 +1027,17 @@ body::before {
 }
 
 @media (max-width: 480px) {
-    .hero-title { font-size: clamp(1.7rem, 8vw, 2.1rem); }
-    .btn-group { flex-direction: column; align-items: stretch; gap: 14px; }
-    .btn-group .btn { justify-content: center; min-height: 50px; }
-    .btn { min-height: 50px; }
+    .hero-title { font-size: clamp(1.7rem, 8vw, 2.1rem); margin-bottom: 20px; }
+    .hero-desc { margin-bottom: 30px; }
+    .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        width: 100%;
+        max-width: 340px;
+    }
+    .btn-group .btn { justify-content: center; min-height: 52px; width: 100%; }
+    .btn { min-height: 52px; }
     .results-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .footer-brand p { margin-left: auto; margin-right: auto; }
@@ -1008,8 +1045,67 @@ body::before {
     .contact-social-btn { width: 48px; height: 48px; }
 }
 
+/* ============================================================
+   3D SCROLL EFFECT START
+   Parallax + 3D depth as the user scrolls.
+   To remove this effect, delete everything between this marker
+   and the "3D SCROLL EFFECT END" marker below, then also remove
+   the JS block marked "3D SCROLL EFFECT" in js/main.js.
+   ============================================================ */
+
+/* The scroll container gets perspective so child layers can
+   move toward/away from the viewer in 3D space. */
+.scroll-3d {
+    perspective: 1200px;
+    perspective-origin: 50% 0%;
+}
+
+/* Sections reveal depth: they sit slightly "back" in the 3D
+   space and ease forward as they come into view. */
+.scroll-3d .depth-section {
+    transform: translateZ(0) translateY(0) scale(1);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+.scroll-3d .depth-section.depth-active {
+    transform: translateZ(0) translateY(0) scale(1);
+}
+
+/* Parallax hero layers — each element carries data-depth and
+   moves at a different rate for 3D depth on scroll. */
+.hero-parallax {
+    transform-style: preserve-3d;
+}
+.hero-parallax [data-depth] {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+.hero-parallax [data-depth="0"]   { transform: translateZ(0px); }
+.hero-parallax [data-depth="10"]  { transform: translateZ(12px); }
+.hero-parallax [data-depth="20"]  { transform: translateZ(30px); }
+.hero-parallax [data-depth="-10"] { transform: translateZ(-14px); }
+.hero-parallax [data-depth="-20"] { transform: translateZ(-30px); }
+
+/* Background orbs drift at different depths for extra parallax. */
+.scroll-3d .bg-orb-1 { transform: translateZ(-60px) scale(1.1); }
+.scroll-3d .bg-orb-2 { transform: translateZ(-90px) scale(1.15); }
+.scroll-3d .bg-orb-3 { transform: translateZ(-70px) scale(1.12); }
+
+/* ============================================================
+   3D SCROLL EFFECT END
+   ============================================================ */
+
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .orb, .scroll-wheel, .gradient-text, .btn-glow { animation: none !important; }
     .fade-in-up { opacity: 1; transform: none; transition: none; }
+    /* 3D SCROLL EFFECT START (reduced-motion guard) */
+    .scroll-3d { perspective: none; }
+    .scroll-3d .depth-section,
+    .scroll-3d .depth-section.depth-active,
+    .hero-parallax [data-depth],
+    .scroll-3d .bg-orb-1, .scroll-3d .bg-orb-2, .scroll-3d .bg-orb-3 {
+        transform: none !important;
+    }
+    /* 3D SCROLL EFFECT END */
 }
