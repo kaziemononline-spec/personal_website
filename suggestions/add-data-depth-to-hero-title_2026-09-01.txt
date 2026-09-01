@@ -1,0 +1,31 @@
+QA Test Date: 2026-09-01
+
+Rating: 8/10
+Verdict: KEEP
+#1 Priority Suggestion: add-data-depth-to-hero-title
+
+CHANGES UNDER REVIEW:
+- Fully responsive hero: mobile (<=768px, <=480px) reduced font sizes, more spacing between
+  badge/title/paragraph/buttons, tap-friendly full-width buttons (min-height 52px).
+- Laptop 16:9 query (>=1025px, aspect>=4/3) centers hero content without vertical over-stretch.
+- New modular 3D scroll effect: CSS perspective + translateZ parallax on hero layers (data-depth
+  0/10/20/-10) and section depth reveal; wrapped in /* 3D SCROLL EFFECT START/END */ markers in
+  both css/style.css and js/main.js; disabled for prefers-reduced-motion users.
+
+WHAT'S WORKING:
+- All content sections present: hero, about, 6 services, 3 articles, results, contact, footer.
+- Dark theme (#030014) with purple (#7000FF)/cyan (#00C2FF) accents intact.
+- 3D scroll code present in both files, correctly wrapped in START/END markers.
+- Reduced-motion guard present in both CSS and JS.
+- JS uses requestAnimationFrame + passive scroll listener (no jank, no conflicts with
+  scroll progress, hamburger, back-to-top, newsletter).
+- Responsive media queries =768px, =480px and laptop 16:9 all present and correct.
+- Accessibility: skip link, aria-labels, alt text, semantic HTML, focus-visible.
+
+ISSUES / NOTES:
+- Hero title data-depth=20 WAS already present (suggestion already satisfied).
+- Section depth reveal was initially a no-op; made visually perceptible (translateZ/scale)
+  via follow-up change.
+- Minor: consider will-change cleanup and low-end mobile GPU testing for the 3D effect.
+
+VERDICT: KEEP
