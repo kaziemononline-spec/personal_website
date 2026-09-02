@@ -1,0 +1,67 @@
+QA FULL-SITE REVIEW RECORD — 2026-09-03
+Verdict: IMPROVE — 8/10
+
+#1 PRIORITY: Fix navigation inconsistencies across 404.html, about.html, and contact.html
+
+RATING: 8/10
+
+PER-SECTION BREAKDOWN
+- Navbar: 7/10 — broken/outdated on 404 page
+- Hero: 9/10 — clean, compelling, good CTA
+- About: 8/10 — good content
+- Services: 9/10 — 6 well-structured cards with detailed subpages
+- Articles: 8/10 — good cards, well-written, proper metadata
+- Results/Stats: 7/10 — nice counters; data is self-reported
+- Contact: 6/10 — no actual contact form; mailto-only
+- Footer: 7/10 — good structure; inconsistent across pages
+- 404 Page: 5/10 — outdated nav, old CSS version, unnecessary Three.js
+- Service Subpages: 9/10 — excellent, consistent, detailed
+- Article Subpages: 8/10 — clean layout, good content
+
+WHAT'S WORKING WELL
+- Dark theme with purple/cyan accents is cohesive and visually striking
+- Background orbs and 3D scroll depth effects add polish
+- Gradient text on headings looks premium
+- Service card hover effects (lift + glow) tasteful
+- Consistent typography pairing (Outfit headings, Plus Jakarta Sans body)
+- Smooth scroll, scroll spy, hamburger toggle all work
+- Newsletter form with Web3Forms: loading spinner, success/error states
+- FAQ accordions with aria-expanded
+- Fade-in-up scroll reveal animations smooth
+- Skip-to-content link, aria-labels, 44px touch targets, prefers-reduced-motion, focus-visible
+- Complete OG/Twitter meta tags, JSON-LD structured data, canonical URLs
+- Proper robots.txt, sitemap.xml, caching strategy
+- Service pages exceptionally well-written with Overview, What's Included, How It Works, Who It's For, FAQ
+- Articles substantive (5-min reads), proper H2 hierarchy, callout boxes
+
+CRITICAL / HIGH PRIORITY ISSUES
+1. 404 page has broken navigation (references old about.html, #portfolio, "Insights" instead of #articles)
+2. 404 page uses old CSS version (v=10 vs live v=19)
+3. 404 page loads Three.js unnecessarily (~500KB+ of unused JS)
+4. about.html and contact.html have different nav labels ("Work"/#portfolio, "Insights" vs "Services"/#articles)
+5. about.html references #portfolio which doesn't exist on homepage
+6. No contact form anywhere — only mailto: link (significant conversion barrier)
+7. Profile photo is a generic placeholder silhouette
+8. All article images are placeholder gradients
+9. OG image is a placeholder gradient
+
+MEDIUM PRIORITY ISSUES
+10. Newsletter form missing from service and article page footers
+11. Service page footer 4-column grid vs homepage 3-column (inconsistent)
+12. Article pages hamburger menu doesn't have click-outside-to-close
+13. Sitemap URL inconsistency (.html extensions on service pages, none on articles)
+14. Article OG type should be "article" not "website"
+15. contact.html "Payment Methods" section feels out of place
+16. Service pages footer service links inconsistent (some list 4, some list 6)
+17. Article image alt texts could be more descriptive
+
+LOW PRIORITY / POLISH
+18. About page lists Canva Design + SEO Writing not on homepage services
+19. Stats numbers self-reported without context
+20. No loading="lazy" on hero/profile images
+21. Footer copyright heart icon has inline style instead of CSS class
+22. Web3Forms API key exposed in JS (expected for client-side forms)
+23. Font Awesome loaded without subsetting used icons
+
+VERDICT: IMPROVE
+Homepage and service subpages are polished and professional. Navigation inconsistencies across pages (404, about, contact) are the most visible problem. Missing contact form impacts conversions. 404 page uses old CSS and has broken nav. Structure, content quality, and design system are all solid — needs cross-page consistency pass and real images to be ready for prime time.
