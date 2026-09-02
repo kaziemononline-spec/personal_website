@@ -140,6 +140,15 @@ body::before {
     align-items: center;
     height: var(--nav-height);
 }
+
+/* Desktop & laptop header: center content in a standard-width container */
+@media (min-width: 768px) {
+    .navbar .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+}
 .logo {
     font-size: clamp(1.2rem, 2vw + 0.2rem, 1.5rem);
     font-weight: 800;
