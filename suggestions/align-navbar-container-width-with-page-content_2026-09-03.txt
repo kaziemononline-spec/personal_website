@@ -1,0 +1,38 @@
+QA REVIEW RECORD - 2026-09-03
+Change: Optimize desktop header layout (centered navbar container, max-width 1400px, 40px padding, min-width 768px media query)
+Verdict: KEEP
+
+#1 Priority Suggestion: align navbar container width with page content container
+
+Rating: 8/10
+
+WHAT'S WORKING
+- Navbar centering is correct; logo left, nav links right, balanced spacing
+- Mobile hamburger menu intact and functional under 768px
+- Navbar scroll effect, glass morphism, active link highlighting all work
+- All nav links functional (smooth scroll, skip link, back-to-top)
+- Strong visual design (dark theme, purple/cyan accents, gradient text, orbs)
+- Solid performance (passive listeners, IntersectionObserver, rAF, lazy loading)
+- Good accessibility (aria labels, semantic HTML, focus-visible, reduced-motion)
+
+ISSUES FOUND
+- Navbar container (1400px) is wider than page content container (min(1320px, 92vw)),
+  causing a subtle ~48px (on 1920px) / ~43px (on 1440px) leftward offset of the logo
+  relative to page content. Cosmetic, not functional.
+- Fixed 40px navbar padding vs responsive clamp(18px, 3vw, 48px) on page content.
+
+SUGGESTIONS
+1. Align navbar container width with page content container:
+   @media (min-width: 768px) {
+       .navbar .container {
+           max-width: min(1320px, 92vw);
+           margin: 0 auto;
+           padding: 0 clamp(18px, 3vw, 48px);
+       }
+   }
+   Or use max-width: 1380px to keep a slightly wider navbar without noticeable offset.
+2. Consider using the same responsive padding on the navbar at all breakpoints.
+3. If the wider navbar is intentional, add a CSS comment explaining it is by design.
+
+VERDICT: KEEP — clean, well-implemented improvement. Mobile menu unaffected.
+Aligning widths would bring it from an 8 to a 9; current state is shippable.
